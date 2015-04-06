@@ -189,28 +189,190 @@
      \right]_i
      (\sigma_l^j(t))^2
    \\
-   = &
+   & \overset{(1)} \approx
      \sum_{l = E, I} \sum_{j=1}^{N_l}
      \Expect \{ (J_{kl}^{ij})^2 \}
-     \sigma_l^j(t)
+     \, \sigma_l^j(t)
    \\
-   = &
+   & \overset{(2)} =
      \sum_{l = E, I} \sum_{j=1}^{N_l}
      \left( \frac{J_{kl}}{\sqrt K} \right)^2
      \frac{K}{N_l}
-     \sigma_l^j(t)
+     \, \sigma_l^j(t)
    \\
-   = &
+   & =
      \sum_{l = E, I} ( J_{kl} )^2
      \frac{1}{N_l} \sum_{j=1}^{N_l} \sigma_l^j(t)
    \\
-   = &
+   & \overset{(3)} =
      \sum_{l = E, I} ( J_{kl} )^2 \,
      m_l(t)
+
+ここで、
+(1) ???,
+(2) :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \} = K/N_l`,
+(3) :math:`m_l(t) = [\sigma_l^j(t)]_j = \sum_{j=1}^{N_l} \sigma_l^j(t) / N_l`,
+を用いた。
+
 
 第二項の計算 (:math:`l = l'`, :math:`j \neq j'`)
 ------------------------------------------------
 
+.. math::
+
+   &
+     \sum_{l = E, I} \sum_{\substack{j,j'=1 \\ j \neq j'}}^{N_l}
+     \left[
+       J_{kl}^{ij} J_{kl}^{ij'}
+     \right]_i
+     \, \sigma_l^j(t) \, \sigma_{l}^{j'}(t)
+   \\
+   & \overset{(1)} \approx
+     \sum_{l = E, I} \sum_{\substack{j,j'=1 \\ j \neq j'}}^{N_l}
+     \Expect \{ J_{kl}^{ij} J_{kl}^{ij'} \}
+     \, \sigma_l^j(t) \, \sigma_{l}^{j'}(t)
+   \\
+   & \overset{(2)} =
+     \sum_{l = E, I} \sum_{\substack{j,j'=1 \\ j \neq j'}}^{N_l}
+     \left( \frac{J_{kl}}{\sqrt K} \right)^2
+     \frac{K}{N_l} \frac{K}{N_l}
+     \, \sigma_l^j(t) \, \sigma_{l}^{j'}(t)
+   \\
+   & =
+     K
+     \sum_{l = E, I} (J_{kl})^2
+     \frac{1}{N_l}
+     \sum_{j=1}^{N_l}
+     \sigma_l^j(t)
+     \left(
+     \sum_{j'=1}^{N_l}
+     \frac{1}{N_l}
+     \sigma_{l}^{j'}(t)
+     -
+     \frac{1}{N_l}
+     \sigma_{l}^{j}(t)
+     \right)
+   \\
+   & =
+     K
+     \sum_{l = E, I} (J_{kl})^2
+     \left(
+       \left\{
+         \frac{1}{N_l}
+         \sum_{j=1}^{N_l}
+         \sigma_l^j(t)
+       \right\}^2
+       -
+       \frac{1}{{N_l}^2}
+       \sum_{j=1}^{N_l}
+       (\sigma_{l}^{j}(t))^2
+     \right)
+   \\
+   & =
+     K
+     \sum_{l = E, I} (J_{kl})^2
+     \left(
+       (m_l(t))^2
+       -
+       \frac{1}{N_l}
+       m_l(t)
+     \right)
+
+
 第三項の計算 (:math:`l \neq l'`)
 --------------------------------
 
+.. math::
+
+   &
+     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+     \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
+     \left[
+       J_{kl}^{ij} J_{kl'}^{ij'}
+     \right]_i
+     \, \sigma_l^j(t) \, \sigma_{l'}^{j'}(t)
+   \\
+   & \overset{(1)} \approx
+     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+     \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
+     \Expect \{ J_{kl}^{ij} J_{kl'}^{ij'} \}
+     \, \sigma_l^j(t) \, \sigma_{l'}^{j'}(t)
+   \\
+   & \overset{(2)} =
+     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+     \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
+     \frac{J_{kl}}{\sqrt K} \frac{J_{kl'}}{\sqrt K}
+     \frac{K}{N_l} \frac{K}{N_{l'}}
+     \, \sigma_l^j(t) \, \sigma_{l'}^{j'}(t)
+   \\
+   & =
+     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+     \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
+     \frac{J_{kl}}{\sqrt K} \frac{J_{kl'}}{\sqrt K}
+     \frac{K}{N_l} \frac{K}{N_{l'}}
+     \, \sigma_l^j(t) \, \sigma_{l'}^{j'}(t)
+   \\
+   & =
+     K
+     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+     J_{kl} J_{kl'}
+     \frac{1}{N_l}    \sum_{j=1}^{N_l}     \sigma_l^j(t)
+     \frac{1}{N_{l'}} \sum_{j'=1}^{N_{l'}} \sigma_{l'}^{j'}(t)
+   \\
+   & =
+     K
+     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+     J_{kl} J_{kl'} \, m_l(t) \, m_{l'}(t)
+
+
+合計
+----
+
+.. math::
+
+   \alpha_k(t)
+   & =
+     \sum_{l = E, I} ( J_{kl} )^2 \,
+     m_l(t)
+   \\
+   & +
+     K
+     \sum_{l = E, I} (J_{kl})^2
+     \left(
+       (m_l(t))^2
+       -
+       \frac{1}{N_l}
+       m_l(t)
+     \right)
+   \\
+   & +
+     K
+     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+     J_{kl} J_{kl'} \, m_l(t) \, m_{l'}(t)
+   \\
+   & -
+     K \left(\sum_{l = E, I} J_{kl} m_l(t) \right)^2
+   \\
+   & =
+     \sum_{l = E, I} ( J_{kl} )^2 \,
+     m_l(t)
+     +
+     \frac{K}{N_l}
+     \sum_{l = E, I} (J_{kl})^2 m_l(t)
+   \\
+   & +
+     K
+     \underbrace{
+       \left(
+       \sum_{l, l' = E, I}
+       J_{kl} J_{kl'} \, m_l(t) \, m_{l'}(t)
+       -
+       \left(\sum_{l = E, I} J_{kl} m_l(t) \right)^2
+       \right)
+     }_{= 0}
+   \\
+   & =
+     \sum_{l = E, I} ( J_{kl} )^2 \,
+     m_l(t)
+     +
+     O(1/N)
