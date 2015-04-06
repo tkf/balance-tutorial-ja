@@ -19,7 +19,7 @@ import shlex
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
 
@@ -30,6 +30,7 @@ import shlex
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'japanesesupport',  # http://sphinx-users.jp/reverse-dict/html/japanese.html
     'sphinx.ext.todo',
     'sphinx.ext.pngmath',
 ]
@@ -248,6 +249,11 @@ latex_documents = [
 
 # If false, no module index is generated.
 #latex_domain_indices = True
+
+# Latex setting for Japanese
+# http://sphinx-users.jp/cookbook/pdf/latex.html
+# http://sphinx-doc.org/config.html
+latex_docclass = {'manual': 'jsbook'}
 
 
 # -- Options for manual page output ---------------------------------------
