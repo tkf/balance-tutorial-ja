@@ -207,6 +207,11 @@ html_static_path = ['_static']
 htmlhelp_basename = 'Introductiontothebalancenetworkdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
+_latex_preamble = r"""
+\newcommand{\D}{\text{d}}
+\newcommand{\I}{\text{i}}
+\newcommand{\E}{\text{e}}
+"""
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
@@ -216,7 +221,7 @@ latex_elements = {
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
+'preamble': _latex_preamble,
 
 # Latex figure (float) alignment
 #'figure_align': 'htbp',
@@ -291,3 +296,7 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+
+# -- Options for pngmath------- -------------------------------------------
+pngmath_latex_preamble = _latex_preamble

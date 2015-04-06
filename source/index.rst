@@ -1,16 +1,13 @@
-.. Introduction to the balance network documentation master file, created by
-   sphinx-quickstart on Mon Apr  6 05:46:38 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to Introduction to the balance network's documentation!
-===============================================================
+興奮---抑制平衡入門
+===================
 
 Contents:
 
 .. toctree::
+   :glob:
    :maxdepth: 2
 
+   *
 
 
 Indices and tables
