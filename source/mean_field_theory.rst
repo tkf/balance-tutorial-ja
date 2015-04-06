@@ -53,16 +53,48 @@
 .. math::
 
    p_l (n_l | m_l)
-   = \sum_{s=n}^\infty \frac{K^s}{s!} \E^K
-   \begin{pmatrix}
-     s \\ n
-   \end{pmatrix}
-   =
-   \frac{(m_l K)^n}{n!} \E^{-m_l K}
+   & \xrightarrow{N \to \infty}
+     \sum_{s=n}^\infty \frac{K^s}{s!} \E^{-K}
+     \begin{pmatrix}
+       s \\ n
+     \end{pmatrix}
+     (m_l)^n (1 - m_l)^{s-n}
+   \\
+   & =
+     \frac{(m_l K)^n}{n!} \E^{-m_l K}
 
 で定められる。
 
-.. todo:: 最後の等式を示す
+.. todo:: 最初の等式を示す
+
+最後の等式は、 :math:`\exp` の定義に基づけば、以下の計算で確認できる。
+
+.. math::
+
+   &
+     \sum_{s=n}^\infty \frac{K^s}{s!} \E^{-K}
+     \begin{pmatrix}
+       s \\ n
+     \end{pmatrix}
+     (m_l)^n (1 - m_l)^{s-n}
+   \\
+   & =
+     \sum_{s=n}^\infty \frac{K^s}{s!} \E^{-K}
+     \frac{s!}{n! (s-n)!}
+     (m_l)^n (1 - m_l)^{s-n}
+   \\
+   & =
+     \frac{\E^{-K} (K m_l)^n}{n!}
+     \sum_{s=n}^\infty \frac{K^{s-n}}{(s-n)!}
+     (1 - m_l)^{s-n}
+   \\
+   & =
+     \frac{\E^{-K} (K m_l)^n}{n!}
+     \E^{K \, (1-m_l)}
+   \\
+   & =
+     \frac{(K m_l)^n}{n!}
+     \E^{-K m_l}
 
 この確率分布の元で、 :math:`n_l` の平均と分散は
 
