@@ -211,6 +211,10 @@ _latex_preamble = r"""
 \newcommand{\D}{\text{d}}
 \newcommand{\I}{\text{i}}
 \newcommand{\E}{\text{e}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Expect}{\mathbb{E}}
+\newcommand{\Var}{\text{Var}}
+\newcommand{\AvgDyn}[1]{\left\langle#1\right\rangle_{\text{dyn.}}}
 """
 
 latex_elements = {
