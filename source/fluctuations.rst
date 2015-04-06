@@ -94,3 +94,123 @@
        \sum_{l = E, I} J_{kl} m_l(t) + E_k m_0
      \right)
      - \theta_k
+
+
+静的な揺動
+==========
+
+.. math::
+
+   \alpha_k(t)
+   & :=
+     [(\delta u_k^i (t))^2]
+   \\
+   & \overset{(1)} =
+     \left[ \left( \delta \left\{
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} \sigma_l^j(t))
+     \right\} \right)^2 \right]_i
+   \\
+   & \overset{(2)} =
+     \left[ \left(
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} \sigma_l^j(t))
+     \right)^2 \right]_i
+     -
+     \left[
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} \sigma_l^j(t))
+     \right]_i^2
+   \\
+   & \overset{(3)} =
+     \left[ \left(
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} \sigma_l^j(t))
+     \right)^2 \right]_i
+     -
+     K \left(\sum_{l = E, I} J_{kl} m_l(t) \right)^2
+
+ここで、
+(1) :math:`\delta(x + \text{const.}) = \delta x`,
+(2) :math:`[(\delta x)^2] = [x^2] - [x]^2`,
+(3) 上記の :math:`u_k(t)` の計算
+を用いた。
+
+
+.. math::
+
+   &
+     \left[ \left(
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} \sigma_l^j(t))
+     \right)^2 \right]_i
+   \\
+   & =
+     \left[
+       \sum_{l, l' = E, I} \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
+       J_{kl}^{ij} J_{kl'}^{ij'} \sigma_l^j(t)) \sigma_{l'}^{j'}(t))
+     \right]_i
+   \\
+   & =
+     \sum_{l, l' = E, I} \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
+     \underbrace{
+     \left[
+       J_{kl}^{ij} J_{kl'}^{ij'}
+     \right]_i
+     \sigma_l^j(t) \sigma_{l'}^{j'}(t)
+     }_{(*)}
+
+上式の (*) の和は、恒等式
+:math:`1 = \delta_{ll'} (\delta_{jj'} + (1 - \delta_{jj'})) + (1 - \delta_{ll'})`
+を用いて [#]_
+
+.. math::
+
+   \sum_{l, l' = E, I} \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}} \bullet_{l,l',j,j'}
+   =
+   \sum_{l = E, I} \sum_{j=1}^{N_l} \bullet_{l,l,j,j}
+   +
+   \sum_{l = E, I} \sum_{\substack{j,j'=1 \\ j \neq j'}}^{N_l}
+   \bullet_{l,l,j,j}
+   +
+   \sum_{\substack{l, l' = E, I \\ l \neq l'}}
+   \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
+   \bullet_{l,l',j,j'}
+
+のように分解できる。
+
+.. [#] :math:`\sum_{j,j'=1} (1 - \delta_{j,j'}) \bullet
+       = \sum_{\substack{j,j'=1 \\ j \neq j'}} \bullet`
+
+第一項の計算 (:math:`l = l'`, :math:`j = j'`)
+---------------------------------------------
+
+.. math::
+
+   &
+     \sum_{l = E, I} \sum_{j=1}^{N_l}
+     \left[
+       (J_{kl}^{ij})^2
+     \right]_i
+     (\sigma_l^j(t))^2
+   \\
+   = &
+     \sum_{l = E, I} \sum_{j=1}^{N_l}
+     \Expect \{ (J_{kl}^{ij})^2 \}
+     \sigma_l^j(t)
+   \\
+   = &
+     \sum_{l = E, I} \sum_{j=1}^{N_l}
+     \left( \frac{J_{kl}}{\sqrt K} \right)^2
+     \frac{K}{N_l}
+     \sigma_l^j(t)
+   \\
+   = &
+     \sum_{l = E, I} ( J_{kl} )^2
+     \frac{1}{N_l} \sum_{j=1}^{N_l} \sigma_l^j(t)
+   \\
+   = &
+     \sum_{l = E, I} ( J_{kl} )^2 \,
+     m_l(t)
+
+第二項の計算 (:math:`l = l'`, :math:`j \neq j'`)
+------------------------------------------------
+
+第三項の計算 (:math:`l \neq l'`)
+--------------------------------
+
