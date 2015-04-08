@@ -45,21 +45,40 @@
 :dfn:`マスター方程式` (:dfn:`master equation`) とよばれる次の微分方程式 [#]_
 で与えられることを示す.
 
-.. math::
+.. admonition:: マスター方程式
 
-   \frac{\D P_t(\bm \sigma)}{\D t} =
-   - \sum_{i=1}^N
-     w(1 - \sigma_i | \sigma_i, \bm{\sigma}^{\setminus i})
-     P_t(\bm \sigma)
-   + \sum_{i=1}^N
-     w(\sigma_i | 1 - \sigma_i, \bm{\sigma}^{\setminus i})
-     P_t(\hat{\bm{\sigma}}^{i})
+   .. math::
+      :label: master-equation
+
+      \frac{\D P_t(\bm \sigma)}{\D t} =
+      - \sum_{i=1}^N
+        w(1 - \sigma_i | \sigma_i, \bm{\sigma}^{\setminus i})
+        P_t(\bm \sigma)
+      + \sum_{i=1}^N
+        w(\sigma_i | 1 - \sigma_i, \bm{\sigma}^{\setminus i})
+        P_t(\hat{\bm{\sigma}}^{i})
 
 .. [#] 状態 :math:`\bm \sigma` が :math:`2^N` (:math:`= \# \{0, 1\}^N`)
    個あることを思い出せば, これは :math:`2^N` 次元常微分方程式と考えても良い.
 
-確率的な系を考えているので, 推移確率 (transition probability)
-:math:`P_{\Delta t}(\bm \sigma | \bm \sigma')` を求めれば,
+マスター方程式の導出
+====================
+
+時間微分
+:math:`{\D P_t(\bm \sigma)}/{\D t} = \lim_{\Delta t \to 0}
+(P_{t+\Delta t}(\bm \sigma) - P_t(\bm \sigma))/\Delta t` を,
+時間 :math:`t` と :math:`t+\Delta t` の確率をつなぐ関係式
+
+.. math::
+
+   P_{t+\Delta t}(\bm \sigma)
+   =
+   \sum_{\bm \sigma'} P_{\Delta t}(\bm \sigma | \bm \sigma') P_t(\bm \sigma')
+
+を用いて評価する. ここで, :math:`P_{\Delta t}(\bm \sigma | \bm \sigma')` は
+時間 :math:`\Delta t` の間に系の状態が :math:`\bm \sigma'` から :math:`\bm \sigma`
+へ変化する確率で推移確率 (transition probability)と呼ばれる. これは, 以下のように
+計算出来る.
 
 .. math::
 
@@ -186,3 +205,6 @@
          P_t(\hat{\bm{\sigma}}^{i})
      }_{= \D P_t(\bm \sigma)/\D t}
      + O(\Delta t)
+
+この式の極限 :math:`\Delta t \to 0` で消えない第1項と第2項は確かに式
+:eq:`master-equation` の右辺である.
