@@ -7,11 +7,19 @@
 
    m_k^i (t) = \AvgDyn{\sigma_k^i(t)}
 
+単位時間あたりにニューロン :math:`i` が状態を 1 に遷移する確率は
+:math:`\Prob \{ \Theta(u_k^i (t)) = 1 \} / \tau_k` で与えられている
+ので, :ref:`time_evolution_of_expectation` の関係式を用いれば,
+
 .. math::
 
    \tau_k \frac{\D}{\D t} m_k^i (t)
    = - m_k^i (t) + \Prob \{ \Theta(u_k^i (t)) = 1 \}
 
+.. todo:: なぜ :math:`\Prob \{ \Theta(u_k^i (t)) = 1 \} / \tau_k`
+   なのか, 詳しく説明する.
+
+と書くことができる.
 ここで、 :math:`\Prob \{ \texttt{event} \}` は
 :math:`\texttt{event}` が起こる確率、つまり
 :math:`\Prob \{ \Theta(u_k^i (t)) = 1 \}` は
