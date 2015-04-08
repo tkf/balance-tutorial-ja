@@ -208,7 +208,7 @@ htmlhelp_basename = 'Introductiontothebalancenetworkdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 _latex_preamble = r"""
-\usepackage{amsfonts}
+\usepackage{amsmath,amsfonts,amssymb}
 \usepackage{bm}
 \newcommand{\D}{\text{d}}
 \newcommand{\I}{\text{i}}
