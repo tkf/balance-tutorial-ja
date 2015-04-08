@@ -216,6 +216,7 @@ _latex_preamble = r"""
 \newcommand{\Prob}{\mathbb{P}}
 \newcommand{\Expect}{\mathbb{E}}
 \newcommand{\Var}{\text{Var}}
+\newcommand{\Avg}[1]{\left\langle#1\right\rangle}
 \newcommand{\AvgDyn}[1]{\left\langle#1\right\rangle_{\text{dyn.}}}
 """
 
