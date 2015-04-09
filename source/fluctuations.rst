@@ -95,18 +95,26 @@
    必要があるけど,) :math:`\AvgJ{m_l(t)} = m_l(t)` となる.
 
 他の部分の変形については,
-(2) :math:`\left[ J_{kl}^{ij} \right]_i = \Expect \{J_{kl}^{ij}\}` 、
-(3) :math:`J_{kl} \sqrt K / N_l` の :math:`j` への非依存性、
-(4) 集団平均の定義、
+(2) :term:`大数の法則` より算術平均は期待値に収束する, つまり :math:`N \to \infty`
+の極限で :math:`\left[ J_{kl}^{ij} \right]_i \to \AvgJ{J_{kl}^{ij}}` が成り立つ
+ことと, :math:`\Prob \{ J_{kl}^{ij} = {J_{kl}}/{\sqrt K}\} = {K}/{N_l}`
+と :math:`\Prob \{ J_{kl}^{ij} = 0\} = 1 - {K}/{N_l}` から
+期待値は :math:`\AvgJ{J_{kl}^{ij}} = ({J_{kl}}/{\sqrt K}) ({K}/{N_l})
+= J_{kl} {\sqrt K}/{N_l}` となること,
+(3) :math:`J_{kl} \sqrt K / N_l` が :math:`j` に依らない定数であること,
+(4) 集団平均の定義,
 (5) :math:`m_l(t)` の定義
-を用いた。
+を用いた.
+
+これらの計算を合わせ, :math:`u_k^0 = \sqrt K E_k m_0` を思い出せば, 入力の
+集団平均 :math:`u_k(t)` は
 
 .. math::
 
    u_k(t)
    & = ...
    \\
-   & =
+   & \approx
      \sum_{l = E, I} J_{kl} \sqrt K m_l(t)
      + u_k^0 - \theta_k
    \\
@@ -115,6 +123,8 @@
        \sum_{l = E, I} J_{kl} m_l(t) + E_k m_0
      \right)
      - \theta_k
+
+となる.
 
 
 静的な揺動
