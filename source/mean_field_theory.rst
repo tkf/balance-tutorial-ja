@@ -2,28 +2,37 @@
  平均場方程式の導出
 ====================
 
+ニューロン :math:`i` の初期値 :math:`\sigma_k^i(0)` とその更新のランダム性に
+関する平均を :math:`\AvgDyn{\bullet}` と書き, ニューロン :math:`i`
+の(局所)活動率を
 
 .. math::
 
    m_k^i (t) = \AvgDyn{\sigma_k^i(t)}
 
-単位時間あたりにニューロン :math:`i` が状態を 1 に遷移する確率は
-:math:`\Prob \{ \Theta(u_k^i (t)) = 1 \} / \tau_k` で与えられている
-ので, :ref:`time_evolution_of_expectation` の関係式を用いれば,
+と定義する.
+
+ニューロン :math:`i` への入力が閾値を超える確率 [#]_ は, 更新時間のランダム性
+に関する平均 :math:`\AvgDyn{\Theta(u_k^i (t))}` で表すことが出来る.
+[#]_  さらに, 更新のタイミングはポアソン過程で表され, 入力が閾値を超えていた
+場合に状態 1 へ遷移する単位時間当たりの条件付き確率は, :math:`1 / \tau_k`
+である. こられらを合わせると, 単位時間あたりにニューロン :math:`i` が状態を
+1 に遷移する確率は :math:`\AvgDyn{\Theta(u_k^i (t))} / \tau_k` で与えら
+れていることが分かる. :ref:`time_evolution_of_expectation` の関係式を用いれば,
 
 .. math::
 
    \tau_k \frac{\D}{\D t} m_k^i (t)
-   = - m_k^i (t) + \Prob \{ \Theta(u_k^i (t)) = 1 \}
-
-.. todo:: なぜ :math:`\Prob \{ \Theta(u_k^i (t)) = 1 \} / \tau_k`
-   なのか, 詳しく説明する.
+   = - m_k^i (t) + \AvgDyn{\Theta(u_k^i (t))}
 
 と書くことができる.
-ここで、 :math:`\Prob \{ \texttt{event} \}` は
-:math:`\texttt{event}` が起こる確率、つまり
-:math:`\Prob \{ \Theta(u_k^i (t)) = 1 \}` は
-:math:`\Theta(u_k^i (t))` が 1 になる確率を表す。
+
+.. [#] 正確には, 系の状態 :math:`\bm \sigma` が与えられた時の条件付き確率, である.
+
+.. [#] 確率変数 :math:`X` について事象 :math:`X \in A` が起こる確率は
+   指示関数 (indicator function) :math:`1_A(X)` を用いて
+   :math:`\Prob \{ X \in A \} = \Expect \{1_A(X)\}` と書けることを
+   思い出そう.
 
 ニューロン :math:`i` が
 :math:`n_E(t)` 個の興奮性ニューロンと
@@ -41,7 +50,7 @@
 
 .. math::
 
-   \Prob \{ \Theta(u_k^i) = 1 \}
+   \AvgDyn{\Theta(u_k^i (t))}
    &=
    \sum_{n_1, n_2 = 0}^\infty
    p_1(n_1 | m_1) \, p_2(n_2 | m_2) \,
@@ -73,7 +82,8 @@
 
 で定められる。
 
-.. todo:: 最初の等式を示す
+.. todo:: 最初の等式を示す. self-averaging を使って, 集団平均を average
+   over quenched noise に直す必要があるのでは?
 
 最後の等式は、 :math:`\exp` の定義に基づけば、以下の計算で確認できる。
 
