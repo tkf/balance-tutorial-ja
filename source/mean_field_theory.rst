@@ -46,12 +46,42 @@
 
 .. math::
 
-   F_k(m_E, m_I) := \Avg{\AvgDyn{\Theta(u_k^i (t))}}_i
+   F_k(m_E, m_I) := [\AvgDyn{\Theta(u_k^i (t))}]_i
 
 を計算する. 素朴に考えれば右辺は系の微視的な状態 :math:`\bm \sigma`
 に依存しているはずだが, 左辺は巨視的な状態, つまり集団活動率 :math:`m_k`
 のみに依存することを主張している. この微視的な状態への非依存性
 は :math:`F_k(m_E, m_I)` の計算の過程で自動的に出てくる結果である.
+
+確率 :math:`F_k(m_E, m_I)` は以下の仮定のもとで計算することが出来る.
+
+.. admonition:: 仮定
+
+   極限 :math:`N \to \infty` で異なるニューロン :math:`i` と :math:`j`
+   (:math:`\neq i`) への入力 :math:`u_k^i (t)` と :math:`u_k^j (t)`
+   は独立である.
+
+.. todo:: この仮定と van Vreeswijk, Sompolinsky (1998) に書いてあることの関係を書く.
+
+   Appendix A.1, p.1365 (p.45) にこう書いてある:
+
+     The main assumption underlying the mean-field theory is that the
+     activities of the different input cells to a given cell are
+     uncorrelated.  Technically, this holds rigorously provided that
+     :math:`K \ll \log N_k` (Derrida et al., 1987).
+
+自己平均性 (self-averaging property) を :math:`[\Theta(u_k^i (t))]_i`
+の計算に適用すれば, :math:`[\bullet]_i` と :math:`\AvgJ{\bullet}` を
+交換することが出来て,
+
+.. todo:: 自己平均性 (self-averaging property) は仮定するものなのか？
+   先の独立の仮定から導けるものなのか？
+
+.. math::
+
+   F_k(m_E, m_I) \approx \AvgJ{\AvgDyn{\Theta(u_k^i (t))}}
+
+を計算すれば良いことが分かる.
 
 ニューロン :math:`i` が
 :math:`n_E(t)` 個の興奮性ニューロンと
@@ -65,12 +95,12 @@
                + \frac{J_{kI}}{\sqrt K} n_I (t)
                - \theta_k
 
-となる。つまり、この入力が正である確率は
+となる. 確率 :math:`F_k(m_E, m_I)` はこの入力が正である確率であり,
 
 .. math::
 
-   \AvgDyn{\Theta(u_k^i (t))}
-   &=
+   F_k(m_E, m_I)
+   &\approx
    \sum_{n_1, n_2 = 0}^\infty
    p_1(n_1 | m_1) \, p_2(n_2 | m_2) \,
    \Theta \left(
@@ -78,8 +108,6 @@
      + \sum_{l=1,2} \frac{J_{kl}}{\sqrt K} n_l
      - \theta_k
    \right) \\
-   &=:
-   F_k(m_E, m_I)
 
 となる。ただし、 :math:`p_l (n_l | m_l)` は集団
 :math:`l \in \{E, I\}` の活動率が :math:`m_l` の時に
@@ -88,22 +116,26 @@
 
 .. math::
 
-   p_l (n_l | m_l)
-   & \xrightarrow{N \to \infty}
-     \sum_{s=n}^\infty \frac{K^s}{s!} \E^{-K}
-     \begin{pmatrix}
-       s \\ n
-     \end{pmatrix}
-     (m_l)^n (1 - m_l)^{s-n}
+   p_l (n | m_l)
+   & \approx
+     \sum_{s=n}^\infty
+     \underbrace{
+       \frac{K^s}{s!} \E^{-K}
+     }_{\text{(P1)}}
+     \underbrace{
+       \begin{pmatrix}
+         s \\ n
+       \end{pmatrix}
+       (m_l)^n (1 - m_l)^{s-n}
+     }_{\text{(P2)}}
    \\
    & =
      \frac{(m_l K)^n}{n!} \E^{-m_l K}
 
-で定められる。
-
-.. todo:: 最初の等式を示す. self-averaging を使って, 集団平均を average
-   over quenched noise に直す必要があるのでは?
-
+となる. ここで, (P1) は集団 :math:`k` のニューロン (どのニューロンでも成立する)
+が集団 :math:`l` の :math:`s` 個のニューロンからの結合を持つ確率であり,
+(P2) はその :math:`s` 個のニューロンのうち :math:`n` 個のニューロンが活動している
+(:math:`\sigma_l^j = 1` である) 確率である.
 最後の等式は、 :math:`\exp` の定義に基づけば、以下の計算で確認できる。
 
 .. math::
