@@ -223,7 +223,8 @@ _latex_preamble = r"""
 \newcommand{\Expect}{\mathbb{E}}
 \newcommand{\Var}{\text{Var}}
 \newcommand{\Avg}[1]{\left\langle#1\right\rangle}
-\newcommand{\AvgDyn}[1]{\left\langle#1\right\rangle_{\text{dyn.}}}
+\newcommand{\AvgJ}[1]{\Avg{#1}_{\bm J}}
+\newcommand{\AvgDyn}[1]{\Avg{#1}_{\text{dyn.}}}
 """
 
 latex_elements = {

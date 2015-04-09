@@ -39,14 +39,14 @@
 .. math::
 
    (*)
-   & \overset{(1)} \simeq
+   & \overset{(1)} \approx
      \sum_{j=1}^{N_l}
      \left[
        J_{kl}^{ij}
      \right]_i
      \sigma_l^j(t)
    \\
-   & \overset{(2)} \simeq
+   & \overset{(2)} \approx
      \sum_{j=1}^{N_l}
      J_{kl} \frac{\sqrt K}{N_l}
      \sigma_l^j(t)
@@ -65,20 +65,41 @@
    & \overset{(5)} =
      J_{kl} \sqrt K m_l(t)
 
-ここで、
-(1) ???、
+最初の式変形 (1) は, :math:`[ \bullet ]_i` の線形性 (よって
+和 :math:`\sum_{j=1}^{N_l}` と集団平均 :math:`[ \bullet ]_i` は演算順序を入れ
+替えて良い) と :math:`\sigma_l^j(t)` が :math:`i` に依らないことから正当化される.
+後者は正しくは, :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` の相関が無いと
+仮定することで, :math:`\sigma_l^j(t)` は :math:`i`, つまり :math:`J_{kl}^{ij}`
+に依らずに決まるから集団平均 :math:`[ \bullet ]_i` の演算にとっては定数として
+扱えることから言える. この :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` が無相関
+であるという仮定は, :math:`J_{kl}^{ij}` が非ゼロのときに :math:`J_{lk}^{ji}`
+が非ゼロになる条件付き確率は条件なしの場合と同じで :math:`K/N` であり, :math:`N \to 0`
+で消えることと, :math:`J_{lk}^{ji}` の :math:`\sigma_l^j(t)` への寄与もそもそも
+:math:`1/\sqrt K` とスケールし, これも :math:`K \to 0` で消えることから言える.
+この無相関の仮定は有限の :math:`N, K` では正しくないので, この式変形は完全な等号では
+結ばれず, :math:`\approx` と書いている.
+
+.. todo:: 式変形 :math:`[J_{kl}^{ij} \, \sigma_l^j(t)]_i
+   = [J_{kl}^{ij}]_i \, \sigma_l^j(t)` を正当化する議論をもっと形式化する.
+   説明に自然言語つかいすぎ！
+
+   先に確率平均に行く方法もあるかも?:
+   :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` が独立だという
+   近似のもと, :math:`[J_{kl}^{ij} \sigma_l^j(t)]_i
+   \approx \AvgJ{J_{kl}^{ij} \sigma_l^j(t)}
+   = \AvgJ{J_{kl}^{ij}} \AvgJ{\sigma_l^j(t)}`
+   であることを用いる. この :math:`\AvgJ{\sigma_l^j(t)}` は式変形 (4) にあるように,
+   さらに集団平均 :math:`[\bullet]_j` がかかるから,
+   :math:`\left[ \AvgJ{\sigma_l^j(t)} \right]_j = \AvgJ{[\sigma_l^j(t)]_j}
+   = \AvgJ{m_l(t)}` となる. この系は self-averaging なので (とどこかで説明する
+   必要があるけど,) :math:`\AvgJ{m_l(t)} = m_l(t)` となる.
+
+他の部分の変形については,
 (2) :math:`\left[ J_{kl}^{ij} \right]_i = \Expect \{J_{kl}^{ij}\}` 、
 (3) :math:`J_{kl} \sqrt K / N_l` の :math:`j` への非依存性、
 (4) 集団平均の定義、
 (5) :math:`m_l(t)` の定義
 を用いた。
-
-.. todo:: 上の (1) は何を前提としているかを説明する。
-
-   手書きノートには :math:`\sigma_l^j(t)` が :math:`i` に依存しないから
-   と書いてあるが、 :math:`\sigma_l^j(t)` は :math:`J_{kl}^{ij}` に依存
-   しているからそれは正しくない。いや、 :math:`u_k(t)` を :math:`\sigma_l^j(t)`
-   の関数、つまり :math:`u_k(\sigma_l^j(t))` と考えれば問題ない...わけないか。
 
 .. math::
 
