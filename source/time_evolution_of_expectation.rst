@@ -4,6 +4,12 @@
  期待値の時間発展
 ==================
 
+.. seealso::
+
+   [Ginzburg1994]_
+     この章の議論は, Ginzburg & Sompolinsky (1994) の Appendix A
+     に基づいている.
+
 .. admonition:: 期待値の時間発展
 
    :ref:`master-equation` と同じ設定の下, ニューロン :math:`i` の状態の
