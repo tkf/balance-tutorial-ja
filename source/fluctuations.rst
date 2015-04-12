@@ -5,8 +5,8 @@
 ============
 
 集団 :math:`k \in \{ E, I \}` 内のニューロンに関する
-集団平均 (population average; 添字 :math:`i` に沿った) 平均
-を
+:index:`集団平均` (:index:`population average`;
+添字 :math:`i` に沿った平均) を
 
 .. math::
 
