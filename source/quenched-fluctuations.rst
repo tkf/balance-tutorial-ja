@@ -29,7 +29,7 @@
 
    \Devi \Avg{u_k^i(t)}_t = \text{(d1)} + \text{(d2)}
 
-ただし, (d1) 「入力数の揺動」, (d2) 「活動率の(クエンチされた)揺動」
+ただし, (d1) 「結合数の揺動」, (d2) 「時間平均活動率の揺動」
 は, それぞれ
 
 .. math::
@@ -38,10 +38,15 @@
 
    \text{(d2)} = \sum_l \sum_j J_{kl}^{ij} \, \Devi m_l^j
 
-と定義される.
+と定義される.  結合数は時間によらないその揺動が「クエンチされている」
+のは当然であるが, 活動率の時間平均 :math:`m_l^j` も (平均操作の
+おかげで) 時間によらない, 「クエンチされた」 揺動である.  つまり,
+クエンチされた揺動のうち, 直接の影響である (d1) 「結合数の揺動」
+と, それが引き起こす間接的な影響である (d2) 「時間平均活動率の揺動」
+の2つを勘定すれば良い, という主張である.
 
-地道に入力の時間平均 :math:`\Avg{u_k^i(t)}_t` の偏差を計算することに
-よって示せる:
+これは, 地道に入力の時間平均 :math:`\Avg{u_k^i(t)}_t` の偏差を計算する
+ことによって示せる:
 
 .. math::
 
@@ -172,12 +177,81 @@
    \left[ J_{kl}^{ij} \right]_i^2
 
 
-入力数の揺動
+結合数の揺動
 ============
 
+.. math::
 
-活動率の(クエンチされた)揺動
-============================
+   [\text{(d1)}^2]
+   & =
+     \left[ \left(
+       \sum_l \sum_j \Devi J_{kl}^{ij} \, [m_l^{j''}]_{j''}
+     \right)^2 \right]_i
+   \\
+   & =
+     \sum_{ll'jj'}
+     \left[
+       \Devi J_{kl}^{ij} \, \Devi J_{kl'}^{ij'}
+     \right]_i
+     [m_l^{j''}]_{j''} \, [m_{l'}^{j'''}]_{j'''}
+   \\
+   & =
+     \sum_{lj}
+     J_{kl}^2 \left(1 - \frac K N_l \right)
+     \left( [m_l^{j''}]_{j''} \right)^2
+
+:math:`(l, j) \neq (l', j')` だと
+
+.. math::
+
+   \left[
+     \Devi J_{kl}^{ij} \, \Devi J_{kl'}^{ij'}
+   \right]_i
+   =
+   \left[
+     \Devi J_{kl}^{ij}
+   \right]_i
+   \left[
+     \Devi J_{kl'}^{ij'}
+   \right]_i
+   = 0
+
+:math:`(l, j) = (l', j')` だと
+
+.. math::
+
+   \left[\left(
+     \Devi J_{kl}^{ij}
+   \right)^2 \right]_i
+   & \overset{(1)} =
+     \left[\left(
+       J_{kl}^{ij}
+     \right)^2 \right]_i
+     -
+     \left( \left[
+       J_{kl}^{ij}
+     \right]_i \right)^2
+   \\
+   & \overset{(2)} \approx
+     \left(
+       \frac{J_{kl}}{\sqrt K}
+     \right)^2
+     \frac{K}{N_l}
+     -
+     \left(
+       \frac{J_{kl}}{\sqrt K}
+       \frac{K}{N_l}
+     \right)^2
+   \\
+   & =
+     \frac{J_{kl}^2}{N_l}
+     \left(
+       1 - \frac{K}{N_l}
+     \right)
+
+
+時間平均活動率の揺動
+====================
 
 
 合計
