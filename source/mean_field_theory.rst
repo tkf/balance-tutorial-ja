@@ -233,7 +233,8 @@
 :math:`Dx` は ガウス測度 (Gaussian measure) [#]_ と呼ばれるただの省略記号である.
 関数 :math:`H(z)` は :term:`Q関数` (Q-function) と呼ばれる関数である.
 上の計算では,
-(1) ???,
+(1) :math:`n_l \approx m_l K + x_l \sqrt{m_l K}` なる近似と
+:ref:`gaussian-avg-change-of-variable`,
 (2) :math:`u_k` の定義,
 (3) ???,
 (4) :math:`H(z)` の定義
