@@ -165,15 +165,9 @@
      \frac{(K m_l)^n}{n!}
      \E^{-K m_l}
 
-この確率分布の元で、 :math:`n_l` の平均と分散は
-
-.. math::
-
-   \Expect \{ n_l \}
-   = \Var \{ n_l \}
-   = m_l K
-
-で定められる。極限 :math:`K \to \infty` で
+この確率分布は平均と分散が :math:`m_l K` の :term:`ポアソン分布` なの
+で, 極限 :math:`K \to \infty`, つまりこの平均と分散が大きな極限では
+:term:`ガウス分布`
 
 .. math::
 
@@ -182,27 +176,71 @@
    \frac{1}{\sqrt{2 \pi m_l K}}
    \exp \left( - \frac{(n_l - m_l K)^2}{2 m_l K} \right)
 
-であるから、確率 :math:`F_k(m_E, m_I)` は
+で近似できる.  この極限 :math:`K \to \infty` で,
 
 .. todo:: 途中式を入れる
 
 .. math::
 
    F_k(m_E, m_I)
-   \xrightarrow{K \to \infty}
+   & =
+     \sum_{n_1, n_2 = 0}^\infty
+     p_1(n_1 | m_1) \, p_2(n_2 | m_2) \,
+     \Theta \left(
+       \sqrt K J_{k0} m_0
+       + \sum_{l=1,2} \frac{J_{kl}}{\sqrt K} n_l
+       - \theta_k
+     \right)
+   \\
+   & \overset{(1)} \approx
+     \int Dx_1 \, Dx_2 \,
+     \Theta \left(
+       \sqrt K J_{k0} m_0
+       + \sum_{l=1,2} \frac{J_{kl}}{\sqrt K}
+         (m_l K + x_l \sqrt{m_l K})
+       - \theta_k
+     \right)
+   \\
+   & \overset{(2)} =
+     \int Dx_1 \, Dx_2 \,
+     \Theta \left(
+       u_k + \sum_{l=1,2} x_l J_{kl} \sqrt{m_l}
+     \right)
+   \\
+   & \overset{(3)} =
    \int Dx \, \Theta (u_k + \sqrt{\alpha_k} x)
-   = H \left( \frac{- u_k}{\sqrt{\alpha_k}} \right)
+   \\
+   & \overset{(4)} =
+     H \left( \frac{- u_k}{\sqrt{\alpha_k}} \right)
 
-と計算できる。ここで :math:`Dx = \D x \exp(-x^2) / \sqrt{2 \pi}` である。
-
+と計算できる. ここで,
 
 .. math::
 
+   Dx & := \D x \exp(-x^2) / \sqrt{2 \pi}
+   \\
    u_k
-   = (J_{k0} m_0 + J_{kE} m_E + J_{kl} m_l) \sqrt K - \theta_k
-
-
-.. math::
-
+   & := (J_{k0} m_0 + J_{kE} m_E + J_{kl} m_l) \sqrt K - \theta_k,
+   \\
    \alpha_k
-   = (J_{kE})^2 m_E + (J_{kI})^2 m_I
+   & := (J_{kE})^2 m_E + (J_{kI})^2 m_I
+   \\
+   H(z)
+   & := \int_z^\infty \frac{\D x}{\sqrt{2 \pi}} \exp(- x^2 / 2)
+
+である.  上記の :math:`u_k` と :math:`\alpha_k` はただ変数に名前をつけた
+だけだが, これらの物理的意味については :ref:`fluctuations` を参照せよ.
+:math:`Dx` は ガウス測度 (Gaussian measure) [#]_ と呼ばれるただの省略記号である.
+関数 :math:`H(z)` は :term:`Q関数` (Q-function) と呼ばれる関数である.
+上の計算では,
+(1) ???,
+(2) :math:`u_k` の定義,
+(3) ???,
+(4) :math:`H(z)` の定義
+をそれぞれ用いた.
+
+.. [#] ただの省略記号なので, 数学の測度論 (measure theory) とは深い関わりなど
+   無いし, そもそも測度論の測度は集合をとる関数なので別物である (測度論で似た
+   記法を *別の* 場面で使う流儀はあるが...).  物理の分野では
+   :math:`\exp(-x^2) / \sqrt{2 \pi}` と繰り返し書くのが面倒なので使われて
+   いるだけである.
