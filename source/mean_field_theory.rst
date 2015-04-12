@@ -165,7 +165,7 @@
      \frac{(K m_l)^n}{n!}
      \E^{-K m_l}
 
-この確率分布は平均と分散が :math:`m_l K` の :term:`ポアソン分布` なの
+この確率分布は平均と分散が :math:`m_l K` の :ref:`poisson-distribution` なの
 で, 極限 :math:`K \to \infty`, つまりこの平均と分散が大きな極限では
 :ref:`gaussian-distribution`
 

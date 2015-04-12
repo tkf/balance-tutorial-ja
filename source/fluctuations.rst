@@ -97,7 +97,7 @@
    必要があるけど,) :math:`\AvgJ{m_l(t)} = m_l(t)` となる.
 
 他の部分の変形については,
-(2) :term:`大数の法則` より算術平均は期待値に収束する, つまり :math:`N \to \infty`
+(2) :ref:`lln` より算術平均は期待値に収束する, つまり :math:`N \to \infty`
 の極限で :math:`\left[ J_{kl}^{ij} \right]_i \to \AvgJ{J_{kl}^{ij}}` が成り立つ
 ことと, :math:`\Prob \{ J_{kl}^{ij} = {J_{kl}}/{\sqrt K}\} = {K}/{N_l}`
 と :math:`\Prob \{ J_{kl}^{ij} = 0\} = 1 - {K}/{N_l}` から
