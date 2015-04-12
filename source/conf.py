@@ -225,6 +225,7 @@ _latex_preamble = r"""
 \newcommand{\Avg}[1]{\left\langle#1\right\rangle}
 \newcommand{\AvgJ}[1]{\Avg{#1}_{\bm J}}
 \newcommand{\AvgDyn}[1]{\Avg{#1}_{\text{dyn.}}}
+\newcommand{\Devi}{\mathfrak{d}}
 """
 
 latex_elements = {

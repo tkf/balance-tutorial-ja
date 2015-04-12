@@ -1,0 +1,184 @@
+.. _quenched-fluctuations:
+
+====================
+ クエンチされた揺動
+====================
+
+ここでは, :index:`クエンチされた揺動` (:index:`quenched fluctuations`)
+[#]_ が
+
+.. math::
+
+   \left[ \left( \Devi \Avg{u_k^i(t)}_t \right)^2 \right]
+   =
+   \sum_{l=1,2} J_{kl}^2 q_l =: \beta_k
+
+となることを示す.  ただし, :math:`\Avg{\bullet}_t` は長い時間にわたる
+平均である.
+
+.. [#] 無理やり日本語にすると「焼入れされた揺動」と言うのだろうか.
+
+
+偏差の分解
+==========
+
+まず, :math:`\Avg{u_k^i(t)}_t` の集団平均 :math:`[\Avg{u_k^i(t)}_t]`
+からのズレ具合 (偏差) を次のように, 2つの成分に分解できることを示す.
+
+.. math::
+
+   \Devi \Avg{u_k^i(t)}_t = \text{(d1)} + \text{(d2)}
+
+ただし, (d1) 「入力数の揺動」, (d2) 「活動率の(クエンチされた)揺動」
+は, それぞれ
+
+.. math::
+
+   \text{(d1)} = \sum_l \sum_j \Devi J_{kl}^{ij} \, [m_l^j]_j
+
+   \text{(d2)} = \sum_l \sum_j J_{kl}^{ij} \, \Devi m_l^j
+
+と定義される.
+
+地道に入力の時間平均 :math:`\Avg{u_k^i(t)}_t` の偏差を計算することに
+よって示せる:
+
+.. math::
+
+   \Devi \Avg{u_k^i(t)}_t
+   & \overset{(1)} =
+     \Devi \Avg{
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} \sigma_l^j(t)
+     }_t
+   \\
+   & \overset{(2)} =
+     \Devi \left(
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} m_l^j
+     \right)
+   \\
+   & \overset{(3)} =
+     \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} m_l^j
+     -
+     \left[
+       \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{i'j} m_l^j
+     \right]_{i'}
+   \\
+   & \overset{(4)} =
+     \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} m_l^j
+     -
+     \sum_{l = E, I} [J_{kl}^{i'j'}]_{i'} \sum_{j=1}^{N_l} m_l^j
+     \qquad (\forall j')
+   \\
+   & \overset{(5)} =
+     \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} m_l^j
+     -
+     \underbrace{
+     \sum_{l = E, I} [J_{kl}^{i'j'}]_{i'} \sum_{j=1}^{N_l} [m_l^{j''}]_{j''}
+     }_{\text{nothing depends on } j}
+   \\
+   & \overset{(6)} =
+     \sum_{l = E, I} \sum_{j=1}^{N_l}
+     \left\{
+     J_{kl}^{ij} (m_l^j - [m_l^{j''}]_{j''})
+     - (J_{kl}^{ij} - [J_{kl}^{i'j'}]_{i'}) [m_l^{j''}]_{j''}
+     \right\}
+   \\
+   & =
+     \text{(d1)} + \text{(d2)}
+
+
+ふたつの偏差の「直交性」
+========================
+
+.. math::
+
+   \left[
+   \left(
+     \Devi \Avg{u_k^i(t)}_t
+   \right)^2
+   \right]
+   =
+   \left[
+     \text{(d1)}^2
+   \right]
+   +
+   \left[
+     \text{(d2)}^2
+   \right]
+
+.. math::
+
+   &
+     \left[
+       \text{(d1)}
+       \text{(d2)}
+     \right]
+   \\
+   & =
+     \left[
+       \sum_{ll'jj'}
+       \Devi J_{kl}^{ij} \, [m_l^{j''}]_{j''} \,
+       J_{kl'}^{ij'} \, \Devi m_{l'}^{j'}
+     \right]_i
+   \\
+   & =
+     \sum_{ll'jj'}
+     \left[
+       \Devi J_{kl}^{ij} \, J_{kl'}^{ij'}
+     \right]_i
+     [m_l^{j''}]_{j''} \, \Devi m_{l'}^{j'}
+   \\
+   & =
+     \sum_{lj}
+     \left(
+       \left[(J_{kl}^{i*})^2 \right]_i
+       -
+       \left[J_{kl}^{i*} \right]_i^2
+     \right)
+     [m_l^{j''}]_{j''} \, \Devi m_{l'}^{j}
+   \\
+   & =
+     \sum_{l}
+     \left(
+       \left[(J_{kl}^{i*})^2 \right]_i
+       -
+       \left[J_{kl}^{i*} \right]_i^2
+     \right)
+     [m_l^{j''}]_{j''} \,
+     \underbrace{\sum_j \Devi m_{l'}^{j}}_{=0}
+   \\
+   & = 0
+
+:math:`\left[\Devi J_{kl}^{ij} \, J_{kl'}^{ij'} \right]_i`
+は :math:`(l, j) \neq (l', j')` だと
+
+.. math::
+
+   \left[\Devi J_{kl}^{ij} \, J_{kl'}^{ij'} \right]_i
+   =
+   \left[ \Devi J_{kl}^{ij} \right]_i
+   \left[ J_{kl'}^{ij'} \right]_i
+   = 0
+
+なので, 非ゼロになるのは :math:`(l, j) = (l', j')` の場合のみ
+である.
+
+.. math::
+
+   \left[\Devi J_{kl}^{ij} \, J_{kl}^{ij} \right]_i
+   =
+   \left[ (J_{kl}^{ij})^2 \right]_i
+   -
+   \left[ J_{kl}^{ij} \right]_i^2
+
+
+入力数の揺動
+============
+
+
+活動率の(クエンチされた)揺動
+============================
+
+
+合計
+====
