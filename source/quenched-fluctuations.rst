@@ -196,7 +196,7 @@
      [m_l^{j''}]_{j''} \, [m_{l'}^{j'''}]_{j'''}
    \\
    & =
-     \sum_{lj}
+     \sum_j
      J_{kl}^2 \left(1 - \frac K N_l \right)
      \left( [m_l^{j''}]_{j''} \right)^2
 
@@ -253,6 +253,145 @@
 時間平均活動率の揺動
 ====================
 
+.. math::
+
+   [\text{(d2)}^2]
+   & =
+     \left[ \left(
+       \sum_l \sum_j J_{kl}^{ij} \, \Devi m_l^j
+     \right)^2 \right]_i
+   \\
+   & =
+     \sum_{ll'jj'}
+     \left[
+       J_{kl}^{ij} \, J_{kl'}^{ij'}
+     \right]_i
+     \Devi m_l^j \, \Devi m_{l'}^{j'}
+   \\
+   & \approx
+     \sum_{\substack{ll' \\ l \neq l'}}
+     \sum_{jj'}
+     \bullet
+     +
+     \sum_l
+     \sum_{\substack{jj' \\ j \neq j'}}
+     \bullet
+     +
+     \sum_l
+     \sum_j
+     \bullet
+
+.. math::
+
+     \sum_{\substack{ll' \\ l \neq l'}}
+     \sum_{jj'}
+     \left[
+       J_{kl}^{ij} \, J_{kl'}^{ij'}
+     \right]_i
+     \Devi m_l^j \, \Devi m_{l'}^{j'}
+   & =
+     \sum_{\substack{ll' \\ l \neq l'}}
+     \left[J_{kl}^{i*} \, J_{kl'}^{i*} \right]_i
+     \sum_j \Devi m_l^j
+     \sum_{j'} \Devi m_{l'}^{j'}
+     = 0
+
+.. math::
+
+     \sum_l
+     \sum_{\substack{jj' \\ j \neq j'}}
+     \left[
+       J_{kl}^{ij} \, J_{kl'}^{ij'}
+     \right]_i
+     \Devi m_l^j \, \Devi m_{l'}^{j'}
+   & =
+     \sum_l
+     \left[J_{kl}^{i*} \, J_{kl'}^{i*} \right]_i
+     \sum_j \Devi m_l^j
+     \sum_{\substack{j' \\ j \neq j'}} \Devi m_{l'}^{j'}
+     = 0
+
+.. math::
+
+     \sum_l
+     \sum_j
+     \left[
+       (J_{kl}^{ij})^2
+     \right]_i
+     (\Devi m_l^j)^2
+   & =
+     \sum_l
+     \left[
+       (J_{kl}^{i*})^2
+     \right]_i
+     N_l
+     \left[
+       (\Devi m_l^j)^2
+     \right]_j
+   \\
+   & =
+     \sum_l
+     \left(
+       \frac{J_{kl}}{\sqrt K}
+     \right)^2
+     \frac{K}{N_l}
+     N_l
+     \left[
+       (\Devi m_l^j)^2
+     \right]_j
+   \\
+   & =
+     \sum_l
+     J_{kl}^2
+     \left[
+       (\Devi m_l^j)^2
+     \right]_j
+   \\
+   & =
+     \sum_l
+     J_{kl}^2
+     \left(
+       [(m_l^j)^2] - [m_l^j]^2
+     \right)
+
 
 合計
 ====
+
+.. math::
+
+   \left[
+   \left(
+     \Devi \Avg{u_k^i(t)}_t
+   \right)^2
+   \right]
+   & \approx
+     \left[
+       \text{(d1)}^2
+     \right]
+     +
+     \left[
+       \text{(d2)}^2
+     \right]
+   \\
+   & \approx
+     \sum_j
+     J_{kl}^2 \left(1 - \frac K N_l \right)
+     \left( [m_l^{j''}]_{j''} \right)^2
+     +
+     \sum_l
+     J_{kl}^2
+     \left(
+       [(m_l^j)^2] - [m_l^j]^2
+     \right)
+   \\
+   & \approx
+     \sum_l
+     J_{kl}^2
+     \,
+     [(m_l^j)^2]
+   =
+     \sum_l
+     J_{kl}^2
+     \,
+     q_l
