@@ -236,6 +236,6 @@
 (1) :math:`n_l \approx m_l K + x_l \sqrt{m_l K}` なる近似と
 :ref:`gaussian-avg-change-of-variable`,
 (2) :math:`u_k` の定義,
-(3) ???,
+(3) :ref:`gauss-integrals-of-heaviside-function-and-q-function` の関係,
 (4) :math:`H(z)` の定義
 をそれぞれ用いた.

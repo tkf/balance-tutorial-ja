@@ -121,3 +121,97 @@ Q関数
 
    `誤差関数 - Wikipedia
    <http://ja.wikipedia.org/wiki/%E8%AA%A4%E5%B7%AE%E9%96%A2%E6%95%B0>`_
+
+
+.. _gauss-integrals-of-heaviside-function-and-q-function:
+
+ヘヴィサイド関数の多重ガウス積分とQ関数
+=======================================
+
+ヘヴィサイド関数 :math:`\Theta(x) = 0` (:math:`x < 0`),
+:math:`\Theta(x) = 1` (:math:`x > 0`), の多重ガウス積分とQ関数
+には次の関係が成り立つ.
+
+.. math::
+
+   \int \left( \prod_i Dx_i \right) \,
+   \Theta \left( \sum_i c_i x_i + u \right)
+   =
+   Q \left( - \frac{u}{\sqrt{\sum_i c_i^2}} \right)
+
+ただし, 積と和は :math:`i=1` から :math:`i=M` までについておこない,
+積分区間は :math:`\mathbb R^M` 全体とする.
+
+まずは :math:`M = 2` の場合について示す.
+:math:`a = c_1`, :math:`b = c_2`, :math:`\alpha = a^2 + b^2`
+とする.
+
+二次元ベクトル :math:`(a, b)^\intercal` に沿った単位ベクトル
+を :math:`\bm r = (a, b)^\intercal / \sqrt \alpha` と定義
+する. [#]_ これに直交した2つある単位ベクトル
+:math:`\bm s = (s_1, s_2)^\intercal` のうち, 行列式
+が :math:`\det (\bm r, \bm s) = 1` となるものを選ぶ.
+
+.. [#] :math:`x_1` と :math:`x_2` に関するガウス積分を
+   :math:`(a, b)^\intercal` の軸に沿ったガウス積分とそれに
+   直交する軸に沿ったガウス積分に分ける, というアイディアである.
+
+.. todo:: なぜ行列式が1になるものを選ぶのか, 説明する.  積分の方向が
+   「ひっくり返らない」ようにするためだが, ちゃんと形式的に説明する.
+
+これらの仮定, つまり,
+
+.. math::
+
+   \bm r \cdot \bm s \propto a s_1 + b s_2 = 0
+
+   \det (\bm r, \bm s) = (a s_2 - b s_1) / \sqrt \alpha = 1
+
+より, [#]_ :math:`\bm s = (-b, a)^\intercal / \sqrt \alpha`
+
+.. [#] 第一式より :math:`a s_1 = - b s_2`, 第二式の両辺に :math:`a`
+   をかけて :math:`(a^2 s_2 - b (a s_1)) / \sqrt \alpha = a` なので,
+   :math:`s_2 = a / \sqrt \alpha`.  第一式より,
+   :math:`s_1 = - b / \sqrt \alpha` である.
+
+変数変換
+
+.. math::
+
+   r = \bm r \cdot (x_1, x_2)^\intercal = (a x_1 + b x_2) / \sqrt \alpha
+
+   s = \bm s \cdot (x_1, x_2)^\intercal = (-b x_1 + a x_2) / \sqrt \alpha
+
+を施す.  ヤコビアンは,
+
+.. math::
+
+   \det \frac{\partial (x, y)}{\partial (r, s)}
+   = \left(
+     \det \frac{\partial (r, s)}{\partial (x, y)}
+   \right)^{-1}
+   = \frac{1}{\det (\bm r, \bm s)}
+   = 1
+
+なので, :math:`\D x \D y = \D r \D s` である.  さらに,
+:math:`r^2 + s^2 = x_1^2 + x_2^2` なので, 結局,
+:math:`Dx_1 Dx_2 = Dr Ds` である.
+
+.. math::
+
+   &
+     \int Dx_1 Dx_2 \, \Theta (a x_1 + b y_2 + u)
+   \\
+   & =
+     \int Dr \underbrace{\int Ds}_{=1} \, \Theta (\sqrt \alpha r + u)
+   \\
+   & =
+     \int Dr \, \Theta (r + u / \sqrt \alpha)
+     =
+     \int_{-u / \sqrt \alpha}^\infty Dr
+   \\
+   & =
+     Q \left( - \frac{u}{\sqrt \alpha} \right)
+
+
+一般の :math:`M` に関して成り立つことは, 帰納法で確かめられる.
