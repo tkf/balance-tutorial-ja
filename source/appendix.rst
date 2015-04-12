@@ -16,11 +16,6 @@
      `Poisson distribution - Wikipedia
      <http://en.wikipedia.org/wiki/Poisson_distribution>`_
 
-   ガウス分布
-   Gaussian distribution
-     `正規分布 - Wikipedia
-     <http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83>`_
-
    Q関数
    Q-function
      .. math:: Q(z) := \int_z^\infty \frac{\D x}{\sqrt{2 \pi}} \exp(- x^2 / 2)

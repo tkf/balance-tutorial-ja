@@ -1,6 +1,15 @@
-============
- ガウス分布
-============
+.. index:: ガウス分布, Gaussian distribution
+
+.. _gaussian-distribution:
+
+====================================
+ ガウス分布 (Gaussian distribution)
+====================================
+
+.. seealso::
+
+   `正規分布 - Wikipedia
+   <http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83>`_
 
 .. _gaussian-avg-change-of-variable:
 

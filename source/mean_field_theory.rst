@@ -167,7 +167,7 @@
 
 この確率分布は平均と分散が :math:`m_l K` の :term:`ポアソン分布` なの
 で, 極限 :math:`K \to \infty`, つまりこの平均と分散が大きな極限では
-:term:`ガウス分布`
+:ref:`gaussian-distribution`
 
 .. math::
 
