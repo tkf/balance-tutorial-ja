@@ -82,3 +82,42 @@
    (測度論で似た記法を *別の* 場面で使う流儀はあるが...).  物理の分野では
    :math:`\exp(-x^2) / \sqrt{2 \pi}` と繰り返し書くのが面倒なので使われて
    いるだけである.
+
+
+.. _q-function:
+
+Q関数
+=====
+
+標準ガウス分布の裾 (tail) は :index:`Q関数` (:index:`Q-function`) と呼ばれ,
+ガウス分布を取り扱う計算では頻出である.
+
+.. math:: Q(z) := \int_z^\infty \frac{\D x}{\sqrt{2 \pi}} \exp(- x^2 / 2)
+
+興奮・抑制平衡のオリジナルの論文 [vanVreeswijk1998]_ ではこのQ関数は
+:math:`H(z)` と表記され, :index:`相補誤差関数`
+(:index:`complementary error function`, :index:`erfc`)
+と呼ばれているが, 広く使われている定義
+
+.. math::
+
+   \text{erfc}(x)
+   :=
+   \frac{2}{\sqrt \pi} \int_x^\infty \D t \, \exp(-t^2)
+
+からは, 少し違う.  erfc と Q関数 の間には,
+
+.. math:: Q(z) = \frac{1}{2} \text{erfc}(z/\sqrt 2)
+
+の関係がある.
+
+.. seealso::
+
+   `Q-function - Wikipedia
+   <http://en.wikipedia.org/wiki/Q-function>`_
+
+   `Error function - Wikipedia
+   <http://en.wikipedia.org/wiki/Error_function>`_
+
+   `誤差関数 - Wikipedia
+   <http://ja.wikipedia.org/wiki/%E8%AA%A4%E5%B7%AE%E9%96%A2%E6%95%B0>`_

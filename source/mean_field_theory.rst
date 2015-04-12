@@ -231,7 +231,7 @@
 である.  上記の :math:`u_k` と :math:`\alpha_k` はただ変数に名前をつけた
 だけだが, これらの物理的意味については :ref:`fluctuations` を参照せよ.
 :math:`Dx` は :ref:`gaussian-measure` と呼ばれるただの省略記号である.
-関数 :math:`H(z)` は :term:`Q関数` (Q-function) と呼ばれる関数である.
+関数 :math:`H(z)` は :ref:`q-function` と呼ばれる関数である.
 上の計算では,
 (1) :math:`n_l \approx m_l K + x_l \sqrt{m_l K}` なる近似と
 :ref:`gaussian-avg-change-of-variable`,
