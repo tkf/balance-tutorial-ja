@@ -49,3 +49,27 @@
    \\
    & =
      \Avg{f(\mu + \sigma Z)}
+
+
+.. _gaussian-measure:
+
+ガウス測度 (Gaussian measure)
+=============================
+
+物理の計算では, いくつものガウス積分が出てくることが多々あり, その度に
+:math:`\D z \, g_{0,1}(z)` などと書くのは煩雑なので, :index:`ガウス測度`
+(:index:`Gaussian measure`) と呼ばれる以下の記法を導入する.
+
+.. math:: Dx := \D x \exp(-x^2) / \sqrt{2 \pi}
+
+これを用いれば, :ref:`gaussian-avg-change-of-variable` の公式は
+
+.. math:: \Avg{f(X)} = \int_{-\infty}^\infty Dz \, f(\mu + \sigma z)
+
+とかける.
+
+.. note:: ただの省略のための記法なので, 数学の測度論 (measure theory) とは
+   深い関わりなど無いし, そもそも測度論の測度は集合をとる関数なので別物である
+   (測度論で似た記法を *別の* 場面で使う流儀はあるが...).  物理の分野では
+   :math:`\exp(-x^2) / \sqrt{2 \pi}` と繰り返し書くのが面倒なので使われて
+   いるだけである.
