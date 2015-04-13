@@ -15,7 +15,7 @@
    m_l(t)
    =:
    \alpha_k(t)
-i
+
 を導出する.  ここで :math:`[ \bullet ]_i` は
 集団 :math:`k \in \{ E, I \}` 内のニューロンに関する
 :index:`集団平均` (:index:`population average`;
