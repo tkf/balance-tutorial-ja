@@ -5,6 +5,7 @@
    :glob:
    :maxdepth: 2
 
+   balance_network/index
    binary_network/index
    appendices/index
    *
