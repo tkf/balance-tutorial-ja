@@ -26,7 +26,7 @@ i
    [ \bullet ]_i = \frac{1}{N_k} \sum_{i=1}^{N_k} \bullet
 
 で定義される.
-文脈からどの添字に関する平均かが明らかであれば、添字 :math:`i` は省略する。
+文脈からどの添字に関する平均かが明らかであれば, 添字 :math:`i` は省略する.
 また, :math:`\Devi` は集団平均からの偏差 :math:`\Devi X_i = X_i - [X_i]_i`
 である.
 
@@ -54,7 +54,7 @@ i
      }_{(*)}
      + u_k^0 - \theta_k
 
-この (*) は以下のように近似的できる。
+この (*) は以下のように近似的できる.
 
 .. math::
 
@@ -177,11 +177,11 @@ i
      -
      K \left(\sum_{l = E, I} J_{kl} m_l(t) \right)^2
 
-ここで、
+ここで,
 (1) :math:`\Devi(x + \text{const.}) = \Devi x`,
 (2) :math:`[(\Devi x)^2] = [x^2] - [x]^2`,
 (3) 上記の :math:`u_k(t)` の計算
-を用いた。
+を用いた.
 
 
 .. math::
@@ -206,7 +206,7 @@ i
      \sigma_l^j(t) \sigma_{l'}^{j'}(t)
      }_{(*)}
 
-上式の (*) の和は、恒等式
+上式の (*) の和は, 恒等式
 :math:`1 = \delta_{ll'} (\delta_{jj'} + (1 - \delta_{jj'})) + (1 - \delta_{ll'})`
 を用いて [#]_
 
@@ -223,7 +223,7 @@ i
    \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
    \bullet_{l,l',j,j'}
 
-のように分解できる。
+のように分解できる.
 
 .. [#] :math:`\sum_{j,j'=1} (1 - \delta_{j,j'}) \bullet
        = \sum_{\substack{j,j'=1 \\ j \neq j'}} \bullet`
@@ -259,11 +259,11 @@ i
      \sum_{l = E, I} ( J_{kl} )^2 \,
      m_l(t)
 
-ここで、
+ここで,
 (1) ???,
 (2) :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \} = K/N_l`,
 (3) :math:`m_l(t) = [\sigma_l^j(t)]_j = \sum_{j=1}^{N_l} \sigma_l^j(t) / N_l`,
-を用いた。
+を用いた.
 
 
 第二項の計算 (:math:`l = l'`, :math:`j \neq j'`)
