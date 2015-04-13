@@ -7,7 +7,7 @@
    :maxdepth: 2
 
    mean_field_theory
-   fluctuations
+   fluctuations_of_input
    quenched_fluctuations
    temporal_fluctuations
    *
