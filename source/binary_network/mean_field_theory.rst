@@ -229,7 +229,7 @@
    & := \int_z^\infty \frac{\D x}{\sqrt{2 \pi}} \exp(- x^2 / 2)
 
 である.  上記の :math:`u_k` と :math:`\alpha_k` はただ変数に名前をつけた
-だけだが, これらの物理的意味については :ref:`fluctuations` を参照せよ.
+だけだが, これらの物理的意味については :ref:`fluctuations-of-input` を参照せよ.
 :math:`Dx` は :ref:`gaussian-measure` と呼ばれるただの省略記号である.
 関数 :math:`H(z)` は :ref:`q-function` と呼ばれる関数である.
 上の計算では,
