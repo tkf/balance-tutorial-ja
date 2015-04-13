@@ -88,7 +88,7 @@ i
 最初の式変形 (1) は, :math:`[ \bullet ]_i` の線形性 (よって
 和 :math:`\sum_{j=1}^{N_l}` と集団平均 :math:`[ \bullet ]_i` は演算順序を入れ
 替えて良い) と :math:`\sigma_l^j(t)` が :math:`i` に依らないことから正当化される.
-後者は正しくは, :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` の相関が無いと
+後者は正しくは, :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` の相関が無い [#]_ と
 仮定することで, :math:`\sigma_l^j(t)` は :math:`i`, つまり :math:`J_{kl}^{ij}`
 に依らずに決まるから集団平均 :math:`[ \bullet ]_i` の演算にとっては定数として
 扱えることから言える. この :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` が無相関
@@ -102,6 +102,20 @@ i
 から正当化される.
 この無相関の仮定は有限の :math:`N, K` では正しくないので, この式変形は完全な等号では
 結ばれず, :math:`\approx` と書いている.
+
+.. [#] 原著 [vanVreeswijk1998]_ では,
+
+         Note that on the right-hand side (r.h.s.) of equation 3.11 we
+         have neglected the correlations between the random
+         fluctuations in the activity of a cell and the particular
+         realization of its output connectivity.  This is justified
+         since such correlations are weak in the large :math:`N`
+         limit.
+
+         --- p.1329 (p.9), van Vreeswijk, Sompolinsky (1998)
+
+   と説明されている.  この "equation 3.11" はここで扱っている
+   入力の集団平均 :math:`u_k(t)` のことである.
 
 .. todo:: 式変形 :math:`[J_{kl}^{ij} \, \sigma_l^j(t)]_i
    = [J_{kl}^{ij}]_i \, \sigma_l^j(t)` を正当化する議論をもっと形式化する.
