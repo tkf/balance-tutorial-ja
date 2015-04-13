@@ -53,22 +53,45 @@
 のみに依存することを主張している. この微視的な状態への非依存性
 は :math:`F_k(m_E, m_I)` の計算の過程で自動的に出てくる結果である.
 
-確率 :math:`F_k(m_E, m_I)` は以下の仮定のもとで計算することが出来る.
+確率 :math:`F_k(m_E, m_I)` は以下の仮定 [#]_ のもとで計算することが出来る.
 
 .. admonition:: 仮定
 
-   極限 :math:`N \to \infty` で異なるニューロン :math:`i` と :math:`j`
-   (:math:`\neq i`) への入力 :math:`u_k^i (t)` と :math:`u_k^j (t)`
-   は独立である.
+   すべてのニューロンについて, それに結合しているすべての
+   ニューロンの活動が無相関である.
 
-.. todo:: この仮定と van Vreeswijk, Sompolinsky (1998) に書いてあることの関係を書く.
-
-   Appendix A.1, p.1365 (p.45) にこう書いてある:
+.. [#]
+   原著 [vanVreeswijk1998]_ にはにこう書いてある:
 
      The main assumption underlying the mean-field theory is that the
      activities of the different input cells to a given cell are
      uncorrelated.  Technically, this holds rigorously provided that
      :math:`K \ll \log N_k` (Derrida et al., 1987).
+
+     --- p.1365 (p.45), Appendix A.1, van Vreeswijk, Sompolinsky (1998)
+
+.. note:: 自然言語は難しい. これを数学的に書き下すと以下の命題となる.
+
+   すべてのニューロン :math:`i = 1, \ldots, N_k` について, それに
+   結合するいかなる集団 :math:`l = E, I` の
+   いかなる2つのニューロン :math:`j, j' = 1, \ldots, N_l`
+   についても, :math:`j \neq j', J_{kl}^{ij} \neq 0, J_{kl}^{ij'} \neq 0`
+   ならば
+
+   .. math::
+
+      \AvgDyn{ \left(
+        \sigma_l^j(t) \, \sigma_l^{j'}(t)
+        -
+        \AvgDyn{\sigma_l^j(t) \, \sigma_l^{j'}(t)}
+      \right)^2}
+      = 0
+
+   が, すべての時間 :math:`t` について成り立つ.
+
+   .. todo:: 「すべての時間 :math:`t` について」は正しいのか?
+
+   .. todo:: 上記の correlation の定義は正しいのか?
 
 自己平均性 (self-averaging property) を :math:`[\Theta(u_k^i (t))]_i`
 の計算に適用すれば, :math:`[\bullet]_i` と :math:`\AvgJ{\bullet}` を
