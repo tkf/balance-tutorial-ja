@@ -4,19 +4,34 @@
  入力のゆらぎ
 ==============
 
-入力の集団平均
-==============
+ここでは, 入力のゆらぎ :math:`[(\Devi u_k^i (t))^2]_i`
+と集団平均活動率 :math:`m_l(t)` を結ぶ式
 
+.. math::
+
+   [(\Devi u_k^i (t))^2]_i
+   =
+   \sum_{l = E, I} ( J_{kl} )^2 \,
+   m_l(t)
+   =:
+   \alpha_k(t)
+i
+を導出する.  ここで :math:`[ \bullet ]_i` は
 集団 :math:`k \in \{ E, I \}` 内のニューロンに関する
 :index:`集団平均` (:index:`population average`;
-添字 :math:`i` に沿った平均) を
+添字 :math:`i` に沿った平均) を表し,
 
 .. math::
 
    [ \bullet ]_i = \frac{1}{N_k} \sum_{i=1}^{N_k} \bullet
 
-で定義する。
+で定義される.
 文脈からどの添字に関する平均かが明らかであれば、添字 :math:`i` は省略する。
+また, :math:`\Devi` は集団平均からの偏差 :math:`\Devi X_i = X_i - [X_i]_i`
+である.
+
+入力の集団平均
+==============
 
 .. math::
 
@@ -138,11 +153,11 @@
 .. math::
 
    \alpha_k(t)
-   & :=
-     [(\delta u_k^i (t))^2]
+   & =
+     [(\Devi u_k^i (t))^2]
    \\
    & \overset{(1)} =
-     \left[ \left( \delta \left\{
+     \left[ \left( \Devi \left\{
        \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} \sigma_l^j(t))
      \right\} \right)^2 \right]_i
    \\
@@ -163,8 +178,8 @@
      K \left(\sum_{l = E, I} J_{kl} m_l(t) \right)^2
 
 ここで、
-(1) :math:`\delta(x + \text{const.}) = \delta x`,
-(2) :math:`[(\delta x)^2] = [x^2] - [x]^2`,
+(1) :math:`\Devi(x + \text{const.}) = \Devi x`,
+(2) :math:`[(\Devi x)^2] = [x^2] - [x]^2`,
 (3) 上記の :math:`u_k(t)` の計算
 を用いた。
 
