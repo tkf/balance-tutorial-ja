@@ -92,10 +92,14 @@ i
 仮定することで, :math:`\sigma_l^j(t)` は :math:`i`, つまり :math:`J_{kl}^{ij}`
 に依らずに決まるから集団平均 :math:`[ \bullet ]_i` の演算にとっては定数として
 扱えることから言える. この :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` が無相関
-であるという仮定は, :math:`J_{kl}^{ij}` が非ゼロのときに :math:`J_{lk}^{ji}`
-が非ゼロになる条件付き確率は条件なしの場合と同じで :math:`K/N` であり, :math:`N \to 0`
-で消えることと, :math:`J_{lk}^{ji}` の :math:`\sigma_l^j(t)` への寄与もそもそも
-:math:`1/\sqrt K` とスケールし, これも :math:`K \to 0` で消えることから言える.
+であるという仮定は,
+
+1. 事象 :math:`J_{kl}^{ij} \neq 0` と :math:`J_{lk}^{ji} \neq 0` が独立
+   (:math:`J_{kl}^{ij}` の定義より)
+2. :math:`\sigma_l^j(t)` と :math:`\sigma_l^{j'}(t)` (:math:`j' \neq j`)
+   が無相関という仮定
+
+から正当化される.
 この無相関の仮定は有限の :math:`N, K` では正しくないので, この式変形は完全な等号では
 結ばれず, :math:`\approx` と書いている.
 
