@@ -34,19 +34,19 @@
    :math:`\Prob \{ X \in A \} = \Expect \{1_A(X)\}` と書けることを
    思い出そう.
 
-この式の集団平均をとる (つまり両辺に :math:`[\bullet]_i` を施す) と,
+この式の集団平均をとる (つまり両辺に :math:`\PAvg{\bullet}_i` を施す) と,
 集団活動率 :math:`m_k` のダイナミクスを表す式
 
 .. math::
 
    \tau_k \frac{\D}{\D t} m_k (t)
-   = - m_k (t) + \Avg{\AvgDyn{\Theta(u_k^i (t))}}_i
+   = - m_k (t) + \PAvg{\AvgDyn{\Theta(u_k^i (t))}}_i
 
 を得る. この節では, 右辺第二項
 
 .. math::
 
-   F_k(m_E, m_I) := [\AvgDyn{\Theta(u_k^i (t))}]_i
+   F_k(m_E, m_I) := \PAvg{\AvgDyn{\Theta(u_k^i (t))}}_i
 
 を計算する. 素朴に考えれば右辺は系の微視的な状態 :math:`\bm \sigma`
 に依存しているはずだが, 左辺は巨視的な状態, つまり集団活動率 :math:`m_k`

@@ -222,6 +222,7 @@ _latex_preamble = r"""
 \newcommand{\Prob}{\mathbb{P}}
 \newcommand{\Expect}{\mathbb{E}}
 \newcommand{\Var}{\text{Var}}
+\newcommand{\PAvg}[1]{\left[#1\right]}
 \newcommand{\Avg}[1]{\left\langle#1\right\rangle}
 \newcommand{\AvgJ}[1]{\Avg{#1}_{\bm J}}
 \newcommand{\AvgDyn}[1]{\Avg{#1}_{\text{dyn.}}}
