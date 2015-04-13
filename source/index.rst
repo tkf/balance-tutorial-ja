@@ -1,12 +1,12 @@
 興奮・抑制平衡入門
 ==================
 
-Contents:
-
 .. toctree::
    :glob:
    :maxdepth: 2
 
+   binary_network/index
+   appendices/index
    *
 
 
