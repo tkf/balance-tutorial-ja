@@ -8,6 +8,4 @@
 
    mean_field_theory
    fluctuations_of_input
-   quenched_fluctuations
-   temporal_fluctuations
-   *
+   fluctuations/index

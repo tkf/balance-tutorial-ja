@@ -1,10 +1,10 @@
 .. _temporal-fluctuations:
 
-================
- 時間的なゆらぎ
-================
+==================
+ 時間ゆらぎの計算
+==================
 
-:index:`時間的なゆらぎ` (:index:`temporal fluctuations`)
+:index:`時間ゆらぎ` (:index:`temporal fluctuations`)
 :index:`速いノイズ` (:index:`fast noise`)
 
 .. math::
