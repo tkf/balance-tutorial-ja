@@ -246,7 +246,7 @@ i
    \\
    & \overset{(1)} \approx
      \sum_{l = E, I} \sum_{j=1}^{N_l}
-     \Expect \{ (J_{kl}^{ij})^2 \}
+     \AvgJ{(J_{kl}^{ij})^2}
      \, \sigma_l^j(t)
    \\
    & \overset{(2)} =
@@ -264,7 +264,7 @@ i
      m_l(t)
 
 ここで,
-(1) ???,
+(1) :ref:`lln`,
 (2) :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \} = K/N_l`,
 (3) :math:`m_l(t) = [\sigma_l^j(t)]_j = \sum_{j=1}^{N_l} \sigma_l^j(t) / N_l`,
 を用いた.
@@ -284,7 +284,7 @@ i
    \\
    & \overset{(1)} \approx
      \sum_{l = E, I} \sum_{\substack{j,j'=1 \\ j \neq j'}}^{N_l}
-     \Expect \{ J_{kl}^{ij} J_{kl}^{ij'} \}
+     \AvgJ{J_{kl}^{ij} J_{kl}^{ij'}}
      \, \sigma_l^j(t) \, \sigma_{l}^{j'}(t)
    \\
    & \overset{(2)} =
@@ -333,6 +333,14 @@ i
        m_l(t)
      \right)
 
+ここで,
+(1) :ref:`lln`,
+(2) :math:`j \neq j'` なので :math:`J_{kl}^{ij}` と :math:`J_{kl}^{ij'}`
+が独立であることと, :math:`J_{kl}^{ij}` の確率分布
+:math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \}
+= 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`,
+を用いた.  残りは単純な式変形である.
+
 
 第三項の計算 (:math:`l \neq l'`)
 --------------------------------
@@ -350,7 +358,7 @@ i
    & \overset{(1)} \approx
      \sum_{\substack{l, l' = E, I \\ l \neq l'}}
      \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
-     \Expect \{ J_{kl}^{ij} J_{kl'}^{ij'} \}
+     \AvgJ{J_{kl}^{ij} J_{kl'}^{ij'}}
      \, \sigma_l^j(t) \, \sigma_{l'}^{j'}(t)
    \\
    & \overset{(2)} =
@@ -379,6 +387,14 @@ i
      \sum_{\substack{l, l' = E, I \\ l \neq l'}}
      J_{kl} J_{kl'} \, m_l(t) \, m_{l'}(t)
 
+ここで,
+(1) :ref:`lln`,
+(2) :math:`l \neq l'` なので :math:`J_{kl}^{ij}` と :math:`J_{kl'}^{ij'}`
+が独立であることと, :math:`J_{kl}^{ij}` の確率分布
+:math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \}
+= 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`,
+を用いた.  残りは単純な式変形である.
+
 
 合計
 ----
@@ -390,7 +406,7 @@ i
      \sum_{l = E, I} ( J_{kl} )^2 \,
      m_l(t)
    \\
-   & +
+   & \qquad +
      K
      \sum_{l = E, I} (J_{kl})^2
      \left(
@@ -400,12 +416,12 @@ i
        m_l(t)
      \right)
    \\
-   & +
+   & \qquad +
      K
      \sum_{\substack{l, l' = E, I \\ l \neq l'}}
      J_{kl} J_{kl'} \, m_l(t) \, m_{l'}(t)
    \\
-   & -
+   & \qquad -
      K \left(\sum_{l = E, I} J_{kl} m_l(t) \right)^2
    \\
    & =
@@ -415,7 +431,7 @@ i
      \frac{K}{N_l}
      \sum_{l = E, I} (J_{kl})^2 m_l(t)
    \\
-   & +
+   & \qquad +
      K
      \underbrace{
        \left(
