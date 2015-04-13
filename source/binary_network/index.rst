@@ -6,6 +6,7 @@
    :glob:
    :maxdepth: 2
 
+   model
    mean_field_theory
    fluctuations_of_input
    fluctuations/index

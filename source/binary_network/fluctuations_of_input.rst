@@ -279,7 +279,9 @@ i
 
 ここで,
 (1) :ref:`lln`,
-(2) :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \} = K/N_l`,
+(2) :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \}
+= 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`
+(:ref:`結合確率の定義 <def-J>` を参照),
 (3) :math:`m_l(t) = [\sigma_l^j(t)]_j = \sum_{j=1}^{N_l} \sigma_l^j(t) / N_l`,
 を用いた.
 
@@ -352,7 +354,8 @@ i
 (2) :math:`j \neq j'` なので :math:`J_{kl}^{ij}` と :math:`J_{kl}^{ij'}`
 が独立であることと, :math:`J_{kl}^{ij}` の確率分布
 :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \}
-= 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`,
+= 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`
+(:ref:`結合確率の定義 <def-J>` を参照),
 を用いた.  残りは単純な式変形である.
 
 
@@ -406,7 +409,8 @@ i
 (2) :math:`l \neq l'` なので :math:`J_{kl}^{ij}` と :math:`J_{kl'}^{ij'}`
 が独立であることと, :math:`J_{kl}^{ij}` の確率分布
 :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \}
-= 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`,
+= 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`
+(:ref:`結合確率の定義 <def-J>` を参照),
 を用いた.  残りは単純な式変形である.
 
 
