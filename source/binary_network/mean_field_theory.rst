@@ -12,6 +12,10 @@
 
 と定義する.
 
+.. todo:: 他の場所では, :math:`\AvgDyn{\bullet}` は使われていない.  使うべき?
+   例えば, 他の場所では :math:`m_k = \PAvg{\sigma_k^i}` だけど, ここでは
+   :math:`m_k = \PAvg{\AvgDyn{\sigma_k^i}}` である.
+
 ニューロン :math:`i` への入力が閾値を超える確率 [#]_ は, 更新時間のランダム性
 に関する平均 :math:`\AvgDyn{\Theta(u_k^i (t))}` で表すことが出来る.
 [#]_  さらに, 更新のタイミングはポアソン過程で表され, 入力が閾値を超えていた
@@ -194,14 +198,10 @@
 
 .. math::
 
-   p_l (n_l | m_l)
-   =
    \frac{1}{\sqrt{2 \pi m_l K}}
    \exp \left( - \frac{(n_l - m_l K)^2}{2 m_l K} \right)
 
 で近似できる.  この極限 :math:`K \to \infty` で,
-
-.. todo:: 途中式を入れる
 
 .. math::
 
