@@ -107,6 +107,11 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
+# A string to be included from every reST files
+# http://sphinx-doc.org/config.html#confval-rst_prolog
+rst_prolog = u"""
+.. |def:J| replace:: :ref:`結合確率の定義 <def-J>`
+"""
 
 # -- Options for HTML output ----------------------------------------------
 
