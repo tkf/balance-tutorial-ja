@@ -97,7 +97,7 @@
 
    .. todo:: 上記の correlation の定義は正しいのか?
 
-自己平均性 (self-averaging property) を :math:`[\Theta(u_k^i (t))]_i`
+:ref:`self-averaging` を :math:`[\Theta(u_k^i (t))]_i`
 の計算に適用すれば, :math:`[\bullet]_i` と :math:`\AvgJ{\bullet}` を
 交換することが出来て,
 
