@@ -386,13 +386,6 @@
      \, \sigma_l^j(t) \, \sigma_{l'}^{j'}(t)
    \\
    & =
-     \sum_{\substack{l, l' = E, I \\ l \neq l'}}
-     \sum_{j=1}^{N_l} \sum_{j'=1}^{N_{l'}}
-     \frac{J_{kl}}{\sqrt K} \frac{J_{kl'}}{\sqrt K}
-     \frac{K}{N_l} \frac{K}{N_{l'}}
-     \, \sigma_l^j(t) \, \sigma_{l'}^{j'}(t)
-   \\
-   & =
      K
      \sum_{\substack{l, l' = E, I \\ l \neq l'}}
      J_{kl} J_{kl'}
