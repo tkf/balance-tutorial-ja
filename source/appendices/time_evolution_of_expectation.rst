@@ -250,3 +250,85 @@
 ========
 
 .. todo:: 相関関数の従う方程式 ("two-time" second moment の時間発展) を導出する.
+
+.. math::
+
+   \Avg{f(\bm \sigma(t), \bm \sigma(t+s))}
+   :=
+   \sum_{\bm \sigma} P_t(\bm \sigma)
+   \sum_{\bm \varsigma} P_{t+s, t}(\bm \varsigma | \bm \sigma)
+   f(\bm \sigma, \bm \varsigma)
+
+.. math::
+
+   \CAvg{f(\bm \sigma(t+s))}{\bm \sigma(t)}
+   :=
+   \sum_{\bm \varsigma} P_{t+s, t}(\bm \varsigma | \bm \sigma(t))
+   f(\bm \varsigma)
+
+.. math::
+
+   &
+     \Avg{\sigma_i(t) \, \sigma_j(t+s)}
+   \\
+   & =
+     \sum_{\bm \sigma} P_t(\bm \sigma)
+     \sum_{\bm \varsigma} P_{t+s, t}(\bm \varsigma | \bm \sigma)
+     \, \sigma_i \, \varsigma_j
+   \\
+   & =
+     \sum_{\bm \sigma} P_t(\bm \sigma)
+     \, \sigma_i
+     \underbrace{
+     \sum_{\bm \varsigma} P_{t+s, t}(\bm \varsigma | \bm \sigma)
+     \, \varsigma_j
+     }_{= \CAvg{\sigma_j(t+s)}{\bm \sigma(t)}}
+   \\
+   & =
+     \Avg{\sigma_i(t) \CAvg{\sigma_j(t+s)}{\bm \sigma(t)}}
+
+
+.. math::
+
+   \tau \frac{\D}{\D s}
+   \CAvg{\sigma_j(t+s)}{\bm \sigma(t)}
+   =
+   - \CAvg{\sigma_j(t+s)}{\bm \sigma(t)}
+   + \CAvg{g_j(\bm \sigma(t+s))}{\bm \sigma(t)}
+
+
+.. math::
+
+   \Avg{\sigma_i(t) \cdot \text{(l.h.s)}}
+   & =
+     \Avg{\sigma_i(t)
+     \, \tau \frac{\D}{\D s} \CAvg{\sigma_j(t+s)}{\bm \sigma(t)}}
+   \\
+   & =
+     \tau \frac{\D}{\D s}
+     \Avg{\sigma_i(t) \CAvg{\sigma_j(t+s)}{\bm \sigma(t)}}
+   \\
+   & =
+     \tau \frac{\D}{\D s}
+     \Avg{\sigma_i(t) \, \sigma_j(t+s)}
+
+.. math::
+
+   \Avg{\sigma_i(t) \cdot \text{(r.h.s)}}
+   & =
+     \Avg{\sigma_i(t) \left\{
+       - \CAvg{\sigma_j(t+s)}{\bm \sigma(t)}
+       + \CAvg{g_j(\bm \sigma(t+s))}{\bm \sigma(t)}
+     \right\}}
+   \\
+   & =
+     - \Avg{\sigma_i(t) \, \sigma_j(t+s)}
+     + \Avg{\sigma_i(t) \, g_j(\bm \sigma(t+s))}
+
+.. math::
+
+     \tau \frac{\D}{\D s}
+     \Avg{\sigma_i(t) \, \sigma_j(t+s)}
+   & =
+     - \Avg{\sigma_i(t) \, \sigma_j(t+s)}
+     + \Avg{\sigma_i(t) \, g_j(\bm \sigma(t+s))}
