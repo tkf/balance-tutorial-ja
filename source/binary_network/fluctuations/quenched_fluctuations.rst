@@ -16,6 +16,15 @@
 
 となることを示す.  ただし, :math:`\Avg{\bullet}_t` は長い時間にわたる
 平均である.
+ここで,  :math:`q_k` は :index:`オーダーパラメター` (:index:`order parameter`)
+と呼ばれ, ニューロン :math:`i` の活動率の時間平均 :math:`m_k^i` を用いて,
+
+.. math::
+
+   m_k^i &:= \Avg{\AvgDyn{\sigma_k^i(t)}}_t \\
+   q_k &:= \PAvg{(m_k^i)^2}_i
+
+と定義される.
 
 .. [#] 無理やり日本語にすると「焼入れされたゆらぎ」と言うのだろうか.
 
@@ -392,7 +401,7 @@
        (J_{kl}^{ij})^2
      \right]_i
      (\Devi m_l^j)^2
-   & =
+   & \overset{(1)} =
      \sum_l
      \left[
        (J_{kl}^{i*})^2
@@ -402,7 +411,7 @@
        (\Devi m_l^j)^2
      \right]_j
    \\
-   & =
+   & \overset{(2)} =
      \sum_l
      \left(
        \frac{J_{kl}}{\sqrt K}
@@ -420,21 +429,26 @@
        (\Devi m_l^j)^2
      \right]_j
    \\
-   & =
+   & \overset{(3)} =
      \sum_l
      J_{kl}^2
      \left(
        [(m_l^j)^2] - [m_l^j]^2
      \right)
    \\
-   & =
+   & \overset{(4)} =
      \sum_l
      J_{kl}^2
      \left(
        q_l - m_l^2
      \right)
 
-.. todo:: ロジックを埋める
+ここで,
+(1) :math:`\left[(J_{kl}^{ij})^2 \right]_i` が :math:`j` に依存しないこと,
+(2) :ref:`lln` と |def:J| による期待値の計算,
+(3) :math:`[(\Devi x)^2] = [x^2] - [x]^2`,
+(4) :math:`q_k` と :math:`m_k` の定義
+を用いた.
 
 
 合計
