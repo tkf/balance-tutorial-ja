@@ -86,10 +86,50 @@
    & \overset{(5)} =
      J_{kl} \sqrt K m_l(t)
 
-最初の式変形 (1) は, :math:`[ \bullet ]_i` の線形性 (よって
+ここで,
+(1) は, :math:`[ \bullet ]_i` の線形性 (よって
 和 :math:`\sum_{j=1}^{N_l}` と集団平均 :math:`[ \bullet ]_i` は演算順序を入れ
-替えて良い) と :math:`\sigma_l^j(t)` が :math:`i` に依らないことから正当化される.
-後者は正しくは, :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` の相関が無い [#]_ と
+替えて良い) と :math:`\sigma_l^j(t)` が :math:`i` に依らないこと
+(これの正しい解説は :ref:`correlations-of-sigmaj-and-jij` を参照),
+(2) :ref:`lln` より算術平均は期待値に収束する, つまり :math:`N \to \infty`
+の極限で :math:`\left[ J_{kl}^{ij} \right]_i \to \AvgJ{J_{kl}^{ij}}` が成り立つ
+ことと, :math:`\Prob \{ J_{kl}^{ij} = {J_{kl}}/{\sqrt K}\} = {K}/{N_l}`
+と :math:`\Prob \{ J_{kl}^{ij} = 0\} = 1 - {K}/{N_l}` から
+期待値は :math:`\AvgJ{J_{kl}^{ij}} = ({J_{kl}}/{\sqrt K}) ({K}/{N_l})
+= J_{kl} {\sqrt K}/{N_l}` となること,
+(3) :math:`J_{kl} \sqrt K / N_l` が :math:`j` に依らない定数であること,
+(4) 集団平均の定義,
+(5) :math:`m_l(t)` の定義
+を用いた.
+
+これらの計算を合わせ, :math:`u_k^0 = \sqrt K E_k m_0` を思い出せば, 入力の
+集団平均 :math:`u_k(t)` は
+
+.. math::
+
+   u_k(t)
+   & = ...
+   \\
+   & \approx
+     \sum_{l = E, I} J_{kl} \sqrt K m_l(t)
+     + u_k^0 - \theta_k
+   \\
+   & =
+     \sqrt K \left(
+       \sum_{l = E, I} J_{kl} m_l(t) + E_k m_0
+     \right)
+     - \theta_k
+
+となる.
+
+
+.. _correlations-of-sigmaj-and-jij:
+
+ニューロンの状態と結合係数の相関
+--------------------------------
+
+上記の式変換(1)で「:math:`\sigma_l^j(t)` が :math:`i` に依らない」ことを用いたが,
+これは正しくは, :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` の相関が無い [#]_ と
 仮定することで, :math:`\sigma_l^j(t)` は :math:`i`, つまり :math:`J_{kl}^{ij}`
 に依らずに決まるから集団平均 :math:`[ \bullet ]_i` の演算にとっては定数として
 扱えることから言える. この :math:`J_{kl}^{ij}` と :math:`\sigma_l^j(t)` が無相関
@@ -132,38 +172,6 @@
    :math:`\left[ \AvgJ{\sigma_l^j(t)} \right]_j = \AvgJ{[\sigma_l^j(t)]_j}
    = \AvgJ{m_l(t)}` となる. この系は self-averaging なので (とどこかで説明する
    必要があるけど,) :math:`\AvgJ{m_l(t)} = m_l(t)` となる.
-
-他の部分の変形については,
-(2) :ref:`lln` より算術平均は期待値に収束する, つまり :math:`N \to \infty`
-の極限で :math:`\left[ J_{kl}^{ij} \right]_i \to \AvgJ{J_{kl}^{ij}}` が成り立つ
-ことと, :math:`\Prob \{ J_{kl}^{ij} = {J_{kl}}/{\sqrt K}\} = {K}/{N_l}`
-と :math:`\Prob \{ J_{kl}^{ij} = 0\} = 1 - {K}/{N_l}` から
-期待値は :math:`\AvgJ{J_{kl}^{ij}} = ({J_{kl}}/{\sqrt K}) ({K}/{N_l})
-= J_{kl} {\sqrt K}/{N_l}` となること,
-(3) :math:`J_{kl} \sqrt K / N_l` が :math:`j` に依らない定数であること,
-(4) 集団平均の定義,
-(5) :math:`m_l(t)` の定義
-を用いた.
-
-これらの計算を合わせ, :math:`u_k^0 = \sqrt K E_k m_0` を思い出せば, 入力の
-集団平均 :math:`u_k(t)` は
-
-.. math::
-
-   u_k(t)
-   & = ...
-   \\
-   & \approx
-     \sum_{l = E, I} J_{kl} \sqrt K m_l(t)
-     + u_k^0 - \theta_k
-   \\
-   & =
-     \sqrt K \left(
-       \sum_{l = E, I} J_{kl} m_l(t) + E_k m_0
-     \right)
-     - \theta_k
-
-となる.
 
 
 入力のゆらぎ

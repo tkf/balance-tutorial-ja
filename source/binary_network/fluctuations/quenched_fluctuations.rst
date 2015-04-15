@@ -98,7 +98,7 @@
 (1) :math:`\Devi(x + \text{const.}) = \Devi x`,
 (2) 定義 :math:`m_l^j = \Avg{\sigma_l^j(t)}_t`,
 (3) 偏差 :math:`\Devi` の定義,
-(4) [todo: :ref:`fluctuations-of-input` の該当部分にリンク],
+(4) :ref:`correlations-of-sigmaj-and-jij` の議論,
 (5) :math:`\sum_{j=1}^{N_l} m_l^j = N_l N_l^{-1} \sum_{j=1}^{N_l} m_l^j
 = N_l [m_l^{j''}]_{j''}` であり, :math:`N_l = \sum_{j=1}^{N_l} 1`
 なので, 結局 :math:`... = \sum_{j=1}^{N_l} [m_l^{j''}]_{j''}`,
