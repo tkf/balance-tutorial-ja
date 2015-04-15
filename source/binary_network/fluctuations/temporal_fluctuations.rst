@@ -18,6 +18,8 @@
    }_{t}
    \xrightarrow{N \to \infty}
    \sum_l J_{kl}^2 (m_l - q_l)
+   =
+   \alpha_k - \beta_k
 
 となることを示す.  [#]_
 
