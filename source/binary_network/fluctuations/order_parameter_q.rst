@@ -4,8 +4,6 @@
  秩序変数の計算
 ================
 
-.. todo:: 秩序変数の計算を説明する
-
 これまでの計算で, クエンチされたゆらぎ(空間ゆらぎ)と時間ゆらぎを
 集団平均活動率 :math:`m_k` と秩序変数 :math:`q_k` で
 表すことが出来ると分かったが, 秩序変数 :math:`q_k` の計算方法
@@ -80,19 +78,19 @@
 .. math::
 
    \sigma_k^i(t) = \Theta \left(
-     u_k + \sqrt{\beta_k} x_i + \sqrt{\alpha_k - \beta_k} y_i(t)
+     u_k + \sqrt{\beta_k} \, x_i + \sqrt{\alpha_k - \beta_k} \, y_i(t)
    \right)
 
 と書けることが分かった.
 この表式では, 時間平均 :math:`\Avg{\bullet}_t` は
 確率変数 :math:`y_i(t)` に関する平均と同値
 (つまり, :math:`\Avg{f(y_i(t))}_t = \int \D y \, f(y)`)
-なので,
+なので, :math:`m_k^i = \Avg{\AvgDyn{\sigma_k^i(t)}}_t` は
 
 .. math::
 
    m_k^i = m_k(x_i) = H \left(
-     \frac{-u_k + \sqrt{\beta_k} x_i}{\sqrt{\alpha_k - \beta_k}}
+     \frac{-u_k - \sqrt{\beta_k} x_i}{\sqrt{\alpha_k - \beta_k}}
    \right)
 
 と書ける.  この表式を用いて :math:`q_k = \PAvg{(m_k^i)^2}` を計算
@@ -100,9 +98,11 @@
 
 .. math::
 
-   q_k = \int Dx \left[
+   q_k
+   = \int Dx \left( m_k(x_i) \right)^2
+   = \int Dx \left[
      H \left(
-       \frac{-u_k + \sqrt{\beta_k} x_i}{\sqrt{\alpha_k - \beta_k}}
+       \frac{-u_k - \sqrt{\beta_k} x_i}{\sqrt{\alpha_k - \beta_k}}
      \right)
    \right]^2
 
