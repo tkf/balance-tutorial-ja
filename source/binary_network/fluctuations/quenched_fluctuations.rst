@@ -4,6 +4,8 @@
  クエンチされたゆらぎの計算
 ============================
 
+.. todo:: ロジックを埋める
+
 ここでは, :index:`クエンチされたゆらぎ` (:index:`quenched fluctuations`)
 [#]_ が
 
@@ -92,6 +94,16 @@
    & =
      \text{(d1)} + \text{(d2)}
 
+ここで,
+(1) :math:`\Devi(x + \text{const.}) = \Devi x`,
+(2) 定義 :math:`m_l^j = \Avg{\sigma_l^j(t)}_t`,
+(3) 偏差 :math:`\Devi` の定義,
+(4) [todo: :ref:`fluctuations-of-input` の該当部分にリンク],
+(5) :math:`\sum_{j=1}^{N_l} m_l^j = N_l N_l^{-1} \sum_{j=1}^{N_l} m_l^j
+= N_l [m_l^{j''}]_{j''}` であり, :math:`N_l = \sum_{j=1}^{N_l} 1`
+なので, 結局 :math:`... = \sum_{j=1}^{N_l} [m_l^{j''}]_{j''}`,
+(6) :math:`- J_{kl}^{ij} [m_l^{j''}]_{j''} + J_{kl}^{ij} [m_l^{j''}]_{j''} = 0`,
+を用いた.
 
 ふたつの偏差の「直交性」
 ========================
