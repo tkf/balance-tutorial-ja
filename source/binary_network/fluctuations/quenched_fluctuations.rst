@@ -4,15 +4,14 @@
  クエンチされたゆらぎの計算
 ============================
 
-.. todo:: ロジックを埋める
-
 ここでは, :index:`クエンチされたゆらぎ` (:index:`quenched fluctuations`)
 [#]_ が
 
 .. math::
+   :label: beta-is-quenched-fluctuations
 
    \left[ \left( \Devi \Avg{u_k^i(t)}_t \right)^2 \right]
-   =
+   \xrightarrow{N \to \infty}
    \sum_{l=1,2} J_{kl}^2 q_l =: \beta_k
 
 となることを示す.  ただし, :math:`\Avg{\bullet}_t` は長い時間にわたる
@@ -104,9 +103,14 @@
 なので, 結局 :math:`... = \sum_{j=1}^{N_l} [m_l^{j''}]_{j''}`,
 (6) :math:`- J_{kl}^{ij} [m_l^{j''}]_{j''} + J_{kl}^{ij} [m_l^{j''}]_{j''} = 0`,
 を用いた.
+式変形 (4) の右辺とそれ以降の式中に現れる :math:`j'` は, :math:`1` から :math:`N_l`
+のどの値をとっても良い.  これは :ref:`lln` より :math:`[J_{kl}^{i'j'}]_{i'}` が
+同じ値に収束するからである.
 
 ふたつの偏差の「直交性」
 ========================
+
+上記の計算より導かれた2つの偏差の二乗平均をとって, ゆらぎを
 
 .. math::
 
@@ -124,6 +128,10 @@
      \text{(d2)}^2
    \right]
 
+のように求めたいが, そのためにはそれらの偏差が
+無相関 :math:`\PAvg{\text{(d1)}\text{(d2)}} = 0`
+でなければならない.  これは簡単に示せる:
+
 .. math::
 
    &
@@ -132,21 +140,21 @@
        \text{(d2)}
      \right]
    \\
-   & =
+   & \overset{(1)} =
      \left[
        \sum_{ll'jj'}
        \Devi J_{kl}^{ij} \, [m_l^{j''}]_{j''} \,
        J_{kl'}^{ij'} \, \Devi m_{l'}^{j'}
      \right]_i
    \\
-   & =
+   & \overset{(2)} =
      \sum_{ll'jj'}
      \left[
        \Devi J_{kl}^{ij} \, J_{kl'}^{ij'}
      \right]_i
      [m_l^{j''}]_{j''} \, \Devi m_{l'}^{j'}
    \\
-   & =
+   & \overset{(3)} =
      \sum_{lj}
      \left(
        \left[(J_{kl}^{i*})^2 \right]_i
@@ -167,6 +175,9 @@
    \\
    & = 0
 
+式変形 (1) では :ref:`correlations-of-sigmaj-and-jij` の議論
+を用いた.
+式変形 (2) では,
 :math:`\left[\Devi J_{kl}^{ij} \, J_{kl'}^{ij'} \right]_i`
 は :math:`(l, j) \neq (l', j')` だと
 
@@ -179,7 +190,8 @@
    = 0
 
 なので, 非ゼロになるのは :math:`(l, j) = (l', j')` の場合のみ
-である.
+であることを用いた.
+式変形 (3) は, 偏差 :math:`\Devi` の定義に沿って
 
 .. math::
 
@@ -189,6 +201,9 @@
    -
    \left[ J_{kl}^{ij} \right]_i^2
 
+という計算をすれば良い.  式変形 (3) の右辺以降に現れる
+添字の :math:`*` は, この部分の添字が何でも良い
+ことを表す.
 
 結合数のゆらぎ
 ==============
@@ -201,18 +216,30 @@
        \sum_l \sum_j \Devi J_{kl}^{ij} \, [m_l^{j''}]_{j''}
      \right)^2 \right]_i
    \\
-   & =
+   & \overset{(1)} =
+     \left[
+       \sum_{ll'jj'}
+       \Devi J_{kl}^{ij} \, \Devi J_{kl'}^{ij'}
+       [m_l^{j''}]_{j''} \, [m_{l'}^{j''}]_{j''}
+     \right]_i
+   \\
+   & \overset{(2)} =
      \sum_{ll'jj'}
      \left[
        \Devi J_{kl}^{ij} \, \Devi J_{kl'}^{ij'}
      \right]_i
-     [m_l^{j''}]_{j''} \, [m_{l'}^{j'''}]_{j'''}
+     [m_l^{j''}]_{j''} \, [m_{l'}^{j''}]_{j''}
    \\
-   & =
+   & \overset{(3)} =
      \sum_j
      J_{kl}^2 \left(1 - \frac K N_l \right)
      \left( [m_l^{j''}]_{j''} \right)^2
 
+ここで,
+(1) :ref:`tech-for-prod-of-sum` と
+(2) :ref:`correlations-of-sigmaj-and-jij` の議論
+を用いた.
+最後の式変形 (3) では,
 :math:`(l, j) \neq (l', j')` だと
 
 .. math::
@@ -229,6 +256,7 @@
    \right]_i
    = 0
 
+となり,
 :math:`(l, j) = (l', j')` だと
 
 .. math::
@@ -262,6 +290,12 @@
        1 - \frac{K}{N_l}
      \right)
 
+となることを用いた.
+この計算では,
+(1) 偏差 :math:`\Devi` の定義を使い,
+(2) :ref:`lln` と |def:J| による期待値の計算
+をした.
+
 
 時間平均活動率のゆらぎ
 ======================
@@ -274,14 +308,21 @@
        \sum_l \sum_j J_{kl}^{ij} \, \Devi m_l^j
      \right)^2 \right]_i
    \\
-   & =
+   & \overset{(1)} =
+     \left[
+       \sum_{ll'jj'}
+       J_{kl}^{ij} \, J_{kl'}^{ij'}
+       \Devi m_l^j \, \Devi m_{l'}^{j'}
+     \right]_i
+   \\
+   & \overset{(2)} \approx
      \sum_{ll'jj'}
      \left[
        J_{kl}^{ij} \, J_{kl'}^{ij'}
      \right]_i
      \Devi m_l^j \, \Devi m_{l'}^{j'}
    \\
-   & \approx
+   & =
      \sum_{\substack{ll' \\ l \neq l'}}
      \sum_{jj'}
      \bullet
@@ -293,6 +334,12 @@
      \sum_l
      \sum_j
      \bullet
+
+ここで,
+(1) :ref:`tech-for-prod-of-sum` と
+(2) :ref:`correlations-of-sigmaj-and-jij` の議論
+を用いた.
+上記の3つの項は以下のように計算できる.
 
 .. math::
 
@@ -367,6 +414,8 @@
        [(m_l^j)^2] - [m_l^j]^2
      \right)
 
+.. todo:: ロジックを埋める
+
 
 合計
 ====
@@ -398,13 +447,18 @@
        [(m_l^j)^2] - [m_l^j]^2
      \right)
    \\
-   & \approx
+   & =
      \sum_l
      J_{kl}^2
      \,
      [(m_l^j)^2]
-   =
+     + O(N_l^{-1})
+   \\
+   & \xrightarrow{N \to \infty}
      \sum_l
      J_{kl}^2
      \,
      q_l
+
+これで, クエンチされたゆらぎが式 :eq:`beta-is-quenched-fluctuations`
+で表されることが示された.
