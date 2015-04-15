@@ -8,9 +8,10 @@
 と集団平均活動率 :math:`m_l(t)` を結ぶ式
 
 .. math::
+   :label: alpha-is-fluctuations-of-input
 
    [(\Devi u_k^i (t))^2]_i
-   =
+   \xrightarrow{N \to \infty}
    \sum_{l = E, I} ( J_{kl} )^2 \,
    m_l(t)
    =:
@@ -170,8 +171,7 @@
 
 .. math::
 
-   \alpha_k(t)
-   & =
+   &
      [(\Devi u_k^i (t))^2]
    \\
    & \overset{(1)} =
@@ -412,7 +412,7 @@
 
 .. math::
 
-   \alpha_k(t)
+   [(\Devi u_k^i (t))^2]_i
    & =
      \sum_{l = E, I} ( J_{kl} )^2 \,
      m_l(t)
@@ -458,3 +458,9 @@
      m_l(t)
      +
      O(1/N)
+   \\
+   & \xrightarrow{N \to \infty}
+     \alpha_k(t)
+
+これで, 入力のゆらぎと集団平均活動率を結ぶ
+式 :eq:`alpha-is-fluctuations-of-input` が示された.
