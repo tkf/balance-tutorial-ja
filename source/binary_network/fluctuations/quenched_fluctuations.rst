@@ -28,24 +28,37 @@
 
 .. math::
 
-   \Devi \Avg{u_k^i(t)}_t = \text{(d1)} + \text{(d2)}
+   \Devi \Avg{u_k^i(t)}_t
+   =
+   \underbrace{
+     \sum_l \sum_j \Devi J_{kl}^{ij} \, m_l
+   }_{\text{(d1)}}
+   +
+   \underbrace{
+     \sum_l \sum_j J_{kl}^{ij} \, \Devi m_l^j
+   }_{\text{(d2)}}
 
-ただし, (d1) 「結合数のゆらぎ」, (d2) 「時間平均活動率のゆらぎ」
-は, それぞれ
-
-.. math::
-
-   \text{(d1)} = \sum_l \sum_j \Devi J_{kl}^{ij} \, [m_l^j]_j
-
-   \text{(d2)} = \sum_l \sum_j J_{kl}^{ij} \, \Devi m_l^j
-
-と定義される.  結合数は時間によらないので, そのゆらぎが「クエンチ
+ここで (d1) は 「結合数のゆらぎ」, (d2) [#]_ は 「時間平均活動率のゆらぎ」
+である.  結合数は時間によらないので, そのゆらぎが「クエンチ
 されている」のは当然であるが, 活動率の時間平均 :math:`m_l^j` も
 (平均操作のおかげで) 時間によらないので, そのゆらぎもクエンチされた
 ゆらぎに含める必要がある.  つまり,
 クエンチされたゆらぎのうち, 直接の影響である (d1) 「結合数のゆらぎ」
 と, それが引き起こす間接的な影響である (d2) 「時間平均活動率のゆらぎ」
 の2つを勘定すれば良い, という主張である.
+
+.. [#] ここでの (d2) は, 原著 [vanVreeswijk1998]_ の式(5.5)
+
+   .. math::
+
+      \delta_2 \langle u_k^i \rangle
+      = \sum_{l=1}^2 \sum_{j=1}^{N_l} \delta J_{kl}^{ij} [m_l^j]
+
+   と同値であることは, :math:`[m_l^j] = m_l` より分かる.
+   しかし, この表記では, :math:`[m_l^j]` が何を意味する不鮮明である.
+   親切に書くのならば, :math:`[m_l^{j'}]_{j'}` として,
+   添字 :math:`j` への依存性が無いことを示すべきであるが,
+   それならそもそも :math:`m_l` と書く方が良い.
 
 これは, 地道に入力の時間平均 :math:`\Avg{u_k^i(t)}_t` の偏差を計算する
 ことによって示せる:
@@ -76,18 +89,18 @@
      \sum_{l = E, I} [J_{kl}^{i'j'}]_{i'} \sum_{j=1}^{N_l} m_l^j
      \qquad (\forall j')
    \\
-   & \overset{(5)} =
+   & \overset{(5)} \approx
      \sum_{l = E, I} \sum_{j=1}^{N_l} J_{kl}^{ij} m_l^j
      -
      \underbrace{
-     \sum_{l = E, I} [J_{kl}^{i'j'}]_{i'} \sum_{j=1}^{N_l} [m_l^{j''}]_{j''}
+     \sum_{l = E, I} [J_{kl}^{i'j'}]_{i'} \sum_{j=1}^{N_l} m_l
      }_{\text{nothing depends on } j}
    \\
    & \overset{(6)} =
      \sum_{l = E, I} \sum_{j=1}^{N_l}
      \left\{
-     J_{kl}^{ij} (m_l^j - [m_l^{j''}]_{j''})
-     - (J_{kl}^{ij} - [J_{kl}^{i'j'}]_{i'}) [m_l^{j''}]_{j''}
+     J_{kl}^{ij} (m_l^j - m_l)
+     - (J_{kl}^{ij} - [J_{kl}^{i'j'}]_{i'}) m_l
      \right\}
    \\
    & =
@@ -99,9 +112,9 @@
 (3) 偏差 :math:`\Devi` の定義,
 (4) :ref:`correlations-of-sigmaj-and-jij` の議論,
 (5) :math:`\sum_{j=1}^{N_l} m_l^j = N_l N_l^{-1} \sum_{j=1}^{N_l} m_l^j
-= N_l [m_l^{j''}]_{j''}` であり, :math:`N_l = \sum_{j=1}^{N_l} 1`
-なので, 結局 :math:`... = \sum_{j=1}^{N_l} [m_l^{j''}]_{j''}`,
-(6) :math:`- J_{kl}^{ij} [m_l^{j''}]_{j''} + J_{kl}^{ij} [m_l^{j''}]_{j''} = 0`,
+= N_l [m_l^{j''}]_{j''} = N_l m_l` であり, :math:`N_l = \sum_{j=1}^{N_l} 1`
+なので, 結局 :math:`... = \sum_{j=1}^{N_l} m_l`,
+(6) :math:`- J_{kl}^{ij} m_l + J_{kl}^{ij} m_l = 0`,
 を用いた.
 式変形 (4) の右辺とそれ以降の式中に現れる :math:`j'` は, :math:`1` から :math:`N_l`
 のどの値をとっても良い.  これは :ref:`lln` より :math:`[J_{kl}^{i'j'}]_{i'}` が
@@ -143,7 +156,7 @@
    & \overset{(1)} =
      \left[
        \sum_{ll'jj'}
-       \Devi J_{kl}^{ij} \, [m_l^{j''}]_{j''} \,
+       \Devi J_{kl}^{ij} \, m_l \,
        J_{kl'}^{ij'} \, \Devi m_{l'}^{j'}
      \right]_i
    \\
@@ -152,7 +165,7 @@
      \left[
        \Devi J_{kl}^{ij} \, J_{kl'}^{ij'}
      \right]_i
-     [m_l^{j''}]_{j''} \, \Devi m_{l'}^{j'}
+     m_l \, \Devi m_{l'}^{j'}
    \\
    & \overset{(3)} =
      \sum_{lj}
@@ -161,7 +174,7 @@
        -
        \left[J_{kl}^{i*} \right]_i^2
      \right)
-     [m_l^{j''}]_{j''} \, \Devi m_{l'}^{j}
+     m_l \, \Devi m_{l'}^{j}
    \\
    & =
      \sum_{l}
@@ -170,7 +183,7 @@
        -
        \left[J_{kl}^{i*} \right]_i^2
      \right)
-     [m_l^{j''}]_{j''} \,
+     m_l \,
      \underbrace{\sum_j \Devi m_{l'}^{j}}_{=0}
    \\
    & = 0
@@ -213,14 +226,14 @@
    [\text{(d1)}^2]
    & =
      \left[ \left(
-       \sum_l \sum_j \Devi J_{kl}^{ij} \, [m_l^{j''}]_{j''}
+       \sum_l \sum_j \Devi J_{kl}^{ij} \, m_l
      \right)^2 \right]_i
    \\
    & \overset{(1)} =
      \left[
        \sum_{ll'jj'}
        \Devi J_{kl}^{ij} \, \Devi J_{kl'}^{ij'}
-       [m_l^{j''}]_{j''} \, [m_{l'}^{j''}]_{j''}
+       \, m_l \, m_{l'}
      \right]_i
    \\
    & \overset{(2)} =
@@ -228,12 +241,12 @@
      \left[
        \Devi J_{kl}^{ij} \, \Devi J_{kl'}^{ij'}
      \right]_i
-     [m_l^{j''}]_{j''} \, [m_{l'}^{j''}]_{j''}
+     m_l \, m_{l'}
    \\
    & \overset{(3)} =
      \sum_j
      J_{kl}^2 \left(1 - \frac K N_l \right)
-     \left( [m_l^{j''}]_{j''} \right)^2
+     \left( m_l \right)^2
 
 ここで,
 (1) :ref:`tech-for-prod-of-sum` と
@@ -413,6 +426,13 @@
      \left(
        [(m_l^j)^2] - [m_l^j]^2
      \right)
+   \\
+   & =
+     \sum_l
+     J_{kl}^2
+     \left(
+       q_l - m_l^2
+     \right)
 
 .. todo:: ロジックを埋める
 
@@ -439,26 +459,20 @@
    & \approx
      \sum_j
      J_{kl}^2 \left(1 - \frac K N_l \right)
-     \left( [m_l^{j''}]_{j''} \right)^2
+     \left( m_l \right)^2
      +
      \sum_l
      J_{kl}^2
      \left(
-       [(m_l^j)^2] - [m_l^j]^2
+       q_l - m_l^2
      \right)
    \\
    & =
-     \sum_l
-     J_{kl}^2
-     \,
-     [(m_l^j)^2]
+     \sum_l J_{kl}^2 \, q_l
      + O(N_l^{-1})
    \\
    & \xrightarrow{N \to \infty}
-     \sum_l
-     J_{kl}^2
-     \,
-     q_l
+     \sum_l J_{kl}^2 \, q_l
 
 これで, クエンチされたゆらぎが式 :eq:`beta-is-quenched-fluctuations`
 で表されることが示された.
