@@ -233,6 +233,7 @@ _latex_preamble = r"""
 \newcommand{\AvgDyn}[1]{\Avg{#1}_{\text{dyn.}}}
 \newcommand{\CAvg}[2]{\Avg{#1}_{\left|#2\right.}}
 \newcommand{\Devi}{\mathfrak{d}}
+\DeclareMathOperator{\diag}{diag}
 """
 
 latex_elements = {
