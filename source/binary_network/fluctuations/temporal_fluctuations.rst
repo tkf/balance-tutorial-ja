@@ -141,7 +141,7 @@
 が導かれる.  これの左辺の極限 :math:`N \to \infty` をとると
 式 :eq:`temporal-fluctuations-in-m-and-q` が導かれる.
 
-この計算結果から, 左辺は必ず正なので :math:`q_l \ge m_l` であり,
+この計算結果から, 左辺は必ず正なので :math:`q_l \le m_l` であり,
 等式 :math:`q_l = m_l` は時間ゆらぎの無い場合にのみ達成される
 ことが分かる.  この解を, 原著 [vanVreeswijk1998]_ にならい
 :index:`凍結解` (:index:`frozen solution`) と呼ぶ.
