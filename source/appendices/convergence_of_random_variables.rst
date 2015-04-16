@@ -18,10 +18,19 @@
 
 .. todo:: LNN について書く
 
+:index:`大数の法則` (:index:`law of large numbers`)
+
+.. math::
+
+   \lim_{N \to \infty} \frac 1 N \sum_{i=1}^{N} X_i = \mu
+
 .. seealso::
 
    `大数の法則 - Wikipedia
    <http://ja.wikipedia.org/wiki/%E5%A4%A7%E6%95%B0%E3%81%AE%E6%B3%95%E5%89%87>`_
+
+   `Law of large numbers - Wikipedia
+   <http://en.wikipedia.org/wiki/Law_of_large_numbers>`_
 
 
 .. _clt:
@@ -149,6 +158,27 @@ Lindeberg central limit theorem
 さらに, :math:`X_i` が二値変数 (binary variable) の場合は,
 「各 :math:`X_i` が独立」の仮定が「各 :math:`X_i` が無相関」
 より導かれる.
+
+また,
+
+.. math::
+
+   \Avg{(X_i - \mu_i)^3}
+   & =
+     (1 - \mu_i)^3 \, \mu_i + (- \mu_i)^3 (1 - \mu_i)
+   \\
+   & =
+     (1 - \mu_i) \, \mu_i \,
+     ((1 - \mu_i)^2 - \mu_i^2)
+   \\
+   & =
+     (1 - \mu_i) \, \mu_i \,
+     (1 - \mu_i + \mu_i)
+     (1 - \mu_i - \mu_i)
+   \\
+   & =
+     (1 - \mu_i) \, \mu_i \,
+     (1 - 2 \mu_i)
 
 .. seealso::
 
