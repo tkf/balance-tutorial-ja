@@ -88,6 +88,7 @@
 なので, :math:`m_k^i = \Avg{\AvgDyn{\sigma_k^i(t)}}_t` は
 
 .. math::
+   :label: mki-in-xi
 
    m_k^i = m_k(x_i) = H \left(
      \frac{-u_k - \sqrt{\beta_k} x_i}{\sqrt{\alpha_k - \beta_k}}
@@ -97,20 +98,78 @@
 すると,
 
 .. math::
+   :label: qk-self-consistent
 
    q_k
-   = \int Dx \left( m_k(x_i) \right)^2
-   = \int Dx \left[
+   = \int Dx \left( m_k(x) \right)^2
+   = \int Dx \left\{
      H \left(
        \frac{-u_k - \sqrt{\beta_k} x_i}{\sqrt{\alpha_k - \beta_k}}
      \right)
-   \right]^2
+   \right\}^2
 
 となる.  クエンチされたゆらぎ :math:`\beta_k` が :math:`q_k` に依存
 していることを思い出せば, この式は秩序変数 :math:`q_k` が満たすべき関係式
 であり, :math:`q_k` を陰に定義していることが分かる.
-:ref:`temporal-fluctuations` の考察より, 時間ゆらぎが無い場合
-:math:`\alpha_k - \beta_k = 0` は, 解 :math:`q_k = m_k` に対応し,
-さらにこれが :math:`q_k` の上限を与えることが既にわかっている.
+
+* 時間ゆらぎが無い場合 :math:`\alpha_k - \beta_k = 0`:
+
+  :math:`\sigma_k^i(t) = \Theta \left(u_k + \sqrt{\beta_k} \, x_i \right)`
+  は :math:`y_i(t)` に依存しないので,
+  :math:`m_k^i = \Avg{\AvgDyn{\sigma_k^i(t)}}_t
+  = \Theta \left(u_k + \sqrt{\beta_k} \, x_i \right)`
+  [#]_ となるから, :math:`(m_k^i)^2 = m_k^i` より,
+
+  .. math::
+
+     q_k
+     = \int Dx \, \left( m_k(x) \right)^2
+     = \int Dx \, m_k(x)
+     = m_k
+
+  である.  :ref:`temporal-fluctuations` で導いた関係式
+  より,
+  :math:`\alpha_k - \beta_k = \sum_{l=E,I} J_{kl}^2 (m_l - q_l) = 0`
+  となり, 時間ゆらぎが無いという仮定と整合性があるので,
+  :math:`q_k = m_k` は式 :eq:`qk-self-consistent` の解のひとつ
+  である.
+  :ref:`temporal-fluctuations` にある考察も参考にせよ.
+
+  .. [#] この場合の時間平均活動率
+     :math:`m_k^i = \Theta \left(u_k + \sqrt{\beta_k} \, x_i \right)`
+     は, :math:`\alpha_k - \beta_k > 0` の場合の :ref:`q-function` を用いた
+     表式 :eq:`mki-in-xi` の極限 :math:`\alpha_k - \beta_k \to 0^+` でもある.
+
+* クエンチされたゆらぎがない場合 :math:`\beta_k = 0`:
+
+  式 :eq:`qk-self-consistent` に :math:`\beta_k = 0` を代入すると,
+  :math:`m_k(x_i) = H({-u_k}/{\sqrt{\alpha_k}})` は :math:`x_i` に
+  依存しなくなり,
+
+  .. math::
+
+     q_k
+     = \int Dx \left\{
+       H \left(
+         \frac{-u_k}{\sqrt{\alpha_k}}
+       \right)
+     \right\}^2
+     = \underbrace{
+       \left\{
+         H \left(
+           \frac{-u_k}{\sqrt{\alpha_k}}
+         \right)
+       \right\}^2
+     }_{= (m_k)^2}
+     \underbrace{
+       \int Dx
+     }_{= 1}
+     = (m_k)^2
+
+  となる.  しかし, :ref:`quenched-fluctuations` で求めた関係式
+  :math:`\beta_k = \sum_{l=E,I} J_{kl}^2 q_l` にこれをあてはめると,
+  :math:`m_k = 0` または :math:`J_{kl} = 0` というトリビアルな状況を
+  除けば, :math:`\beta_k > 0` となり, 仮定 :math:`\beta_k = 0` とは
+  整合性がとれない.  よって, :math:`q_k = (m_k)^2` は解ではない.
 
 .. todo:: 解の範囲, 個数や安定性について書く.
