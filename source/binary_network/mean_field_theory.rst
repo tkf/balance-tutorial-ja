@@ -87,10 +87,10 @@
    .. math::
 
       \AvgDyn{ \left(
-        \sigma_l^j(t) \, \sigma_l^{j'}(t)
-        -
-        \AvgDyn{\sigma_l^j(t) \, \sigma_l^{j'}(t)}
-      \right)^2}
+        \sigma_l^j(t) - \AvgDyn{\sigma_l^j(t)}
+      \right) \left(
+        \sigma_l^{j'}(t) - \AvgDyn{\sigma_l^{j'}(t)}
+      \right) }
       = 0
 
    が, すべての時間 :math:`t` について成り立つ.
