@@ -132,8 +132,16 @@
   :math:`\alpha_k - \beta_k = \sum_{l=E,I} J_{kl}^2 (m_l - q_l) = 0`
   となり, 時間ゆらぎが無いという仮定と整合性があるので,
   :math:`q_k = m_k` は式 :eq:`qk-self-consistent` の解のひとつ
-  である.
-  :ref:`temporal-fluctuations` にある考察も参考にせよ.
+  である.  この解を, 原著 [vanVreeswijk1998]_ にならい
+  :index:`凍結解` (:index:`frozen solution`) と呼ぶ.
+  時間ゆらぎは二乗の平均なので正, つまり
+  :math:`\sum_{l=E,I} J_{kl}^2 (m_l - q_l)` は正である.
+
+  また, :math:`0 \le m_k(x_i) \le 1` より, 各点 :math:`x_i` で
+  :math:`m_k(x_i)^2 \le m_k(x_i)` だから,
+  :math:`\PAvg{m_k(x_i)^2} \le \PAvg{m_k(x_i)} = m_k`,
+  つまり凍結解 :math:`q_k = m_k` は秩序変数 :math:`q_k`
+  の上限を与えることが分かる.
 
   .. [#] この場合の時間平均活動率
      :math:`m_k^i = \Theta \left(u_k + \sqrt{\beta_k} \, x_i \right)`
@@ -186,4 +194,4 @@
      <http://en.wikipedia.org/wiki/Jensen%27s_inequality>`_
 
 
-.. todo:: 解の範囲, 個数や安定性について書く.
+.. todo:: 解の安定性について書く.
