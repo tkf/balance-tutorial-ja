@@ -171,5 +171,19 @@
   :math:`m_k = 0` または :math:`J_{kl} = 0` というトリビアルな状況を
   除けば, :math:`\beta_k > 0` となり, 仮定 :math:`\beta_k = 0` とは
   整合性がとれない.  よって, :math:`q_k = (m_k)^2` は解ではない.
+  一方で, イェンゼンの不等式 (Jensen's inequality) [#]_ を用いれば,
+  :math:`\PAvg{(m_k^i)^2} \ge (\PAvg{m_k^i})^2 = (m_k)^2`, つまり
+  クエンチされたゆらぎがない場合 :math:`\beta_k = 0` が
+  秩序変数 :math:`q_k` の下限を与えることが分かる.
+
+  .. [#] (下に)凸関数 :math:`f(x)` と :math:`x` に関する平均 :math:`\Avg{\bullet}`
+     について, :math:`f(\Avg{x}) \le \Avg{f(x)}` が成り立つ.  これを,
+     :index:`イェンゼンの不等式` (:index:`Jensen's inequality`) という.
+     参考: `イェンゼンの不等式 - Wikipedia
+     <http://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%A7%E3%83%B3%E3%82%BC%E3%83%B3%E3%81%AE%E4%B8%8D%E7%AD%89%E5%BC%8F>`_
+     /
+     `Jensen's inequality - Wikipedia
+     <http://en.wikipedia.org/wiki/Jensen%27s_inequality>`_
+
 
 .. todo:: 解の範囲, 個数や安定性について書く.
