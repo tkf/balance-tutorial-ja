@@ -36,8 +36,13 @@
 
      .. math::
 
-        \bm f(O(C) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
+        \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
 
+     さらに, どんな :math:`r \ge 1` についても
+
+     .. math::
+
+        \bm f(r \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
 
      .. todo:: :math:`\bm f(O(1) \bm z_0; O(1) + \bm x_0) ...` で定義するべき?
 
@@ -140,35 +145,36 @@
    +-----------+-----------+-----------+-----------+-----------+-----------+
    | |section| | |dy|      | |y|       | |CF|      | |z0|      | |check|   |
    +===========+===========+===========+===========+===========+===========+
-   | `Case 1`_ | ---       | |c|       | |c|       | |1|       | |yes|     |
+   | `Case 1`_ | |Oc|      | |Tc|      | |Tc|      | |O1|      | |yes|     |
    |           | |nb:dy|_  |           |           +-----------+-----------+
-   |           |           |           |           | |c|       | |no|      |
+   |           |           |           |           | |Tc|      | |?|       |
    +-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 2`_ | |c|       | |1|       | |c|       | |1|       | |yes|     |
+   | `Case 2`_ | |Tc|      | |O1|      | |Tc|      | |O1|      | |yes|     |
    |           |           |           |           +-----------+-----------+
-   |           |           |           |           | |c|       | |no|      |
+   |           |           |           |           | |Tc|      | |no|      |
    +-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 3`_ | |c|       | |c|       | |1|       | |1|       | |no|      |
+   | `Case 3`_ | |Tc|      | |Tc|      | |O1|      | |O1|      | |?|       |
    |           |           |           |           +-----------+-----------+
-   |           |           |           |           | |c|       | |yes|     |
+   |           |           |           |           | |Tc|      | |?|       |
    +-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 4`_ | |1|       | |1|       | |1|       | |1|       | |no|      |
+   | `Case 4`_ | |O1|      | |O1|      | |O1|      | |O1|      | |?|       |
    |           |           |           |           +-----------+-----------+
-   |           |           |           |           | |c|       | |yes|     |
+   |           |           |           |           | |Tc|      | |yes|     |
    +-----------+-----------+-----------+-----------+-----------+-----------+
 
-.. |order-columns| replace:: 各項のオーダー (:math:`\Theta(\bullet)` による比較)
-                             |nb:order|_
+.. |order-columns| replace:: 各項のオーダー |nb:order|_
 .. |section| replace:: 該当節
 .. |dy| replace:: :math:`\D \bm y / \D t`
 .. |y|  replace:: :math:`\bm y`
 .. |CF| replace:: :math:`C \bm F`
 .. |z0| replace:: :math:`\bm z_0`
-.. |c|  replace:: :math:`C`
-.. |1|  replace:: 1
+.. |Tc| replace:: :math:`\Theta(C)`
+.. |Oc| replace:: :math:`O(C)`
+.. |O1| replace:: :math:`O(1)`
 .. |check| replace:: 無矛盾
 .. |yes| replace:: o
 .. |no| replace:: x
+.. |?| replace:: ?
 
 ..
    NOTE: table 内 footnote は latex 出力が対応してないので,
@@ -216,7 +222,7 @@ Case 1
      \left\{
      \begin{array}{lll}
       O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \checkmark \\
-      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \text{contradiction!}
+      O(1/C)?& [\text{if } \bm z_0 = \Theta(C)] & \text{contradiction???}
      \end{array}
      \right.
 
@@ -228,13 +234,13 @@ Case 2
 ------
 
 仮定:
-:math:`\bm y = \Theta(1)`, :math:`\bm F = \Theta(1)`.
+:math:`\bm y = O(1)`, :math:`\bm F = \Theta(1)`.
 
 .. math::
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(1)} + \bm z_0;
+       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z_0;
              \bm x_0 + \underbrace{\bm y / C}_{\Theta(1/C)})
      - \bm f(\bm z_0; \bm x_0)
    \\
@@ -254,7 +260,7 @@ Case 3
 ------
 
 仮定:
-:math:`\bm y = \Theta(C)`, :math:`\bm F = \Theta(1/C)`.
+:math:`\bm y = \Theta(C)`, :math:`\bm F = O(1/C)`.
 
 .. math::
 
@@ -267,8 +273,8 @@ Case 3
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction!} \\
-      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \checkmark
+      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction???} \\
+      O(1/C)?& [\text{if } \bm z_0 = \Theta(C)] & \checkmark?
      \end{array}
      \right.
 
@@ -280,20 +286,20 @@ Case 4
 ------
 
 仮定:
-:math:`\bm y = \Theta(1)`, :math:`\bm F = \Theta(1/C)`.
+:math:`\bm y = O(1)`, :math:`\bm F = O(1/C)`.
 
 .. math::
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(1)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1/C)})
+       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z_0;
+             \bm x_0 + \underbrace{\bm y / C}_{O(1/C)})
      - \bm f(\bm z_0; \bm x_0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction!} \\
+      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction???} \\
       O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \checkmark
      \end{array}
      \right.
