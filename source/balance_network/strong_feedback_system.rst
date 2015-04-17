@@ -29,6 +29,20 @@
 
         \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1)
 
+     .. _strong-smoothness:
+
+     上の :math:`O(1)` を :math:`\Theta(1)` に変えたさらに強い条件も, 適宜
+     仮定する
+
+     強平滑性条件
+       :math:`\bm z_0 = \Theta(1)` かつ :math:`\bm x_0 = \Theta(1)` ならば,
+
+       .. math::
+
+          \bm f(\Theta(1) + \bm z_0; \Theta(1) + \bm x_0)
+          - \bm f(\bm z_0; \bm x_0)
+          = \Theta(1)
+
    .. _saturating:
 
    飽和性
@@ -59,6 +73,7 @@
 .. |cond:smoothness| replace:: :ref:`平滑性条件 <smoothness>`
 .. |cond:saturating| replace:: :ref:`飽和性条件 <saturating>`
 .. |cond:boundedness| replace:: :ref:`有界性条件 <boundedness>`
+.. |cond:strong-smoothness| replace:: :ref:`強平滑性条件 <strong-smoothness>`
 
 正数 :math:`C` はこの系のフィードバックの強さを決めるパラメタである.  この節では,
 極限 :math:`C \to \infty` におけるこの系の振る舞いについて述べる.
@@ -123,9 +138,12 @@
    - \bm f(\bm z_0; \bm x_0)`
    で定義される.
 
-:ref:`method-of-dominant-balance` を使ってこの系の各項が
-:math:`\Theta(C)` または :math:`\Theta(1)` になる場合をすべて
-調べよう.  単純に考えると, :math:`2^3` 個の場合をがあり得るが,
+:ref:`method-of-dominant-balance` を使ってこの系の
+小さな摂動 :math:`\bm y = O(1)`
+(元の座標系では :math:`\bm x - \bm x_0 = O(1/C)`) への応答を
+調べよう.  単純に考えると, 他の2項 :math:`\D \bm y(t)/\D t` と
+:math:`- \bm y(t)` が :math:`\Theta(C)` または :math:`O(1)`
+を取るすべての, :math:`2^2` 個の場合を考える必要がありそうだが,
 ひとつの項のみが :math:`\Theta(C)` になる場合は両辺が均衡し得ない
 ので, 除くことが出来る.  また, それぞれの場合について, 固定点が
 均衡固定点 (:math:`\bm z_0 = \Theta(1)`) である場合と,
@@ -133,7 +151,7 @@
 別に解析する必要がある.  以上の考察から,
 表 :ref:`method-of-dominant-balance-in-strong-feedback-system`
 に書き下された場合を調べれば良いことが分かる.  それぞれの場合が
-無矛盾かどうかは, 節 `Case 1`_, `Case 2`_, `Case 3`_, `Case 4`_
+無矛盾かどうかは, 節 `Case 1`_ と `Case 2`_
 を参照せよ.
 
 .. _method-of-dominant-balance-in-strong-feedback-system:
@@ -145,19 +163,11 @@
    +-----------+-----------+-----------+-----------+-----------+-----------+
    | |section| | |dy|      | |y|       | |CF|      | |z0|      | |check|   |
    +===========+===========+===========+===========+===========+===========+
-   | `Case 1`_ | |Oc|      | |Tc|      | |Tc|      | |O1|      | |yes|     |
-   |           | |nb:dy|_  |           |           +-----------+-----------+
-   |           |           |           |           | |Tc|      | |?|       |
-   +-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 2`_ | |Tc|      | |O1|      | |Tc|      | |O1|      | |yes|     |
+   | `Case 1`_ | |Tc|      | |O1|      | |Tc|      | |O1|      | |yes|     |
    |           |           |           |           +-----------+-----------+
    |           |           |           |           | |Tc|      | |no|      |
    +-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 3`_ | |Tc|      | |Tc|      | |O1|      | |O1|      | |?|       |
-   |           |           |           |           +-----------+-----------+
-   |           |           |           |           | |Tc|      | |?|       |
-   +-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 4`_ | |O1|      | |O1|      | |O1|      | |O1|      | |?|       |
+   | `Case 2`_ | |O1|      | |O1|      | |O1|      | |O1|      | |?|       |
    |           |           |           |           +-----------+-----------+
    |           |           |           |           | |Tc|      | |yes|     |
    +-----------+-----------+-----------+-----------+-----------+-----------+
@@ -185,15 +195,7 @@
   .. _`fn:order`:
 
   |nb:order|
-  例えば, `Case 1`_ のカラム |y| は, :math:`\bm y = \Theta(C)` を意味する.
-
-- .. |nb:dy| replace:: :sup:`注2`
-  .. _`nb:dy`: `fn:dy`_
-  .. _`fn:dy`:
-
-  |nb:dy|
-  `Case 1`_ は :math:`\D \bm y / \D t = \Theta(C)` と :math:`= \Theta(1)`
-  の両方に対応する.
+  例えば, `Case 1`_ のカラム |dy| は, :math:`\D \bm y / \D t = \Theta(C)` を意味する.
 
 この表から, もし固定点 :math:`\bm x_0` が安定ならば,
 均衡固定点 (:math:`\bm z_0 = \Theta(1)`) への収束は速く
@@ -205,32 +207,6 @@
 均衡固定点が一般に持つ著しい性質である.
 
 Case 1
-------
-
-仮定:
-:math:`\bm y = \Theta(C)`, :math:`\bm F = \Theta(1)`.
-
-.. math::
-
-   \bm F(\bm y)
-   & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(C)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1)})
-     - \bm f(\bm z_0; \bm x_0)
-   \\
-   & =
-     \left\{
-     \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \checkmark \\
-      O(1/C)?& [\text{if } \bm z_0 = \Theta(C)] & \text{contradiction???}
-     \end{array}
-     \right.
-
-最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:boundedness| を,
-:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
-
-
-Case 2
 ------
 
 仮定:
@@ -256,33 +232,7 @@ Case 2
 :math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
 
 
-Case 3
-------
-
-仮定:
-:math:`\bm y = \Theta(C)`, :math:`\bm F = O(1/C)`.
-
-.. math::
-
-   \bm F(\bm y)
-   & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(C)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1)})
-     - \bm f(\bm z_0; \bm x_0)
-   \\
-   & =
-     \left\{
-     \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction???} \\
-      O(1/C)?& [\text{if } \bm z_0 = \Theta(C)] & \checkmark?
-     \end{array}
-     \right.
-
-最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:boundedness| を,
-:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
-
-
-Case 4
+Case 2
 ------
 
 仮定:
@@ -299,13 +249,17 @@ Case 4
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction???} \\
+      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{undecidable} \\
       O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \checkmark
      \end{array}
      \right.
 
 最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:smoothness| を,
 :math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
+:math:`\bm z_0 = \Theta(1)` の場合は, :math:`O(1/C) = O(1)` なので
+矛盾を導くことが出来ないが, |cond:strong-smoothness| を仮定すれば,
+:math:`\bm F(\bm y) = \Theta(1) \neq O(1/C)` より矛盾を導くことが
+出来る.
 
 
 均衡固定点の線形性
