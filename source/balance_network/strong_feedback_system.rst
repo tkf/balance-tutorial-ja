@@ -50,7 +50,7 @@
    \bm x_0 = \bm f(C \, \{\bm J \bm x_0 + \bm h\}; \bm x_0)
 
 のうち, 極限 :math:`C \to \infty` で固定点 :math:`\bm x_0`
-とそれに対応する全入力 :math:`\bm z = C \, \{\bm J \bm x_0 + \bm h\}`
+とそれに対応する全入力 :math:`\bm z_0 = C \, \{\bm J \bm x_0 + \bm h\}`
 が発散しない, つまり :math:`|\bm x_0| = O(1)`
 かつ :math:`|\bm z_0| = O(1)` となるものを調べよう.
 全入力が発散しないという条件からすぐに
@@ -75,7 +75,31 @@
 支配項均衡の方法による解析
 ==========================
 
-:math:`\bm y = C \, (\bm x - \bm x_0)`
+力学系 :eq:`def-ds` の固定点は
+
+.. math::
+
+   \bm x_0 = \bm f(C \, \{\bm J \bm x_0 + \bm h\}; \bm x_0)
+
+は満たす系の状態であり, それに対応する全入力
+を :math:`\bm z_0 = C \, \{\bm J \bm x_0 + \bm h\}` と置く.
+全入力の各項がキャンセルしあって :math:`C \to \infty` で発散
+しない場合, つまり :math:`\bm z_0 = O(1)`, あるいは同値の条件
+
+.. math:: \bm J \bm x_0 + \bm h = O(1/C)
+
+を満たす固定点を :index:`均衡固定点` (:index:`balanced fixed point`)
+と呼ぶ.  これが成り立たない場合, つまり固定点での全入力が
+発散して :math:`\bm z_0 \gg C` あるいは同値の条件
+
+.. math:: \bm J \bm x_0 + \bm h \gg 1
+
+を満たす固定点を :index:`非均衡固定点` (:index:`unbalanced fixed point`)
+と呼ぶ.
+
+固定点まわりの座標系 :math:`\bm y = C \, (\bm x - \bm x_0)`
+で微分方程式 :eq:`def-ds` を書き直す.  座標変換 :math:`\bm x = \bm y / C + \bm x_0`
+を施すと,
 
 .. math::
 
@@ -91,17 +115,40 @@
          - \bm f(\bm z_0; \bm x_0)
        }_{=: \bm F(\bm y)}
 
+なので, これの両辺に :math:`C` をかけて
 
 .. math::
 
    \bm \tau \frac{\D \bm y(t)}{\D t}
    & = - \bm y(t) + C \bm F(\bm y)
 
+を得る.  [#]_
+
+.. [#] :math:`\bm F(\bm y)` は, 正確には,
+   :math:`\bm F(\bm y) :=
+   \bm f(\bm J \bm y + \bm z_0; \bm y / C + \bm x_0)
+   - \bm f(\bm z_0; \bm x_0)`
+   で定義される.
+
+:ref:`method-of-dominant-balance` を使ってこの系の各項が
+:math:`\Theta(C)` または :math:`\Theta(1)` になる場合をすべて
+調べよう.  単純に考えると, :math:`2^3` 個の場合をがあり得るが,
+ひとつの項のみが :math:`\Theta(C)` になる場合は両辺が均衡し得ない
+ので, 除くことが出来る.  また, それぞれの場合について, 固定点が
+均衡固定点 (:math:`\bm z_0 = \Theta(1)`) である場合と,
+非均衡固定点 (:math:`\bm z_0 = \Theta(C)`) である場合は
+別に解析する必要がある.  以上の考察から,
+表 :ref:`method-of-dominant-balance-in-strong-feedback-system`
+に書き下された場合を調べれば良いことが分かる.  それぞれの場合が
+無矛盾かどうかは, 節 `Case 1`_, `Case 2`_, `Case 3`_, `Case 4`_
+を参照せよ.
+
+.. _method-of-dominant-balance-in-strong-feedback-system:
 
 .. list-table:: 各項のオーダー (:math:`\Theta(\bullet)` による比較) に依る場合分け
    :header-rows: 1
 
-   * -
+   * - 該当節
      - :math:`\D \bm y / \D t`
      - :math:`\bm y`
      - :math:`C \bm F`
@@ -156,12 +203,17 @@
      - :math:`C`
      - o
 
-- もし固定点 :math:`\bm x_0` が安定ならば,
-  均衡固定点 (:math:`\bm z_0 = \Theta(1)`) への収束は速く
-  (:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(1)`),
-  非均衡固定点 (:math:`\bm z_0 = \Theta(C)`) への収束は遅い
-  (:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(C^{-1})`).
+この表から, もし固定点 :math:`\bm x_0` が安定ならば,
+均衡固定点 (:math:`\bm z_0 = \Theta(1)`) への収束は速く
+(:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(1)`),
+非均衡固定点 (:math:`\bm z_0 = \Theta(C)`) への収束は遅い
+(:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(C^{-1})`)
+ことが読み取れる.
+これは, 抽象的な定義しか与えていない力学系から導くことの出来る,
+均衡固定点が一般に持つ著しい性質である.
 
+.. todo:: 以下の解析について, :math:`O(\bullet)` を :math:`\Theta(\bullet)` に修正.
+   その修正の整合性があるかも確認.
 
 Case 1
 ------
