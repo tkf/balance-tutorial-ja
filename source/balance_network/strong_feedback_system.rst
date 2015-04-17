@@ -40,38 +40,6 @@
 関数 :math:`\bm f` の第一引数 :math:`\bm z = C \, \{\bm J \bm x(t) + \bm h\}`
 を系への「全入力」と呼ぶことにする.
 
-固定点
-======
-
-力学系 :eq:`def-ds` の固定点 :math:`\bm x_0`
-
-.. math::
-
-   \bm x_0 = \bm f(C \, \{\bm J \bm x_0 + \bm h\}; \bm x_0)
-
-のうち, 極限 :math:`C \to \infty` で固定点 :math:`\bm x_0`
-とそれに対応する全入力 :math:`\bm z_0 = C \, \{\bm J \bm x_0 + \bm h\}`
-が発散しない, つまり :math:`|\bm x_0| = O(1)`
-かつ :math:`|\bm z_0| = O(1)` となるものを調べよう.
-全入力が発散しないという条件からすぐに
-
-.. math::
-
-   |\bm J \bm x_0 + \bm h| = O(1/C)
-
-が言える.  よって,
-
-.. math::
-
-   \bm x_0 = - \bm J^{-1} \bm h + O(1/C)
-
-となることが分かる.  つまり, この固定点 :math:`\bm x_0` は
-外部入力 :math:`\bm h` に対し, :math:`O(1/C)` の誤差を除けば
-線形の関係を持つ.  もしこの固定点が安定ならば, この系は外部入力
-に対し, 「線形な応答」をしていることになり, しかもそれが系の
-詳細を決める関数 :math:`\bm f` に依らないという著しい性質を持つ.
-
-
 支配項均衡の方法による解析
 ==========================
 
@@ -312,3 +280,74 @@ Case 4
       O(1/C) & [\text{if } \bm z_0 = O(C)] & \checkmark
      \end{array}
      \right.
+
+
+均衡固定点の線形性
+==================
+
+.. todo:: 前節とのつながりを良くする.
+
+力学系 :eq:`def-ds` の固定点 :math:`\bm x_0`
+
+.. math::
+
+   \bm x_0 = \bm f(C \, \{\bm J \bm x_0 + \bm h\}; \bm x_0)
+
+のうち, 極限 :math:`C \to \infty` で固定点 :math:`\bm x_0`
+とそれに対応する全入力 :math:`\bm z_0 = C \, \{\bm J \bm x_0 + \bm h\}`
+が発散しない, つまり :math:`|\bm x_0| = O(1)`
+かつ :math:`|\bm z_0| = O(1)` となるものを調べよう.
+全入力が発散しないという条件からすぐに
+
+.. math::
+
+   |\bm J \bm x_0 + \bm h| = O(1/C)
+
+が言える.  よって,
+
+.. math::
+
+   \bm x_0 = - \bm J^{-1} \bm h + O(1/C)
+
+となることが分かる.  つまり, この固定点 :math:`\bm x_0` は
+外部入力 :math:`\bm h` に対し, :math:`O(1/C)` の誤差を除けば
+線形の関係を持つ.  もしこの固定点が安定ならば, この系は外部入力
+に対し, 「線形な応答」をしていることになり, しかもそれが系の
+詳細を決める関数 :math:`\bm f` に依らないという著しい性質を持つ.
+
+
+均衡固定点の安定性
+==================
+
+表 :ref:`method-of-dominant-balance-in-strong-feedback-system`
+から, 均衡固定点まわりのダイナミクスは,
+
+.. math::
+
+   \bm \tau \frac{\D \bm y(t)}{\D t}
+   & = - \bm y(t) + C \bm F(\bm y)
+   \sim C \bm F(\bm y)
+
+つまり,
+
+.. math::
+
+   \frac{\D \bm y(t)}{\D t} \sim C \bm \tau^{-1} \bm F(\bm y)
+
+で記述されると分かる.  よって, この系の安定性の解析は,
+行列 :math:`\bm \tau^{-1} D_1 \bm f \bm J`
+の固有値で決まる (:math:`- \bm y(t)` の寄与が消えていることに注意).
+ただし,
+
+.. math::
+
+   D_1 \bm f =
+   \left.
+   \frac{\partial \bm f(\bm z; \bm x_0)}{\partial \bm z}
+   \right|_{\bm z = \bm z_0}
+
+である.  :math:`\bm f` の第二引数からの寄与が無いのは,
+この方向への摂動が :math:`\bm y / C = O(1/C)` と小さいため
+である.
+
+.. todo:: ↑確認
