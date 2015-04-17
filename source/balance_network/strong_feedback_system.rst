@@ -121,7 +121,7 @@
    | |section| | |dy|      | |y|       | |CF|      | |z0|      | |check|   |
    +===========+===========+===========+===========+===========+===========+
    | `Case 1`_ | ---       | |c|       | |c|       | |1|       | |yes|     |
-   |           |           |           |           +-----------+-----------+
+   |           | |nb:dy|_  |           |           +-----------+-----------+
    |           |           |           |           | |c|       | |no|      |
    +-----------+-----------+-----------+-----------+-----------+-----------+
    | `Case 2`_ | |c|       | |1|       | |c|       | |1|       | |yes|     |
@@ -138,6 +138,7 @@
    +-----------+-----------+-----------+-----------+-----------+-----------+
 
 .. |order-columns| replace:: 各項のオーダー (:math:`\Theta(\bullet)` による比較)
+                             |nb:order|_
 .. |section| replace:: 該当節
 .. |dy| replace:: :math:`\D \bm y / \D t`
 .. |y|  replace:: :math:`\bm y`
@@ -148,6 +149,25 @@
 .. |check| replace:: 無矛盾
 .. |yes| replace:: o
 .. |no| replace:: x
+
+..
+   NOTE: table 内 footnote は latex 出力が対応してないので,
+   ↓ではマニュアル footenote のようなことをしている
+
+- .. |nb:order| replace:: :sup:`注1`
+  .. _`nb:order`: `fn:order`_
+  .. _`fn:order`:
+
+  |nb:order|
+  例えば, `Case 1`_ のカラム |y| は, :math:`\bm y = \Theta(C)` を意味する.
+
+- .. |nb:dy| replace:: :sup:`注2`
+  .. _`nb:dy`: `fn:dy`_
+  .. _`fn:dy`:
+
+  |nb:dy|
+  `Case 1`_ は :math:`\D \bm y / \D t = \Theta(C)` と :math:`= \Theta(1)`
+  の両方に対応する.
 
 この表から, もし固定点 :math:`\bm x_0` が安定ならば,
 均衡固定点 (:math:`\bm z_0 = \Theta(1)`) への収束は速く
