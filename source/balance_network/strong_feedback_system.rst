@@ -20,20 +20,40 @@
 
 .. admonition:: 関数 :math:`\bm f` の性質
 
-   :math:`\bm z_0 = O(1)` ならば,
+   .. _smoothness:
 
-   .. math::
+   平滑性
+     :math:`\bm z_0 = O(1)` かつ :math:`\bm x_0 = O(1)` ならば,
 
-      \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1)
+     .. math::
 
-   飽和性:
-   :math:`\bm z_0 = O(C)` ならば,
+        \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1)
 
-   .. math::
+   .. _saturating:
 
-      \bm f(O(C) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
+   飽和性
+     :math:`\bm z_0 = O(C)` ならば,
 
-.. todo:: 関数 :math:`\bm f` の満たすべき条件を書き下す
+     .. math::
+
+        \bm f(O(C) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
+
+
+     .. todo:: :math:`\bm f(O(1) \bm z_0; O(1) + \bm x_0) ...` で定義するべき?
+
+   .. _boundedness:
+
+   有界性
+     関数 :math:`\bm f` の(像が)有界である.  つまり, 定数 :math:`A` が存在して,
+     どんな :math:`\bm z`, :math:`\bm x` についても
+     :math:`|\bm f(\bm z; \bm x)| < A` となる.  他の2つの条件と同じ書き方を
+     すれば,
+
+     .. math:: \bm f(\bm z; \bm x) = O(1)
+
+.. |cond:smoothness| replace:: :ref:`平滑性条件 <smoothness>`
+.. |cond:saturating| replace:: :ref:`飽和性条件 <saturating>`
+.. |cond:boundedness| replace:: :ref:`有界性条件 <boundedness>`
 
 正数 :math:`C` はこの系のフィードバックの強さを決めるパラメタである.  この節では,
 極限 :math:`C \to \infty` におけるこの系の振る舞いについて述べる.
@@ -178,106 +198,108 @@
 これは, 抽象的な定義しか与えていない力学系から導くことの出来る,
 均衡固定点が一般に持つ著しい性質である.
 
-.. todo:: 以下の解析について, :math:`O(\bullet)` を :math:`\Theta(\bullet)` に修正.
-   その修正の整合性があるかも確認.
-
 Case 1
 ------
 
 仮定:
-:math:`\bm y = O(C)`, :math:`\bm F = O(1)`.
-
-.. math::
-
-   \bm F(\bm y)
-   = D \bm F \bm J \bm y
-     + \underbrace{
-       O(|\bm y|^2)
-     }_{O(C^2)}
+:math:`\bm y = \Theta(C)`, :math:`\bm F = \Theta(1)`.
 
 .. math::
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(C)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{O(1)})
+       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(C)} + \bm z_0;
+             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1)})
      - \bm f(\bm z_0; \bm x_0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = O(1)] & \checkmark \\
-      O(1/C) & [\text{if } \bm z_0 = O(C)] & \text{contradiction!}
+      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \checkmark \\
+      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \text{contradiction!}
      \end{array}
      \right.
+
+最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:boundedness| を,
+:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
+
 
 Case 2
 ------
 
 仮定:
-:math:`\bm y = O(1)`, :math:`\bm F = O(1)`.
+:math:`\bm y = \Theta(1)`, :math:`\bm F = \Theta(1)`.
 
 .. math::
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{O(1/C)})
+       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(1)} + \bm z_0;
+             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1/C)})
      - \bm f(\bm z_0; \bm x_0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = O(1)] & \checkmark \\
-      O(1/C) & [\text{if } \bm z_0 = O(C)] & \text{contradiction!}
+      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \checkmark \\
+      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \text{contradiction!}
      \end{array}
      \right.
+
+最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:smoothness| を,
+:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
 
 
 Case 3
 ------
 
 仮定:
-:math:`\bm y = O(C)`, :math:`\bm F = O(1/C)`.
+:math:`\bm y = \Theta(C)`, :math:`\bm F = \Theta(1/C)`.
 
 .. math::
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(C)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{O(1)})
+       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(C)} + \bm z_0;
+             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1)})
      - \bm f(\bm z_0; \bm x_0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = O(1)] & \text{contradiction!} \\
-      O(1/C) & [\text{if } \bm z_0 = O(C)] & \checkmark
+      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction!} \\
+      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \checkmark
      \end{array}
      \right.
+
+最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:boundedness| を,
+:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
 
 
 Case 4
 ------
 
 仮定:
-:math:`\bm y = O(1)`, :math:`\bm F = O(1/C)`.
+:math:`\bm y = \Theta(1)`, :math:`\bm F = \Theta(1/C)`.
 
 .. math::
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{O(1/C)})
+       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(1)} + \bm z_0;
+             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1/C)})
      - \bm f(\bm z_0; \bm x_0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = O(1)] & \text{contradiction!} \\
-      O(1/C) & [\text{if } \bm z_0 = O(C)] & \checkmark
+      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{contradiction!} \\
+      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \checkmark
      \end{array}
      \right.
+
+最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:smoothness| を,
+:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
 
 
 均衡固定点の線形性
