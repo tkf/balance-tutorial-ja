@@ -6,6 +6,7 @@
 
 
 .. list-table::
+   :header-rows: 1
    :widths: 10 10 30 30
 
    * - 記号
