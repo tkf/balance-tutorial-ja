@@ -113,7 +113,7 @@
 
 .. _method-of-dominant-balance-in-strong-feedback-system:
 
-.. list-table:: 各項のオーダー (:math:`\Theta(\bullet)` による比較) に依る場合分け
+.. list-table:: 各項のオーダーに依る場合分け
    :header-rows: 1
 
    * - 該当節
