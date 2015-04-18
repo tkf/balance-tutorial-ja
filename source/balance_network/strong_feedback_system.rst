@@ -65,19 +65,8 @@
 
      .. todo:: :math:`\bm f(O(1) \bm z_0; O(1) + \bm x_0) ...` で定義するべき?
 
-   .. _boundedness:
-
-   有界性
-     関数 :math:`\bm f` の(像が)有界である.  つまり, 定数 :math:`A` が存在して,
-     どんな :math:`\bm z`, :math:`\bm x` についても
-     :math:`|\bm f(\bm z; \bm x)| < A` となる.  他の2つの条件と同じ書き方を
-     すれば,
-
-     .. math:: \bm f(\bm z; \bm x) = O(1)
-
 .. |cond:smoothness| replace:: :ref:`平滑性条件 <smoothness>`
 .. |cond:saturating| replace:: :ref:`飽和性条件 <saturating>`
-.. |cond:boundedness| replace:: :ref:`有界性条件 <boundedness>`
 .. |cond:strong-smoothness| replace:: :ref:`強平滑性条件 <strong-smoothness>`
 
 正数 :math:`C` はこの系のフィードバックの強さを決めるパラメタである.  この節では,
