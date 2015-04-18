@@ -50,7 +50,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project =  u'興奮・抑制平衡入門'
+project =  u'興奮・抑制均衡入門'
 author = u'新垣貴史'
 copyright = u'2015, ' + author
 

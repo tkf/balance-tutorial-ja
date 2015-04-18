@@ -94,7 +94,7 @@ Q関数
 
 .. math:: Q(z) := \int_z^\infty \frac{\D x}{\sqrt{2 \pi}} \exp(- x^2 / 2)
 
-興奮・抑制平衡のオリジナルの論文 [vanVreeswijk1998]_ ではこのQ関数は
+興奮・抑制均衡のオリジナルの論文 [vanVreeswijk1998]_ ではこのQ関数は
 :math:`H(z)` と表記され, :index:`相補誤差関数`
 (:index:`complementary error function`, :index:`erfc`)
 と呼ばれているが, 広く使われている定義
