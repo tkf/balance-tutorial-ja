@@ -32,11 +32,11 @@
    * - :math:`f = \Omega(g)`
      - ---
      - :math:`g = O(f)`
-     -
+     - :math:`f` の増加は :math:`g` より速いか同じ
    * - :math:`f = \omega(g)`
      - ---
      - :math:`g = o(f)`
-     -
+     - :math:`f` の増加は :math:`g` より速い
 
 * :math:`f \ll g` を :math:`f = O(g)` と定義するか, :math:`f = o(g)` と定義するかは
   文献に依るようだ.  ここでは, :math:`f \ll g` は :math:`f = o(g)` で定義し,

@@ -18,6 +18,11 @@
 は系の状態 :math:`\bm x(t) \in \mathbb R^p` の各成分の相互作用を表す行列,
 ベクトル :math:`\bm h \in \mathbb R^p` はこの系への外部入力を表す.
 
+漸近関係記号 :math:`\sim`, :math:`O`, :math:`\Theta`, :math:`\Omega`
+などについては, :ref:`asymptotics` を参照.  この節では, これらの記号
+はすべて :math:`C \to \infty` (as :math:`C \to \infty`) についての
+漸近関係を表すとする.
+
 .. admonition:: 関数 :math:`\bm f` の性質
 
    .. _smoothness:
@@ -98,12 +103,20 @@
 
 を満たす固定点を :index:`均衡固定点` (:index:`balanced fixed point`)
 と呼ぶ.  これが成り立たない場合, つまり固定点での全入力が
-発散して :math:`\bm z_0 \gg C` あるいは同値の条件
+発散して :math:`\bm z_0 = \Omega(C)` となる, あるいは同値の条件
 
-.. math:: \bm J \bm x_0 + \bm h \gg 1
+.. math:: \bm J \bm x_0 + \bm h = \Omega(1)
 
 を満たす固定点を :index:`非均衡固定点` (:index:`unbalanced fixed point`)
 と呼ぶ.
+
+.. todo:: :math:`1 \ll \bm z_0 \lesssim C` の場合は考えなくて良いのか?
+   (同値な条件: :math:`\bm z_0 = \omega(1)` かつ :math:`\bm z_0 = o(C)`)
+   例えば, :math:`\bm z_0 = \Theta(C^{1/2})` や :math:`\bm z_0 = \Theta(\log C)`
+   など.
+
+.. todo:: 他の部分を, :math:`\bm z_0 = \Omega(C)` に合うように書きなおす.
+   :math:`\bm z_0 = \omega(1)` でもいけないかどうかも考える.
 
 固定点まわりの座標系 :math:`\bm y = C \, (\bm x - \bm x_0)`
 で微分方程式 :eq:`def-ds` を書き直す.  座標変換 :math:`\bm x = \bm y / C + \bm x_0`
