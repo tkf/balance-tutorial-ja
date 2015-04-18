@@ -34,6 +34,18 @@
 
         \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1)
 
+     .. todo:: この条件は *すべての* :math:`\bm x_0 = O(1)` で... という意味だが,
+        それだと, `二状態ニューロンから成るネットワーク`_ の場合は強平滑性があっても,
+        :math:`\bm x_0 = 0` で上式が成り立たないので, 平滑性が無い, という不思議な
+        ことになる.
+
+        いや, その場合は :math:`\bm f` が bound されてるのでどうあがいても平滑性は
+        保証されてしまうか.  :math:`\bm x_0 = 0` で :math:`\bm f` が発散する場合
+        は危ないかも?
+
+        「:math:`\bm z_0 = O(1)` かつ :math:`\bm x_0 = O(1)` 」 の
+        :math:`O(1)` は :math:`\Theta(1)` に変えるべきじゃない気がする.
+
      .. _strong-smoothness:
 
      上の :math:`O(1)` を :math:`\Theta(1)` に変えたさらに強い条件も, 適宜
@@ -57,17 +69,28 @@
 
         \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
 
-     さらに, どんな :math:`r \ge 1` についても
+     .. todo:: :math:`\bm z_0 = \omega(1)` ならば,
 
-     .. math::
+        .. math::
 
-        \bm f(r \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
+           \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = o(1)
 
-     .. todo:: :math:`\bm f(O(1) \bm z_0; O(1) + \bm x_0) ...` で定義するべき?
+        に出来ない?
+
+   上記の :math:`\bm f` に関する漸近関係はすべて :math:`\bm z_0` と
+   :math:`\bm x_0` に依存しているので, :math:`O_{\bm z_0,\bm x_0}(1)`
+   などと書くべきである.  もし, この依存性がなければ, 強平滑性は飽和性
+   と矛盾することに注意.
+
+   .. todo:: 強平滑性以外は, :math:`\bm z_0` と :math:`\bm x_0` への依存性
+      が無いとするほうが自然かも?
 
 .. |cond:smoothness| replace:: :ref:`平滑性条件 <smoothness>`
 .. |cond:saturating| replace:: :ref:`飽和性条件 <saturating>`
 .. |cond:strong-smoothness| replace:: :ref:`強平滑性条件 <strong-smoothness>`
+
+.. todo:: |cond:saturating| は仮定しなくても良いが, 非均衡固定点は発散してしまう
+   ので興味が無い, ということについて説明.
 
 正数 :math:`C` はこの系のフィードバックの強さを決めるパラメタである.  この節では,
 極限 :math:`C \to \infty` におけるこの系の振る舞いについて述べる.
@@ -333,3 +356,75 @@ Case 2
 である.
 
 .. todo:: ↑確認
+
+
+強フィードバック系の例
+======================
+
+発火率モデル (rate model)
+-------------------------
+
+:math:`p` 個の集団からなる発火率モデルのネットワークで, すべての
+集団の入出力関係 (input-output relationship あるいは transfer function)
+がシグモイド関数 :math:`g` (例えば, ロジスティック関数
+:math:`g(t) = 1/(1+\exp(-t))`) [#]_ で与えられているとすれば,
+関数 :math:`\bm f` の :math:`i` 番目 (:math:`i = 1, \ldots, p`) の成分は
+
+.. math:: f_i(\bm z; \bm x) = g(z_i)
+
+と書ける.
+
+.. [#] :math:`\arctan`, :math:`\tanh`, :ref:`q-function` (の :math:`x` 軸を
+   反転したもの) などでも構わない.
+
+シグモイド関数 :math:`g` は :math:`z^0 = \Theta(1)` からの非ゼロの変化に対して,
+必ず非ゼロの変化をうむ, つまり
+
+.. math:: g(\Theta(1) + z^0) + g(z^0) = \Theta(1)
+
+なので, |cond:strong-smoothness| が成り立つ.
+
+もし, 関数 :math:`g` が
+
+.. math::
+
+   g(z) =
+   \begin{cases}
+     1 & 1 < z \\
+     z & 0 < z \le 1 \\
+     0 & z \le 0
+   \end{cases}
+
+のような区分的線形関数の場合は, |cond:strong-smoothness| は成り立たないが,
+|cond:smoothness| は成り立つ.
+
+
+二状態ニューロンから成るネットワーク
+------------------------------------
+
+:ref:`二状態ニューロンから成るネットワーク <binary-network>`
+の平均場方程式も強フィードバック系である (:ref:`mft` を参照).
+この場合は, :math:`p = 2` 個の集団からなる力学系で, 状態
+は集団平均発火率 :math:`\bm x = (m_1, m_2)^\intercal` で,
+外部入力は :math:`\bm h = (J_{10} m_0, J_{20} m_0)^\intercal`
+である.  関数 :math:`\bm f` は,
+
+.. math::
+
+   f_k(\bm z; \bm x) = H(-(z_k - \theta_k) / \sqrt{\alpha_k(\bm x)})
+
+   \alpha_k(\bm x) = (J_{k1})^2 x_1 + (J_{k2})^2 x_2
+
+で定義される.  また, フィードバックの強さは :math:`C = \sqrt K` で決まる.
+上記のシグモイド関数の場合と同様に, |cond:strong-smoothness| が成り立つ.
+
+
+強フィードバック系ではない例
+----------------------------
+
+均衡固定点の存在を保証するには |cond:smoothness| さえあれば良いから,
+これが本質的な条件である.
+
+.. todo:: |cond:smoothness| が成り立たない関数なんてあるの?
+   定義域で発散する場合 :math:`f_i(z) = 1 / (z - 1)` とか?
+   (正確には, 定義域が連結でない場合?)
