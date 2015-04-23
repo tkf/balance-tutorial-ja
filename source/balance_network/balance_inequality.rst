@@ -82,9 +82,14 @@
    で定義する.
 
 関数 :math:`\bm f` は, :math:`k = E, I` について,
-:math:`z_k = |\Omega(C)|` ならば :math:`f_k(\bm z) \sim m_k^{\max}`
-で
-:math:`z_k = -|\Omega(C)|` ならば :math:`f_k(\bm z) \ll 1` である,
+
+.. math::
+   :label: cond-f
+
+   z_k = |\Omega(C)| \Leftrightarrow f_k(\bm z) \sim m_k^{\max}
+
+   z_k = -|\Omega(C)| \Leftrightarrow f_k(\bm z) \ll 1
+
 という性質を満たすとする.
 
 .. todo:: :math:`m_k^{\max} = \infty` でも OK だと説明.
@@ -170,11 +175,70 @@
 
 を得る.
 
+.. math::
+   :label: balance-inequality
+
+   \frac{h_{E}}{h_{I}} > \frac{J_{EE}}{J_{IE}} > \frac{J_{EE}}{J_{IE}}
+
+.. math::
+   :label: unbalance-inequality
+
+   \frac{h_{E}}{h_{I}} < \frac{J_{EE}}{J_{IE}} < \frac{J_{EE}}{J_{IE}}
+
+
 
 条件: 発火率ゼロの固定点は存在しない
 ====================================
 
 .. todo:: 書く: 条件: 発火率ゼロの固定点は存在しない
+
+片方の集団の発火率がゼロでもう一方の集団の発火率が非ゼロ
+で有限な固定点が存在する条件を求める.
+
+.. todo:: 必要条件?  必要十分?
+
+:math:`k = E, l = I` または :math:`k = I, l = E` とする.
+集団 :math:`k` の発火率がゼロ (:math:`m_k \ll 1`) だとすると,
+この状態が固定点となる条件は, 条件 :eq:`cond-f` より,
+:math:`z_k = -|\Omega(C)|` つまり,
+
+.. math::
+
+   J_{kl} m_l + h_k = - |\Omega(1/C)|
+
+である.  :math:`l = E` ならば左辺の項はすべて正なので実現不可能
+である.  ゆえに, :math:`k = E`, :math:`l = I` でなければならない.
+さらに, 集団 :math:`l = I` が非ゼロで有限である, つまり
+:math:`m_I = \Theta(1)` となる条件より, :math:`z_I = \Theta(1)`
+つまり,
+
+.. math::
+
+   J_{II} \, m_I + h_I = \Theta(1/C)
+
+である.
+
+.. math::
+
+   m_I = - h_I / J_{II} + \Theta(1/C)
+
+.. math::
+
+   &
+     J_{EI} (- h_I / J_{II} + \Theta(1/C)) + h_E = - |\Omega(1/C)|
+   \\
+   & \Leftrightarrow
+     - h_I J_{EI} / J_{II} + h_E = - |\Omega(1/C)|
+   \\
+   & \Leftrightarrow
+     h_I \left(
+       \frac{J_{EI}}{J_{II}} - \frac{h_E}{h_I}
+     \right) = |\Omega(1/C)|
+   \\
+   & \Leftarrow
+     \frac{J_{EI}}{J_{II}} > \frac{h_E}{h_I}
+
+最後の式は, 式 :eq:`unbalance-inequality` の必要条件である.
 
 
 条件: 発火率の飽和した固定点は存在しない
