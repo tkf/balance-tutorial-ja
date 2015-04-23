@@ -255,8 +255,6 @@
 :math:`\bm x \sim \bm m^{\max} := (m^{\max}_E, m^{\max}_I)^\intercal`
 を考える.
 
-.. todo:: 飽和・有限固定点は?
-
 .. math::
 
    z_k = |\Omega(C)| \Leftrightarrow f_k(\bm z) \sim m_k^{\max}
@@ -412,3 +410,194 @@
    \\
    & \Leftrightarrow
      \frac{J_{EE}}{J_{II}} < \frac{J_{EI}}{J_{IE}}
+
+
+飽和・有限固定点
+----------------
+
+.. todo:: 書く: 飽和・有限固定点
+
+:math:`k = E, l = I` または :math:`k = I, l = E` とする.
+:math:`m_k \sim m^{\max}_k` かつ
+集団 :math:`l` が非ゼロで有限である, つまり
+:math:`m_l = \Theta(1)` となる条件より, :math:`z_l = \Theta(1)`
+である.
+
+.. math::
+
+   J_{kk} \, m^{\max}_k + J_{kl} \, m_l + h_k = |\Theta(1)|
+
+   J_{lk} \, m^{\max}_k + J_{ll} \, m_l + h_l = \Theta(1/C)
+
+.. math::
+
+   m_l = \frac{\Theta(1/C) - J_{lk} \, m^{\max}_k - h_l}{J_{ll}}
+
+.. math::
+
+   &
+     J_{kk} \, m^{\max}_k
+     - J_{kl} \, \frac{J_{lk} \, m^{\max}_k + h_l}{J_{ll}}
+     + h_k = |\Theta(1)|
+   \\
+   & \Leftrightarrow
+     \left(
+       \frac{J_{kk}}{J_{kl}} - \frac{J_{lk}}{J_{ll}}
+     \right)
+     J_{kl} \, m^{\max}_k
+     - \frac{J_{kl}}{J_{ll}} h_l
+     + h_k = |\Theta(1)|
+   \\
+   & \Leftrightarrow
+     \left(
+       \frac{J_{kk}}{J_{kl}} - \frac{J_{lk}}{J_{ll}}
+     \right)
+     J_{kl} \, m^{\max}_k
+     > \frac{J_{kl}}{J_{ll}} h_l
+     - h_k
+
+
+:math:`k = E, l = I`
+~~~~~~~~~~~~~~~~~~~~
+
+この飽和・有限固定点が存在しない必要十分条件は,
+
+.. math::
+
+   &
+     \left(
+       \frac{J_{EE}}{J_{EI}} - \frac{J_{IE}}{J_{II}}
+     \right)
+     J_{EI} \, m^{\max}_E
+     - \frac{J_{EI}}{J_{II}} h_I + h_E
+     < 0
+   \\
+   & \Leftrightarrow
+     \left(
+       \frac{J_{EE}}{J_{IE}} - \frac{J_{EI}}{J_{II}}
+     \right)
+     J_{IE} \, m^{\max}_E
+     +
+     h_I
+     \left(
+       \frac{h_E}{h_I} - \frac{J_{EI}}{J_{II}}
+     \right)
+     < 0
+   \\
+   & \Leftrightarrow
+     m^{\max}_E
+     >
+     \frac{h_I}{J_{IE}}
+     \left(
+       \frac{h_E}{h_I} - \frac{J_{EI}}{J_{II}}
+     \right)
+     /
+     \left(
+       \frac{J_{EI}}{J_{II}} - \frac{J_{EE}}{J_{IE}}
+     \right)
+
+右辺はすべて正.
+
+..
+        \left\{
+        \right\}
+
+..
+ math::
+
+   J_{EE} \, m^{\max} + J_{EI} \, m_I + h_E = |\Theta(1)|
+
+   J_{IE} \, m^{\max} + J_{II} \, m_I + h_I = \Theta(1/C)
+
+..
+ math::
+
+   J_{EE} \, m^{\max} + J_{EI} \, m_I + h_E
+   >
+   (J_{EE} + J_{EI}) m^{\max} + h_E
+
+
+:math:`k = I, l = E`
+~~~~~~~~~~~~~~~~~~~~
+
+この飽和・有限固定点が存在しない必要十分条件は,
+
+.. math::
+
+   &
+     \left(
+       \frac{J_{II}}{J_{IE}} - \frac{J_{EI}}{J_{EE}}
+     \right)
+     J_{IE} \, m^{\max}_I
+     - \frac{J_{IE}}{J_{EE}} h_E
+     + h_I
+     < 0
+   \\
+   & \Leftrightarrow
+     \left(
+       \frac{J_{EE}}{J_{IE}} - \frac{J_{EI}}{J_{II}}
+     \right)
+     \frac{J_{IE} J_{II}}{J_{EE}}
+     m^{\max}_I
+     + h_I \frac{J_{IE}}{J_{EE}}
+     \left(
+       \frac{J_{EE}}{J_{IE}} - \frac{h_E}{h_I}
+     \right)
+     < 0
+   \\
+   & \Leftrightarrow
+     \left(
+       \frac{J_{EI}}{J_{II}} - \frac{J_{EE}}{J_{IE}}
+     \right)
+     J_{II} \, m^{\max}_I
+     + h_I
+     \left(
+       \frac{h_E}{h_I} - \frac{J_{EE}}{J_{IE}}
+     \right)
+     < 0
+   \\
+   & \Leftrightarrow
+     m^{\max}_I
+     >
+     - \frac{h_I}{J_{II}}
+     \left(
+       \frac{h_E}{h_I} - \frac{J_{EE}}{J_{IE}}
+     \right)
+     /
+     \left(
+       \frac{J_{EI}}{J_{II}} - \frac{J_{EE}}{J_{IE}}
+     \right)
+
+
+右辺はすべて正.
+
+..
+   math::
+   &
+     \left(
+       \frac{J_{II}}{J_{IE}} - \frac{J_{EI}}{J_{EE}}
+     \right)
+     J_{IE} > 0
+   \\
+   & \Leftrightarrow
+     \frac{J_{EE}}{J_{IE}} < \frac{J_{EI}}{J_{II}}
+
+
+:math:`m^{\max}_I = m^{\max}_E = m^{\max}` なら
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. math::
+
+   m^{\max}
+     >
+     \frac{h_I}{\min \left\{J_{IE}, - J_{II} \right\}}
+     \left(
+       \frac{h_E}{h_I} - \frac{J_{EE}}{J_{IE}}
+     \right)
+     /
+     \left(
+       \frac{J_{EI}}{J_{II}} - \frac{J_{EE}}{J_{IE}}
+     \right)
+
+:math:`\max \left\{J_{IE}^{-1}, - J_{II}^{-1} \right\}
+= 1 / \min \left\{J_{IE}, - J_{II} \right\}`
