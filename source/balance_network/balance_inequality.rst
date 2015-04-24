@@ -86,13 +86,18 @@
 .. math::
    :label: cond-f
 
-   z_k = |\Omega(C)| \Leftrightarrow f_k(\bm z) \sim m_k^{\max}
+   z_k = |\Omega(C)| \Leftrightarrow f_k(\bm z) \sim m^{\max}
 
    z_k = -|\Omega(C)| \Leftrightarrow f_k(\bm z) \ll 1
 
-という性質を満たすとする.
+という性質を満たすとする.   ここで, :math:`m^{\max}` は :math:`C`
+に依存しない正の定数である.  定数 :math:`m^{\max}` は集団ごとに
+違う値を考えても良いが, :math:`m_k` をスケールすれば同じ値にする
+ことができるので, この仮定は一般性を損なわない.
 
-.. todo:: :math:`m_k^{\max} = \infty` でも OK だと説明.
+.. todo:: :math:`m^{\max} = \infty` でも OK だと説明.
+   その時に, :math:`m^{\max}_k = \infty`, :math:`m^{\max}_l < \infty`
+   の議論は捨てていることにも言及.  でもそんな変なモデル考える必要ないはず.
 
 均衡固定点は形式的に
 
@@ -274,31 +279,26 @@
 飽和-固定点の非存在条件
 =======================
 
-.. todo:: 書く: 条件: 発火率の飽和した固定点は存在しない
-
 両方の集団の発火率が飽和した固定点 (`飽和-固定点`_)
-:math:`\bm x \sim \bm m^{\max} := (m^{\max}_E, m^{\max}_I)^\intercal`
+:math:`m_E = m_I = m^{\max}`
 を考える.
-
-.. math::
-
-   z_k = |\Omega(C)| \Leftrightarrow f_k(\bm z) \sim m_k^{\max}
+条件 :eq:`cond-f`
+(:math:`z_k = |\Omega(C)| \Leftrightarrow f_k(\bm z) \sim m^{\max}`)
+より, :math:`k = E, I` について,
 
 .. math::
 
    J_{kE} \, m^{\max}_E + J_{kI} \, m^{\max}_I + h_k = |\Omega(1/C)|
 
-:math:`m^{\max}_k \sim 1` (:math:`k = E, I`) の場合, 左辺の
-オーダーは無条件に :math:`\Theta(1)` なので, これは条件
+が成り立つことが, 飽和-固定点が存在する必要十分条件である.
+:math:`m^{\max} = \Omega(1)` より, 左辺の
+オーダーは無条件に :math:`\Omega(1)` なので, これは条件
 
 .. math::
 
-   J_{kE} \, m^{\max}_E + J_{kI} \, m^{\max}_I + h_k > 0
+   J_{kE} \, m^{\max} + J_{kI} \, m^{\max} + h_k > 0
 
-と同値である.
-
-さらに, :math:`m^{\max} = m^{\max}_E = m^{\max}_I` とすると, 固定点
-:math:`\bm x \sim \bm m^{\max}` が存在するための必要十分条件は,
+と同値である.  これをさらに同値変形することにより,
 
 .. math::
    :nowrap:
@@ -340,110 +340,27 @@
    ことに注意.  しかし, :math:`J_E > 1` を満たしても
    `外部入力に依存した飽和-固定点の存在条件`_ は成立し得る.
 
-式 :eq:`balance-inequality`
-:math:`\Rightarrow J_{EI} J_{IE} / J_{II} > J_{EE}` だから,
-:math:`J_{EE} + J_{EI} \ge 0` は式 :eq:`balance-inequality` の
-条件下で,
-
-.. math::
-
-   J_{EE} \ge - J_{EI}
-   \Rightarrow
-   J_{EI} \frac{J_{IE}}{J_{II}} \ge - J_{EI}
-   \Rightarrow
-   J_{EI} \le - J_{II}
-
-式 :eq:`balance-inequality`
-:math:`\Rightarrow J_{IE} J_{EI} / J_{EE} < J_{II}` だから,
-:math:`J_{IE} + J_{II} \ge 0` は
-
-.. math::
-
-   - J_{IE} \le J_{II}
-   \Rightarrow
-
-式 :eq:`balance-inequality` は
+前節までで導いた均衡条件不等式 :eq:`balance-inequality` は
 
 .. math::
 
    J_{EE} - \frac{J_{IE}}{J_{II}} J_{EI} < 0
-   \enskip \& \enskip
-   J_{IE} - \frac{J_{EE}}{J_{EI}} J_{II} > 0
 
-を導く.  最初の不等式から, 式 :eq:`balance-inequality` の条件下で
-:math:`1 < - {J_{IE}}/{J_{II}}` (つまり :math:`- J_{II} < J_{IE}`)
+を導く.  よって, 式 :eq:`balance-inequality` の条件下で
+:math:`1 \le - {J_{IE}}/{J_{II}}` (つまり :math:`J_{IE} + J_{II} \ge 0`)
 ならば :math:`J_{EE} + J_{EI} \ge 0` は満たされないことが分かる.
-
-1. :math:`J_{EE} + J_{EI} \ge 0` かつ :math:`J_{IE} + J_{II} \ge 0`
-2. :math:`J_{EE} + J_{EI} \ge 0` かつ :math:`J_{IE} + J_{II} < 0`
-3. :math:`J_{EE} + J_{EI} < 0` かつ :math:`J_{IE} + J_{II} \ge 0`
-4. :math:`J_{EE} + J_{EI} < 0` かつ :math:`J_{IE} + J_{II} < 0`
-
-:math:`J_{EE} + J_{EI} \ge 0` かつ :math:`J_{IE} + J_{II} < 0` の場合,
-
-.. math::
-
-   &
-     - J_{EI} \le J_{EE}
-     \enskip \& \enskip
-     J_{IE} < - J_{II}
-   \\
-   & \Rightarrow
-     - J_{EI} J_{IE} < - J_{EE} J_{II}
-   \\
-   & \Leftrightarrow
-     \frac{J_{EI}}{J_{II}} < \frac{J_{EE}}{J_{IE}}
-
-同様に,
-:math:`J_{EE} + J_{EI} < 0` かつ :math:`J_{IE} + J_{II} \ge 0` の場合,
+ゆえに, 式 :eq:`balance-inequality` の条件下で
+:math:`J_{EE} + J_{EI} \ge 0` と :math:`J_{IE} + J_{II} \ge 0` は
+同時に成立しない.   ゆえに 式 :eq:`balance-inequality` の条件下で
+`外部入力に依存しない飽和-固定点の存在条件`_ は成立し得ない.
+以上の議論をあわせると, 式 :eq:`balance-inequality` の条件下で
+`飽和-固定点`_ が存在し\ **ない**\ 必要十分条件は,
 
 .. math::
 
-   &
-     - J_{EI} > J_{EE}
-     \enskip \& \enskip
-     J_{IE} \ge - J_{II}
-   \\
-   & \Rightarrow
-     - J_{EI} J_{IE} > - J_{EE} J_{II}
-   \\
-   & \Leftrightarrow
-     \frac{J_{EI}}{J_{II}} > \frac{J_{EE}}{J_{IE}}
+   m^{\max} \ge \min_{k=E,I} \frac{- h_k}{J_{kE} + J_{kI}}
 
-同様に,
-:math:`J_{EE} + J_{EI} < 0` かつ :math:`J_{IE} + J_{II} < 0` の場合,
-
-.. math::
-
-   &
-     - J_{EI} > J_{EE}
-     \enskip \& \enskip
-     J_{IE} < - J_{II}
-   \\
-   & \Rightarrow
-     ...
-
-発火率の限界が無い場合
-----------------------
-
-:math:`m^{\max}_E = m^{\max}_I = \infty` の場合,
-:math:`k = E, I` について :math:`J_{kE} > - J_{kI}`
-ならば, 両方の集団の発火率が発散した状態は無矛盾である.
-これは両方の集団の発火率が飽和 (:math:`m_k \sim m_k^{\max}`,
-:math:`k = E, I`) した固定点に対応する.
-
-.. math::
-
-   &
-     J_{EE} > - J_{EI}
-     \enskip \& \enskip
-     J_{IE} > - J_{II}
-   \\
-   & \Rightarrow
-     J_{EE} J_{IE} > J_{EI} J_{II}
-   \\
-   & \Leftrightarrow
-     \frac{J_{EE}}{J_{II}} < \frac{J_{EI}}{J_{IE}}
+である.
 
 
 飽和・均衡-固定点の非存在条件
