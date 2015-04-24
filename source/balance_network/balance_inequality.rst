@@ -390,14 +390,12 @@
 飽和・均衡-固定点の非存在条件
 =============================
 
-.. todo:: 書く: 飽和・有限固定点
-
 `飽和・均衡-固定点`_ が存在しない必要十分条件を求める.
 :math:`k = E, l = I` または :math:`k = I, l = E` とする.
-:math:`m_k \sim m^{\max}_k` かつ
-集団 :math:`l` が非ゼロで有限である, つまり
-:math:`m_l = \Theta(1)` となる条件より, :math:`z_l = \Theta(1)`
-である.
+:math:`m_k \sim m^{\max}` かつ
+集団 :math:`l` の発火率が非ゼロで飽和していない
+(:math:`m_l = \Theta(1)`) という条件は,
+:math:`z_k = |\Theta(C)|` かつ :math:`z_l = \Theta(1)`, つまり,
 
 .. math::
 
@@ -405,9 +403,13 @@
 
    J_{lk} \, m^{\max}_k + J_{ll} \, m_l + h_l = \Theta(1/C)
 
+と同値である.  前者の式に後者の式を :math:`m_l` について解いた結果
+
 .. math::
 
    m_l = \frac{\Theta(1/C) - J_{lk} \, m^{\max}_k - h_l}{J_{ll}}
+
+を代入して同値変形すると,
 
 .. math::
 
@@ -429,14 +431,16 @@
        \frac{J_{kk}}{J_{kl}} - \frac{J_{lk}}{J_{ll}}
      \right)
      J_{kl} \, m^{\max}_k
-     > \frac{J_{kl}}{J_{ll}} h_l
-     - h_k
+     - \frac{J_{kl}}{J_{ll}} h_l
+     + h_k > 0
+
+を得る.  これを2つの場合に分けてさらに同値変形する.
 
 
-:math:`k = E, l = I`
---------------------
+Case 1: :math:`k = E, l = I`
+----------------------------
 
-この飽和・有限固定点が存在しない必要十分条件は,
+この `飽和・均衡-固定点`_ の存在する必要条件は,
 
 .. math::
 
@@ -446,7 +450,7 @@
      \right)
      J_{EI} \, m^{\max}_E
      - \frac{J_{EI}}{J_{II}} h_I + h_E
-     < 0
+     > 0
    \\
    & \Leftrightarrow
      \left(
@@ -458,11 +462,11 @@
      \left(
        \frac{h_E}{h_I} - \frac{J_{EI}}{J_{II}}
      \right)
-     < 0
+     > 0
    \\
    & \Leftrightarrow
      m^{\max}_E
-     >
+     <
      \frac{h_I}{J_{IE}}
      \left(
        \frac{h_E}{h_I} - \frac{J_{EI}}{J_{II}}
@@ -472,31 +476,11 @@
        \frac{J_{EI}}{J_{II}} - \frac{J_{EE}}{J_{IE}}
      \right)
 
-右辺はすべて正.
 
-..
-        \left\{
-        \right\}
+Case 2: :math:`k = I, l = E`
+----------------------------
 
-..
- math::
-
-   J_{EE} \, m^{\max} + J_{EI} \, m_I + h_E = |\Theta(1)|
-
-   J_{IE} \, m^{\max} + J_{II} \, m_I + h_I = \Theta(1/C)
-
-..
- math::
-
-   J_{EE} \, m^{\max} + J_{EI} \, m_I + h_E
-   >
-   (J_{EE} + J_{EI}) m^{\max} + h_E
-
-
-:math:`k = I, l = E`
---------------------
-
-この飽和・有限固定点が存在しない必要十分条件は,
+この `飽和・均衡-固定点`_ の存在する必要条件は,
 
 .. math::
 
@@ -507,7 +491,7 @@
      J_{IE} \, m^{\max}_I
      - \frac{J_{IE}}{J_{EE}} h_E
      + h_I
-     < 0
+     > 0
    \\
    & \Leftrightarrow
      \left(
@@ -519,7 +503,7 @@
      \left(
        \frac{J_{EE}}{J_{IE}} - \frac{h_E}{h_I}
      \right)
-     < 0
+     > 0
    \\
    & \Leftrightarrow
      \left(
@@ -530,11 +514,11 @@
      \left(
        \frac{h_E}{h_I} - \frac{J_{EE}}{J_{IE}}
      \right)
-     < 0
+     > 0
    \\
    & \Leftrightarrow
      m^{\max}_I
-     >
+     <
      - \frac{h_I}{J_{II}}
      \left(
        \frac{h_E}{h_I} - \frac{J_{EE}}{J_{IE}}
@@ -545,27 +529,16 @@
      \right)
 
 
-右辺はすべて正.
+2つの場合を統合
+---------------
 
-..
-   math::
-   &
-     \left(
-       \frac{J_{II}}{J_{IE}} - \frac{J_{EI}}{J_{EE}}
-     \right)
-     J_{IE} > 0
-   \\
-   & \Leftrightarrow
-     \frac{J_{EE}}{J_{IE}} < \frac{J_{EI}}{J_{II}}
-
-
-:math:`m^{\max}_I = m^{\max}_E = m^{\max}` なら
------------------------------------------------
+以上の結果を合わせると, `飽和・均衡-固定点`_ の2つの場合の
+うち少なくともいずれか1つが存在する必要条件は,
 
 .. math::
 
    m^{\max}
-     >
+     <
      \frac{h_I}{\min \left\{J_{IE}, - J_{II} \right\}}
      \left(
        \frac{h_E}{h_I} - \frac{J_{EE}}{J_{IE}}
@@ -575,9 +548,27 @@
        \frac{J_{EI}}{J_{II}} - \frac{J_{EE}}{J_{IE}}
      \right)
 
+である.  ここで,
 :math:`\max \left\{J_{IE}^{-1}, - J_{II}^{-1} \right\}
 = 1 / \min \left\{J_{IE}, - J_{II} \right\}`
+なる関係を用いた.
+よって, いかなる `飽和・均衡-固定点`_ も存在し\ **ない**,
+**十分**\ 条件は,
 
+.. math::
+
+   m^{\max}
+     \ge
+     \frac{h_I}{\min \left\{J_{IE}, - J_{II} \right\}}
+     \left(
+       \frac{h_E}{h_I} - \frac{J_{EE}}{J_{IE}}
+     \right)
+     /
+     \left(
+       \frac{J_{EI}}{J_{II}} - \frac{J_{EE}}{J_{IE}}
+     \right)
+
+となる.
 
 飽和・無活動-固定点の非存在条件
 ===============================
