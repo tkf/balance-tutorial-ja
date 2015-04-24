@@ -30,22 +30,22 @@
    .. _smoothness:
 
    平滑性
-     :math:`\bm z_0 = O(1)` かつ :math:`\bm x_0 = O(1)` ならば,
+     :math:`\bm z^0 = O(1)` かつ :math:`\bm x^0 = O(1)` ならば,
 
      .. math::
 
-        \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1)
+        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = O(1)
 
-     .. todo:: この条件は *すべての* :math:`\bm x_0 = O(1)` で... という意味だが,
+     .. todo:: この条件は *すべての* :math:`\bm x^0 = O(1)` で... という意味だが,
         それだと, `二状態ニューロンから成るネットワーク`_ の場合は強平滑性があっても,
-        :math:`\bm x_0 = 0` で上式が成り立たないので, 平滑性が無い, という不思議な
+        :math:`\bm x^0 = 0` で上式が成り立たないので, 平滑性が無い, という不思議な
         ことになる.
 
         いや, その場合は :math:`\bm f` が bound されてるのでどうあがいても平滑性は
-        保証されてしまうか.  :math:`\bm x_0 = 0` で :math:`\bm f` が発散する場合
+        保証されてしまうか.  :math:`\bm x^0 = 0` で :math:`\bm f` が発散する場合
         は危ないかも?
 
-        「:math:`\bm z_0 = O(1)` かつ :math:`\bm x_0 = O(1)` 」 の
+        「:math:`\bm z^0 = O(1)` かつ :math:`\bm x^0 = O(1)` 」 の
         :math:`O(1)` は :math:`\Theta(1)` に変えるべきじゃない気がする.
 
      .. _strong-smoothness:
@@ -54,37 +54,37 @@
      仮定する
 
      強平滑性条件
-       :math:`\bm z_0 = \Theta(1)` かつ :math:`\bm x_0 = \Theta(1)` ならば,
+       :math:`\bm z^0 = \Theta(1)` かつ :math:`\bm x^0 = \Theta(1)` ならば,
 
        .. math::
 
-          \bm f(\Theta(1) + \bm z_0; \Theta(1) + \bm x_0)
-          - \bm f(\bm z_0; \bm x_0)
+          \bm f(\Theta(1) + \bm z^0; \Theta(1) + \bm x^0)
+          - \bm f(\bm z^0; \bm x^0)
           = \Theta(1)
 
    .. _saturating:
 
    飽和性
-     :math:`\bm z_0 = O(C)` ならば,
+     :math:`\bm z^0 = O(C)` ならば,
 
      .. math::
 
-        \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = O(1/C)
+        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = O(1/C)
 
-     .. todo:: :math:`\bm z_0 = \omega(1)` ならば,
+     .. todo:: :math:`\bm z^0 = \omega(1)` ならば,
 
         .. math::
 
-           \bm f(O(1) + \bm z_0; O(1) + \bm x_0) - \bm f(\bm z_0; \bm x_0) = o(1)
+           \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = o(1)
 
         に出来ない?
 
-   上記の :math:`\bm f` に関する漸近関係はすべて :math:`\bm z_0` と
-   :math:`\bm x_0` に依存しているので, :math:`O_{\bm z_0,\bm x_0}(1)`
+   上記の :math:`\bm f` に関する漸近関係はすべて :math:`\bm z^0` と
+   :math:`\bm x^0` に依存しているので, :math:`O_{\bm z^0,\bm x^0}(1)`
    などと書くべきである.  もし, この依存性がなければ, 強平滑性は飽和性
    と矛盾することに注意.
 
-   .. todo:: 強平滑性以外は, :math:`\bm z_0` と :math:`\bm x_0` への依存性
+   .. todo:: 強平滑性以外は, :math:`\bm z^0` と :math:`\bm x^0` への依存性
       が無いとするほうが自然かも?
 
 .. |cond:smoothness| replace:: :ref:`平滑性条件 <smoothness>`
@@ -106,48 +106,48 @@
 
 .. math::
 
-   \bm x_0 = \bm f(C \, \{\bm J \bm x_0 + \bm h\}; \bm x_0)
+   \bm x^0 = \bm f(C \, \{\bm J \bm x^0 + \bm h\}; \bm x^0)
 
 は満たす系の状態であり, それに対応する全入力
-を :math:`\bm z_0 = C \, \{\bm J \bm x_0 + \bm h\}` と置く.
+を :math:`\bm z^0 = C \, \{\bm J \bm x^0 + \bm h\}` と置く.
 全入力の各項がキャンセルしあって :math:`C \to \infty` で発散
-しない場合, つまり :math:`\bm z_0 = O(1)`, あるいは同値の条件
+しない場合, つまり :math:`\bm z^0 = O(1)`, あるいは同値の条件
 
-.. math:: \bm J \bm x_0 + \bm h = O(1/C)
+.. math:: \bm J \bm x^0 + \bm h = O(1/C)
 
 を満たす固定点を :index:`均衡固定点` (:index:`balanced fixed point`)
 と呼ぶ.  これが成り立たない場合, つまり固定点での全入力が
-発散して :math:`\bm z_0 = \Omega(C)` となる, あるいは同値の条件
+発散して :math:`\bm z^0 = \Omega(C)` となる, あるいは同値の条件
 
-.. math:: \bm J \bm x_0 + \bm h = \Omega(1)
+.. math:: \bm J \bm x^0 + \bm h = \Omega(1)
 
 を満たす固定点を :index:`非均衡固定点` (:index:`unbalanced fixed point`)
 と呼ぶ.
 
-.. todo:: :math:`1 \ll \bm z_0 \lesssim C` の場合は考えなくて良いのか?
-   (同値な条件: :math:`\bm z_0 = \omega(1)` かつ :math:`\bm z_0 = o(C)`)
-   例えば, :math:`\bm z_0 = \Theta(C^{1/2})` や :math:`\bm z_0 = \Theta(\log C)`
+.. todo:: :math:`1 \ll \bm z^0 \lesssim C` の場合は考えなくて良いのか?
+   (同値な条件: :math:`\bm z^0 = \omega(1)` かつ :math:`\bm z^0 = o(C)`)
+   例えば, :math:`\bm z^0 = \Theta(C^{1/2})` や :math:`\bm z^0 = \Theta(\log C)`
    など.
 
-.. todo:: 他の部分を, :math:`\bm z_0 = \Omega(C)` に合うように書きなおす.
-   :math:`\bm z_0 = \omega(1)` でもいけないかどうかも考える.
+.. todo:: 他の部分を, :math:`\bm z^0 = \Omega(C)` に合うように書きなおす.
+   :math:`\bm z^0 = \omega(1)` でもいけないかどうかも考える.
 
-固定点まわりの座標系 :math:`\bm y = C \, (\bm x - \bm x_0)`
-で微分方程式 :eq:`def-ds` を書き直す.  座標変換 :math:`\bm x = \bm y / C + \bm x_0`
+固定点まわりの座標系 :math:`\bm y = C \, (\bm x - \bm x^0)`
+で微分方程式 :eq:`def-ds` を書き直す.  座標変換 :math:`\bm x = \bm y / C + \bm x^0`
 を施すと,
 
 .. math::
 
    C^{-1} \bm \tau \frac{\D \bm y(t)}{\D t}
    & =
-     - (\bm y(t) / C + \bm x_0)
-     + \bm f(C \, \{\bm J (\bm y(t) / C + \bm x_0) + \bm h\}; \bm x)
+     - (\bm y(t) / C + \bm x^0)
+     + \bm f(C \, \{\bm J (\bm y(t) / C + \bm x^0) + \bm h\}; \bm x)
    \\
    & =
      - \bm y(t) / C
      + \underbrace{
-           \bm f(\bm J \bm y(t) + \bm z_0; \bm x)
-         - \bm f(\bm z_0; \bm x_0)
+           \bm f(\bm J \bm y(t) + \bm z^0; \bm x)
+         - \bm f(\bm z^0; \bm x^0)
        }_{=: \bm F(\bm y)}
 
 なので, これの両辺に :math:`C` をかけて
@@ -161,20 +161,20 @@
 
 .. [#] :math:`\bm F(\bm y)` は, 正確には,
    :math:`\bm F(\bm y) :=
-   \bm f(\bm J \bm y + \bm z_0; \bm y / C + \bm x_0)
-   - \bm f(\bm z_0; \bm x_0)`
+   \bm f(\bm J \bm y + \bm z^0; \bm y / C + \bm x^0)
+   - \bm f(\bm z^0; \bm x^0)`
    で定義される.
 
 :ref:`method-of-dominant-balance` を使ってこの系の
 小さな摂動 :math:`\bm y = O(1)`
-(元の座標系では :math:`\bm x - \bm x_0 = O(1/C)`) への応答を
+(元の座標系では :math:`\bm x - \bm x^0 = O(1/C)`) への応答を
 調べよう.  単純に考えると, 他の2項 :math:`\D \bm y(t)/\D t` と
 :math:`- \bm y(t)` が :math:`\Theta(C)` または :math:`O(1)`
 を取るすべての, :math:`2^2` 個の場合を考える必要がありそうだが,
 ひとつの項のみが :math:`\Theta(C)` になる場合は両辺が均衡し得ない
 ので, 除くことが出来る.  また, それぞれの場合について, 固定点が
-均衡固定点 (:math:`\bm z_0 = \Theta(1)`) である場合と,
-非均衡固定点 (:math:`\bm z_0 = \Theta(C)`) である場合は
+均衡固定点 (:math:`\bm z^0 = \Theta(1)`) である場合と,
+非均衡固定点 (:math:`\bm z^0 = \Theta(C)`) である場合は
 別に解析する必要がある.  以上の考察から,
 表 :ref:`method-of-dominant-balance-in-strong-feedback-system`
 に書き下された場合を調べれば良いことが分かる.  それぞれの場合が
@@ -204,7 +204,7 @@
 .. |dy| replace:: :math:`\D \bm y / \D t`
 .. |y|  replace:: :math:`\bm y`
 .. |CF| replace:: :math:`C \bm F`
-.. |z0| replace:: :math:`\bm z_0`
+.. |z0| replace:: :math:`\bm z^0`
 .. |Tc| replace:: :math:`\Theta(C)`
 .. |Oc| replace:: :math:`O(C)`
 .. |O1| replace:: :math:`O(1)`
@@ -224,10 +224,10 @@
   |nb:order|
   例えば, `Case 1`_ のカラム |dy| は, :math:`\D \bm y / \D t = \Theta(C)` を意味する.
 
-この表から, もし固定点 :math:`\bm x_0` が安定ならば,
-均衡固定点 (:math:`\bm z_0 = \Theta(1)`) への収束は速く
+この表から, もし固定点 :math:`\bm x^0` が安定ならば,
+均衡固定点 (:math:`\bm z^0 = \Theta(1)`) への収束は速く
 (:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(1)`),
-非均衡固定点 (:math:`\bm z_0 = \Theta(C)`) への収束は遅い
+非均衡固定点 (:math:`\bm z^0 = \Theta(C)`) への収束は遅い
 (:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(C^{-1})`)
 ことが読み取れる.
 これは, 抽象的な定義しか与えていない力学系から導くことの出来る,
@@ -243,20 +243,20 @@ Case 1
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{\Theta(1/C)})
-     - \bm f(\bm z_0; \bm x_0)
+       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z^0;
+             \bm x^0 + \underbrace{\bm y / C}_{\Theta(1/C)})
+     - \bm f(\bm z^0; \bm x^0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \checkmark \\
-      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \text{contradiction!}
+      O(1)   & [\text{if } \bm z^0 = \Theta(1)] & \checkmark \\
+      O(1/C) & [\text{if } \bm z^0 = \Theta(C)] & \text{contradiction!}
      \end{array}
      \right.
 
-最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:smoothness| を,
-:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
+最後の等式では, :math:`\bm z^0 = \Theta(1)` の場合は |cond:smoothness| を,
+:math:`\bm z^0 = \Theta(C)` の場合は |cond:saturating| を用いた.
 
 
 Case 2
@@ -269,21 +269,21 @@ Case 2
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z_0;
-             \bm x_0 + \underbrace{\bm y / C}_{O(1/C)})
-     - \bm f(\bm z_0; \bm x_0)
+       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z^0;
+             \bm x^0 + \underbrace{\bm y / C}_{O(1/C)})
+     - \bm f(\bm z^0; \bm x^0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z_0 = \Theta(1)] & \text{undecidable} \\
-      O(1/C) & [\text{if } \bm z_0 = \Theta(C)] & \checkmark
+      O(1)   & [\text{if } \bm z^0 = \Theta(1)] & \text{undecidable} \\
+      O(1/C) & [\text{if } \bm z^0 = \Theta(C)] & \checkmark
      \end{array}
      \right.
 
-最後の等式では, :math:`\bm z_0 = \Theta(1)` の場合は |cond:smoothness| を,
-:math:`\bm z_0 = \Theta(C)` の場合は |cond:saturating| を用いた.
-:math:`\bm z_0 = \Theta(1)` の場合は, :math:`O(1/C) = O(1)` なので
+最後の等式では, :math:`\bm z^0 = \Theta(1)` の場合は |cond:smoothness| を,
+:math:`\bm z^0 = \Theta(C)` の場合は |cond:saturating| を用いた.
+:math:`\bm z^0 = \Theta(1)` の場合は, :math:`O(1/C) = O(1)` なので
 矛盾を導くことが出来ないが, |cond:strong-smoothness| を仮定すれば,
 :math:`\bm F(\bm y) = \Theta(1) \neq O(1/C)` より矛盾を導くことが
 出来る.
@@ -296,29 +296,29 @@ Case 2
 
 .. todo:: 前節とのつながりを良くする.
 
-力学系 :eq:`def-ds` の固定点 :math:`\bm x_0`
+力学系 :eq:`def-ds` の固定点 :math:`\bm x^0`
 
 .. math::
 
-   \bm x_0 = \bm f(C \, \{\bm J \bm x_0 + \bm h\}; \bm x_0)
+   \bm x^0 = \bm f(C \, \{\bm J \bm x^0 + \bm h\}; \bm x^0)
 
-のうち, 極限 :math:`C \to \infty` で固定点 :math:`\bm x_0`
-とそれに対応する全入力 :math:`\bm z_0 = C \, \{\bm J \bm x_0 + \bm h\}`
-が発散しない, つまり :math:`|\bm x_0| = O(1)`
-かつ :math:`|\bm z_0| = O(1)` となるものを調べよう.
+のうち, 極限 :math:`C \to \infty` で固定点 :math:`\bm x^0`
+とそれに対応する全入力 :math:`\bm z^0 = C \, \{\bm J \bm x^0 + \bm h\}`
+が発散しない, つまり :math:`|\bm x^0| = O(1)`
+かつ :math:`|\bm z^0| = O(1)` となるものを調べよう.
 全入力が発散しないという条件からすぐに
 
 .. math::
 
-   |\bm J \bm x_0 + \bm h| = O(1/C)
+   |\bm J \bm x^0 + \bm h| = O(1/C)
 
 が言える.  よって,
 
 .. math::
 
-   \bm x_0 = - \bm J^{-1} \bm h + O(1/C)
+   \bm x^0 = - \bm J^{-1} \bm h + O(1/C)
 
-となることが分かる.  つまり, この固定点 :math:`\bm x_0` は
+となることが分かる.  つまり, この固定点 :math:`\bm x^0` は
 外部入力 :math:`\bm h` に対し, :math:`O(1/C)` の誤差を除けば
 線形の関係を持つ.  もしこの固定点が安定ならば, この系は外部入力
 に対し, 「線形な応答」をしていることになり, しかもそれが系の
@@ -354,8 +354,8 @@ Case 2
 
    D_1 \bm f =
    \left.
-   \frac{\partial \bm f(\bm z; \bm x_0)}{\partial \bm z}
-   \right|_{\bm z = \bm z_0}
+   \frac{\partial \bm f(\bm z; \bm x^0)}{\partial \bm z}
+   \right|_{\bm z = \bm z^0}
 
 である.  :math:`\bm f` の第二引数からの寄与が無いのは,
 この方向への摂動が :math:`\bm y / C = O(1/C)` と小さいため
