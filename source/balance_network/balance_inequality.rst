@@ -583,4 +583,14 @@ Case 2: :math:`k = I, l = E`
 つまり
 :math:`J_{EI} \, m^{\max} + h_E < 0` かつ
 :math:`J_{II} \, m^{\max} + h_I > 0`
-ならば存在する.
+ならば存在する.  これは,
+
+.. math:: - \frac{h_E}{J_{EI}} < m^{\max} < - \frac{h_I}{J_{II}}
+
+とも書ける.  これが成立する必要条件は
+
+.. math:: \frac{h_E}{h_I} < \frac{J_{EI}}{J_{II}}
+
+だが, これは式 :eq:`balance-inequality` の下では成立しない.
+ゆえに, いかなる `飽和・無活動-固定点`_ も式 :eq:`balance-inequality` の下では
+無条件で存在しない.
