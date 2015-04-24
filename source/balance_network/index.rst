@@ -8,3 +8,4 @@
    rate_balance_network
    strong_feedback_system
    balance_inequality
+   stabilizability
