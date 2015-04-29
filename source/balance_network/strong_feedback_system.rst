@@ -27,6 +27,33 @@
 
 .. admonition:: 関数 :math:`\bm f` の性質
 
+   :math:`\bm x^0` を力学系 :eq:`def-ds` の任意の状態とし,
+   :math:`\bm z^0 = C \, \{\bm J \bm x^0 + \bm h\}` と定義する.
+   (この節では :math:`\bm x^0` が固定点の場合しか考えないが, ここでの
+   定義は固定点でなくても良い.)
+   :math:`\bm f` が状態 :math:`\bm x^0` で *平滑性*, *伝播性*
+   あるいは *飽和性* をもつとは, 以下で定義される.
+
+   平滑性
+     .. math::
+        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = O(1)
+
+   伝播性
+     .. math::
+        \bm f(\Omega(1) + \bm z^0; \Omega(1) + \bm x^0)
+        - \bm f(\bm z^0; \bm x^0)
+        = \Omega(1)
+
+   飽和性
+     .. math::
+        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = o(1)
+
+   :math:`\bm f` は以下の性質を持つ
+
+   - :math:`\bm z^0 = O(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で平滑性をもつ
+   - :math:`\bm z^0 = O(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で伝播性をもつ
+   - :math:`\bm z^0 = \omega(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で飽和性をもつ
+
    .. _smoothness:
 
    平滑性
@@ -62,8 +89,16 @@
           - \bm f(\bm z^0; \bm x^0)
           = \Theta(1)
 
-     .. todo:: 「平滑性」じゃなくて, 「伝播性」という条件にすべき.
-        不等式の向きが逆.
+   .. _transmissibility:
+
+   伝播性
+     :math:`\bm z^0 = O(1)` かつ :math:`\bm x^0 = O(1)` ならば,
+
+     .. math::
+
+        \bm f(\Omega(1) + \bm z^0; \Omega(1) + \bm x^0)
+        - \bm f(\bm z^0; \bm x^0)
+        = \Omega(1)
 
    .. _saturating:
 
@@ -85,6 +120,7 @@
 .. |cond:smoothness| replace:: :ref:`平滑性条件 <smoothness>`
 .. |cond:saturating| replace:: :ref:`飽和性条件 <saturating>`
 .. |cond:strong-smoothness| replace:: :ref:`強平滑性条件 <strong-smoothness>`
+.. |cond:transmissibility| replace:: :ref:`伝達率条件 <transmissibility>`
 
 .. todo:: |cond:saturating| は仮定しなくても良いが, 非均衡固定点は発散してしまう
    ので興味が無い, ということについて説明.
@@ -159,14 +195,16 @@
    で定義される.
 
 :ref:`method-of-dominant-balance` を使ってこの系の
-小さな摂動 :math:`\bm y = O(1)`
+小さな摂動 :math:`\bm y = \Theta(1)`
 (元の座標系では :math:`\bm x - \bm x^0 = O(1/C)`) への応答を
 調べよう.
 もし, :math:`C \bm F(\bm y)` のオーダーが :math:`O(1)` より大きい
 (つまり :math:`C \bm F(\bm y) = \omega(1)`) ならば,
-:math:`C \bm F(\bm y)` と :math:`\D \bm y(t)/\D t` のオーダーが
-等しい (つまり, :math:`\D \bm y(t)/\D t \asymp C \bm F(\bm y)`
+:math:`C \bm F(\bm y)` と :math:`\D \bm y/\D t` のオーダーが
+等しい (つまり, :math:`\D \bm y/\D t \asymp C \bm F(\bm y)`
 となる) ことが, 式 :eq:`ode-y` の成り立つ必要条件である.
+これは, 元の座標系では :math:`\D \bm x/\D t \asymp \bm F(\bm y)`
+を意味する.
 
 仮定 :math:`\bm y = O(1)` から, :math:`\bm F(\bm y)` のオーダーは
 
@@ -174,21 +212,40 @@
 
    \bm F(\bm y)
    & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z^0;
-             \bm x^0 + \underbrace{\bm y / C}_{O(1/C)})
+       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(1)} + \bm z^0;
+             \bm x^0 + \underbrace{\bm y / C}_{\Theta(1/C)})
      - \bm f(\bm z^0; \bm x^0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1) & (\text{if } \bm z^0 = O(1)) \\
-      o(1) & (\text{if } \bm z^0 = \omega(1))
+      \Omega(1) & (\text{if } \bm z^0 = O(1)) \\
+      o(1)      & (\text{if } \bm z^0 = \omega(1))
      \end{array}
      \right.
 
 と見積もることが出来る.
-最後の等式では, :math:`\bm z^0 = O(1)` の場合は |cond:smoothness| を,
+最後の等式では, :math:`\bm z^0 = O(1)` の場合は |cond:transmissibility| を,
 :math:`\bm z^0 = \omega(C)` の場合は |cond:saturating| を用いた.
+
+ゆえに, 小さな摂動 :math:`\bm y = C \, (\bm x - \bm x^0) = \Theta(1)`
+に関して,
+均衡固定点 (:math:`\bm z^0 = O(1)`) 周辺での応答速度の
+オーダーは :math:`\D \bm y/\D t = \Omega(C)`
+(:math:`\D \bm x/\D t = \Omega(1)`) となり,
+非均衡固定点など, それを満たさない固定点 (:math:`\bm z^0 = \omega(1)`)
+周辺での応答速度のオーダーは :math:`\D \bm y/\D t = o(C)`
+(:math:`\D \bm x/\D t = o(1)`) となる.
+もし固定点 :math:`\bm x^0` が安定ならば,
+均衡固定点 (:math:`\bm z^0 = O(1)`) への収束は速く
+(:math:`\D \bm x / \D t = \Omega(1)` なので, :math:`C \to \infty`
+の極限で消えない),
+非均衡固定点 (:math:`\bm z^0 = \Omega(C)`) への収束は遅い
+(:math:`\D \bm x / \D t = o(1)` なので, :math:`C \to \infty`
+の極限で限りなく小さくなる)
+ことが読み取れる.
+以上の議論は抽象的な定義にのみ基づいているから, これは幅広いクラスの
+力学系の均衡固定点について成り立つ非常に強力な性質であるといえよう.
 
 .. todo:: 上の議論を正しく書いて, この節の以下の議論は削除
 
@@ -216,13 +273,13 @@
    +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
    | |section| | |dy|      | |y|       | |CF| (仮定 / 導出)    | |z0|      | |check|   |
    +===========+===========+===========+===========+===========+===========+===========+
-   | `Case 1`_ | |Tc|      | |O1|      | |Tc|      | |Oc|      | |O1|      | |yes|     |
+   | `Case 1`_ | |Oc|      | |T1|      | |Oc|      | |Wc|      | |O1|      | |yes|     |
    |           |           |           |           +-----------+-----------+-----------+
    |           |           |           |           | |oc|      | |w1|      | |no|      |
    +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 2`_ | |O1|      | |O1|      | |O1|      | |Oc|      | |O1|      | |?|       |
+   | `Case 2`_ | |O1|      | |T1|      | |O1|      | |Wc|      | |O1|      | |no|      |
    |           |           |           |           +-----------+-----------+-----------+
-   |           |           |           |           | |oc|      | |w1|      | |yes|     |
+   |           |           |           |           | |oc|      | |w1|      | |?|       |
    +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
    |           |           |           | ↑仮定     | ↑導出     |           |           |
    +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
@@ -234,6 +291,8 @@
 .. |CF| replace:: :math:`C \bm F`
 .. |z0| replace:: :math:`\bm z^0`
 .. |Tc| replace:: :math:`\Theta(C)`
+.. |T1| replace:: :math:`\Theta(1)`
+.. |Wc| replace:: :math:`\Omega(C)`
 .. |w1| replace:: :math:`\omega(1)`
 .. |Oc| replace:: :math:`O(C)`
 .. |O1| replace:: :math:`O(1)`
