@@ -121,12 +121,16 @@
 .. math:: \bm J \bm x^0 + \bm h = \Omega(1)
 
 を満たす固定点を :index:`非均衡固定点` (:index:`unbalanced fixed point`)
-と呼ぶ.
+と呼ぶ.  [#]_
 
-.. todo:: :math:`1 \ll \bm z^0 \lesssim C` の場合は考えなくて良いのか?
-   (同値な条件: :math:`\bm z^0 = \omega(1)` かつ :math:`\bm z^0 = o(C)`)
-   例えば, :math:`\bm z^0 = \Theta(C^{1/2})` や :math:`\bm z^0 = \Theta(\log C)`
-   など.
+.. [#] ここでの均衡固定点や非均衡固定点に属さないクラスの固定点,
+   つまり :math:`1 \ll \bm z^0 \lesssim C` (同値だが別の表記では,
+   :math:`\bm z^0 = \omega(1)` かつ :math:`\bm z^0 = o(C)`) となる
+   場合も考えられる.  例えば, :math:`\bm z^0 = \Theta(C^{1/2})` や
+   :math:`\bm z^0 = \Theta(\log C)` など.  この場合,
+   :math:`\bm J \bm x^0 + \bm h = o(1)` なので, 「広義の均衡固定点」
+   と呼んでも良いかもしれない.  しかし, 以下で導く小さい摂動に対する
+   応答速度のオーダーに関する性質は, (狭義の) 均衡固定点のみに成り立つ.
 
 固定点まわりの座標系 :math:`\bm y = C \, (\bm x - \bm x^0)`
 で微分方程式 :eq:`def-ds` を書き直す.  座標変換 :math:`\bm x = \bm y / C + \bm x^0`
