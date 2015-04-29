@@ -20,6 +20,19 @@
 は系の状態 :math:`\bm x(t) \in \mathbb R^p` の各成分の相互作用を表す行列,
 ベクトル :math:`\bm h \in \mathbb R^p` はこの系への外部入力を表す.
 
+表記を簡潔にするために, 状態 :math:`\bm x^0` からの 「摂動」
+:math:`\bm y = C \, (\bm x - \bm x^0)` に対して :math:`\bm f`
+がどう変化するかを,
+
+.. math::
+   :label: def-F
+
+   \bm F(\bm y) = \bm F(\bm y; \bm x^0) :=
+   \bm f(\bm J \bm y + \bm z^0; \bm y / C + \bm x^0)
+   - \bm f(\bm z^0; \bm x^0)
+
+で定義する.  文脈から明らかな場合は, 第二引数は省略する.
+
 漸近関係記号 :math:`\sim`, :math:`O`, :math:`\Theta`, :math:`\Omega`
 などについては, :ref:`asymptotics` を参照.  この節では, これらの記号
 はすべて :math:`C \to \infty` (as :math:`C \to \infty`) についての
@@ -36,7 +49,7 @@
 
    平滑性
      .. math::
-        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = O(1)
+        \bm F(O(1); \bm x^0) = O(1)
 
      .. todo:: 平滑性を削除
 
@@ -44,15 +57,15 @@
 
    伝播性
      .. math::
-        \bm f(\Omega(1) + \bm z^0; \Omega(1) + \bm x^0)
-        - \bm f(\bm z^0; \bm x^0)
-        = \Omega(1)
+        \bm F(\Omega(1); \bm x^0) = \Omega(1)
 
    .. _saturating:
 
    飽和性
      .. math::
-        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = o(1)
+        \bm F(O(1); \bm x^0) = o(1)
+
+   (状態 :math:`\bm x^0` も :math:`C` に依存することに注意.)
 
 .. admonition:: 関数 :math:`\bm f` への条件
 
@@ -188,7 +201,7 @@
      + \underbrace{
            \bm f(\bm J \bm y(t) + \bm z^0; \bm x)
          - \bm f(\bm z^0; \bm x^0)
-       }_{=: \bm F(\bm y)}
+       }_{= \bm F(\bm y)}
 
 なので, これの両辺に :math:`C` をかけて
 
@@ -198,13 +211,7 @@
    \bm \tau \frac{\D \bm y(t)}{\D t}
    & = - \bm y(t) + C \bm F(\bm y)
 
-を得る.  [#]_
-
-.. [#] :math:`\bm F(\bm y)` は, 正確には,
-   :math:`\bm F(\bm y) :=
-   \bm f(\bm J \bm y + \bm z^0; \bm y / C + \bm x^0)
-   - \bm f(\bm z^0; \bm x^0)`
-   で定義される.
+を得る (関数 :math:`\bm F` の定義については式 :eq:`def-F` を参照).
 
 :ref:`method-of-dominant-balance` を使ってこの系の
 小さな摂動 :math:`\bm y = \Theta(1)`
@@ -223,11 +230,6 @@
 .. math::
 
    \bm F(\bm y)
-   & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{\Theta(1)} + \bm z^0;
-             \bm x^0 + \underbrace{\bm y / C}_{\Theta(1/C)})
-     - \bm f(\bm z^0; \bm x^0)
-   \\
    & =
      \left\{
      \begin{array}{lll}
