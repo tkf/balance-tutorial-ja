@@ -56,12 +56,6 @@
    力学系 (あるいは関数 :math:`\bm f`) の状態 :math:`\bm x^0` での
    *伝播性* と *飽和性* を以下で定義する.
 
-   平滑性
-     .. math::
-        \bm F(O(1); \bm x^0) = O(1)
-
-     .. todo:: 平滑性を削除
-
    .. _transmissibility:
 
    伝播性
@@ -77,6 +71,10 @@
    関数 :math:`\bm F` は陰に :math:`C` への依存性をもち,
    状態 :math:`\bm x^0` も :math:`C` に依存しても良いことに注意.
 
+   .. todo:: :math:`O_{\bm x^0}(1)` とか書くべき?
+      正確には, 「big O notations が写像 :math:`C \mapsto \bm x^0`
+      に依存」すると書くべき?
+
 .. admonition:: 関数 :math:`\bm f` への条件
 
    :math:`\bm f` は以下の性質を持つ
@@ -91,70 +89,7 @@
 .. [#] これが成り立たない場合の取り扱いについては,
    `発火率モデル (rate model)`_ の区分的線形関数についてのコメント参照.
 
-.. admonition:: [旧] 関数 :math:`\bm f` の性質
-
-   .. _smoothness:
-
-   平滑性
-     :math:`\bm z^0 = O(1)` かつ :math:`\bm x^0 = O(1)` ならば,
-
-     .. math::
-
-        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = O(1)
-
-     .. todo:: この条件は *すべての* :math:`\bm x^0 = O(1)` で... という意味だが,
-        それだと, `二状態ニューロンから成るネットワーク`_ の場合は強平滑性があっても,
-        :math:`\bm x^0 = 0` で上式が成り立たないので, 平滑性が無い, という不思議な
-        ことになる.
-
-        いや, その場合は :math:`\bm f` が bound されてるのでどうあがいても平滑性は
-        保証されてしまうか.  :math:`\bm x^0 = 0` で :math:`\bm f` が発散する場合
-        は危ないかも?
-
-        「:math:`\bm z^0 = O(1)` かつ :math:`\bm x^0 = O(1)` 」 の
-        :math:`O(1)` は :math:`\Theta(1)` に変えるべきじゃない気がする.
-
-     .. _strong-smoothness:
-
-     上の :math:`O(1)` を :math:`\Theta(1)` に変えたさらに強い条件も, 適宜
-     仮定する
-
-     強平滑性条件
-       :math:`\bm z^0 = \Theta(1)` かつ :math:`\bm x^0 = \Theta(1)` ならば,
-
-       .. math::
-
-          \bm f(\Theta(1) + \bm z^0; \Theta(1) + \bm x^0)
-          - \bm f(\bm z^0; \bm x^0)
-          = \Theta(1)
-
-   伝播性
-     :math:`\bm z^0 = O(1)` かつ :math:`\bm x^0 = O(1)` ならば,
-
-     .. math::
-
-        \bm f(\Omega(1) + \bm z^0; \Omega(1) + \bm x^0)
-        - \bm f(\bm z^0; \bm x^0)
-        = \Omega(1)
-
-   飽和性
-     :math:`\bm z^0 = \omega(1)` ならば,
-
-     .. math::
-
-        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = o(1)
-
-   上記の :math:`\bm f` に関する漸近関係はすべて :math:`\bm z^0` と
-   :math:`\bm x^0` に依存しているので, :math:`O_{\bm z^0,\bm x^0}(1)`
-   などと書くべきである.  もし, この依存性がなければ, 強平滑性は飽和性
-   と矛盾することに注意.
-
-   .. todo:: 強平滑性以外は, :math:`\bm z^0` と :math:`\bm x^0` への依存性
-      が無いとするほうが自然かも?
-
-.. |cond:smoothness| replace:: :ref:`平滑性条件 <smoothness>`
 .. |cond:saturating| replace:: :ref:`飽和性条件 <saturating>`
-.. |cond:strong-smoothness| replace:: :ref:`強平滑性条件 <strong-smoothness>`
 .. |cond:transmissibility| replace:: :ref:`伝達率条件 <transmissibility>`
 
 .. todo:: |cond:saturating| は仮定しなくても良いが, 非均衡固定点は発散してしまう
