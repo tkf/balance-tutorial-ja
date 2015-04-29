@@ -85,15 +85,18 @@
 この関数の :math:`\bm f` への条件は, 後述する均衡固定点の性質を導くための
 必要条件ではなく, さらに広いクラスでこれらの性質は成り立つ.  しかし, この
 条件が応用上必要な力学系では成り立たないことは稀だろう.  [#]_
+簡単のために |cond:saturating| の成り立たない力学系を扱うことも多いが,
+この場合, 非均衡固定点は発散してしまい極限 :math:`C \to \infty` で
+存在しないのでその点まわりの振る舞いなどは議論する必要も無い.
+非均衡固定点まわりでの振る舞い以外で |cond:saturating| は使わないので,
+この条件は本質的な条件ではない.  結局, |cond:transmissibility| さえ
+成り立てば, 強フィードバック系の重要な性質はすべて保証される.
 
 .. [#] これが成り立たない場合の取り扱いについては,
    `発火率モデル (rate model)`_ の区分的線形関数についてのコメント参照.
 
 .. |cond:saturating| replace:: :ref:`飽和性条件 <saturating>`
 .. |cond:transmissibility| replace:: :ref:`伝達率条件 <transmissibility>`
-
-.. todo:: |cond:saturating| は仮定しなくても良いが, 非均衡固定点は発散してしまう
-   ので興味が無い, ということについて説明.
 
 
 .. _method-of-dominant-balance-in-strong-feedback-system:
