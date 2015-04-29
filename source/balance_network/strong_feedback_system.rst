@@ -116,12 +116,14 @@
 しない場合, つまり :math:`\bm z^0 = O(1)`, あるいは同値の条件
 
 .. math:: \bm J \bm x^0 + \bm h = O(1/C)
+   :label: balanced-fp
 
 を満たす固定点を :index:`均衡固定点` (:index:`balanced fixed point`)
 と呼ぶ.  これが成り立たない場合, つまり固定点での全入力が
 発散して :math:`\bm z^0 = \Omega(C)` となる, あるいは同値の条件
 
 .. math:: \bm J \bm x^0 + \bm h = \Omega(1)
+   :label: unbalanced-fp
 
 を満たす固定点を :index:`非均衡固定点` (:index:`unbalanced fixed point`)
 と呼ぶ.  [#]_
@@ -217,35 +219,20 @@
 均衡固定点の線形性
 ==================
 
-.. todo:: 前節とのつながりを良くする.
-
-力学系 :eq:`def-ds` の固定点 :math:`\bm x^0`
-
-.. math::
-
-   \bm x^0 = \bm f(C \, \{\bm J \bm x^0 + \bm h\}; \bm x^0)
-
-のうち, 極限 :math:`C \to \infty` で固定点 :math:`\bm x^0`
-とそれに対応する全入力 :math:`\bm z^0 = C \, \{\bm J \bm x^0 + \bm h\}`
-が発散しない, つまり :math:`|\bm x^0| = O(1)`
-かつ :math:`|\bm z^0| = O(1)` となるものを調べよう.
-全入力が発散しないという条件からすぐに
-
-.. math::
-
-   |\bm J \bm x^0 + \bm h| = O(1/C)
-
-が言える.  よって,
+均衡固定点 :math:`\bm x^0` は, 式 :eq:`balanced-fp` より,
 
 .. math::
 
    \bm x^0 = - \bm J^{-1} \bm h + O(1/C)
 
-となることが分かる.  つまり, この固定点 :math:`\bm x^0` は
+と書ける (ただし, :math:`\bm J` が可逆だと仮定した).
+つまり, この固定点 :math:`\bm x^0` は
 外部入力 :math:`\bm h` に対し, :math:`O(1/C)` の誤差を除けば
 線形の関係を持つ.  もしこの固定点が安定ならば, この系は外部入力
 に対し, 「線形な応答」をしていることになり, しかもそれが系の
 詳細を決める関数 :math:`\bm f` に依らないという著しい性質を持つ.
+線形性から自明だが, 均衡固定点は存在すれば (極限 :math:`C \to \infty`
+で) 一意である.
 
 
 .. _stability-of-balanced-fixed-point:
