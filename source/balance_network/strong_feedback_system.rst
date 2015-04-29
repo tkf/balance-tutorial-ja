@@ -25,18 +25,22 @@
 はすべて :math:`C \to \infty` (as :math:`C \to \infty`) についての
 漸近関係を表すとする.
 
-.. admonition:: 関数 :math:`\bm f` の性質
+.. admonition:: 力学系の各点での性質
 
    :math:`\bm x^0` を力学系 :eq:`def-ds` の任意の状態とし,
    :math:`\bm z^0 = C \, \{\bm J \bm x^0 + \bm h\}` と定義する.
    (この節では :math:`\bm x^0` が固定点の場合しか考えないが, ここでの
    定義は固定点でなくても良い.)
-   :math:`\bm f` が状態 :math:`\bm x^0` で *平滑性*, *伝播性*
-   あるいは *飽和性* をもつとは, 以下で定義される.
+   力学系 (あるいは関数 :math:`\bm f`) の状態 :math:`\bm x^0` での
+   *伝播性* と *飽和性* を以下で定義する.
 
    平滑性
      .. math::
         \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = O(1)
+
+     .. todo:: 平滑性を削除
+
+   .. _transmissibility:
 
    伝播性
      .. math::
@@ -44,15 +48,27 @@
         - \bm f(\bm z^0; \bm x^0)
         = \Omega(1)
 
+   .. _saturating:
+
    飽和性
      .. math::
         \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = o(1)
 
+.. admonition:: 関数 :math:`\bm f` への条件
+
    :math:`\bm f` は以下の性質を持つ
 
-   - :math:`\bm z^0 = O(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で平滑性をもつ
    - :math:`\bm z^0 = O(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で伝播性をもつ
    - :math:`\bm z^0 = \omega(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で飽和性をもつ
+
+この関数の :math:`\bm f` への条件は, 後述する均衡固定点の性質を導くための
+必要条件ではなく, さらに広いクラスでこれらの性質は成り立つ.  しかし, この
+条件が応用上必要な力学系では成り立たないことは稀だろう.  [#]_
+
+.. [#] これが成り立たない場合の取り扱いについては,
+   `発火率モデル (rate model)`_ の区分的線形関数についてのコメント参照.
+
+.. admonition:: [旧] 関数 :math:`\bm f` の性質
 
    .. _smoothness:
 
@@ -89,8 +105,6 @@
           - \bm f(\bm z^0; \bm x^0)
           = \Theta(1)
 
-   .. _transmissibility:
-
    伝播性
      :math:`\bm z^0 = O(1)` かつ :math:`\bm x^0 = O(1)` ならば,
 
@@ -99,8 +113,6 @@
         \bm f(\Omega(1) + \bm z^0; \Omega(1) + \bm x^0)
         - \bm f(\bm z^0; \bm x^0)
         = \Omega(1)
-
-   .. _saturating:
 
    飽和性
      :math:`\bm z^0 = \omega(1)` ならば,
@@ -472,12 +484,20 @@ Case 2
 .. [#] :math:`\arctan`, :math:`\tanh`, :ref:`q-function` (の :math:`x` 軸を
    反転したもの) などでも構わない.
 
-シグモイド関数 :math:`g` は :math:`z^0 = \Theta(1)` からの非ゼロの変化に対して,
+シグモイド関数 :math:`g` は :math:`z^0 = O(1)` からの非ゼロの変化に対して,
 必ず非ゼロの変化をうむ, つまり
 
-.. math:: g(\Theta(1) + z^0) + g(z^0) = \Theta(1)
+.. math:: g(\Theta(1) + z^0) - g(z^0) = \Theta(1)
 
-なので, |cond:strong-smoothness| が成り立つ.
+が成り立つ.  これは |cond:transmissibility| の十分条件である.
+また, ロジスティック関数の場合は
+極限 :math:`z \to \infty` で :math:`g(z) \to 1`,
+極限 :math:`z \to -\infty` で :math:`g(z) \to 0` だから,
+|cond:saturating| も成り立つ.
+一般に, シグモイド関数のように入出力関係が極限 :math:`z \to \pm \infty`
+で有限の値に収束すれば |cond:saturating| は成り立つ.
+有限の値に収束しなくても |cond:saturating| が成り立つ (かなり人工的な)
+例として, :math:`g = \log` がある.
 
 もし, 関数 :math:`g` が
 
@@ -485,13 +505,20 @@ Case 2
 
    g(z) =
    \begin{cases}
-     1 & 1 < z \\
-     z & 0 < z \le 1 \\
-     0 & z \le 0
+     1 & (1 < z) \\
+     z & (0 < z \le 1) \\
+     0 & (z \le 0)
    \end{cases}
 
-のような区分的線形関数の場合は, |cond:strong-smoothness| は成り立たないが,
-|cond:smoothness| は成り立つ.
+のような区分的線形関数の場合は, |cond:transmissibility| が成り立たない.
+例えば, :math:`\Delta z := 1`, :math:`z^0 := 3`
+とおくと :math:`\Delta z = O(1)`, :math:`z^0 = O(1)` だが,
+
+.. math:: g(\Delta z + z^0) - g(z^0) = 0 \neq \Omega(1)
+
+である.  この場合, :math:`\bm x^0` が均衡固定点であるためには,
+各 :math:`z^0_i` について, :math:`0 < z^0_i < 1` なる条件が
+必要である.
 
 
 二状態ニューロンから成るネットワーク
@@ -511,15 +538,5 @@ Case 2
    \alpha_k(\bm x) = (J_{k1})^2 x_1 + (J_{k2})^2 x_2
 
 で定義される.  また, フィードバックの強さは :math:`C = \sqrt K` で決まる.
-上記のシグモイド関数の場合と同様に, |cond:strong-smoothness| が成り立つ.
-
-
-強フィードバック系ではない例
-----------------------------
-
-均衡固定点の存在を保証するには |cond:smoothness| さえあれば良いから,
-これが本質的な条件である.
-
-.. todo:: |cond:smoothness| が成り立たない関数なんてあるの?
-   定義域で発散する場合 :math:`f_i(z) = 1 / (z - 1)` とか?
-   (正確には, 定義域が連結でない場合?)
+上記のシグモイド関数の場合と同様に, |cond:transmissibility| と
+|cond:saturating| が成り立つ.
