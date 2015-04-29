@@ -11,7 +11,7 @@
 
    \bm \tau \frac{\D \bm x(t)}{\D t}
    =
-   - \bm x(t) + \bm f(C \, \{\bm J \bm x(t) + \bm h\}; \bm x)
+   - \bm x(t) + \bm f(C \, \{\bm J \bm x(t) + \bm h\}; \bm x(t))
 
 ここで,
 :math:`\bm \tau = \diag(\tau_1, \ldots, \tau_p) \in \mathbb R^{p \times p}`
@@ -19,6 +19,15 @@
 :math:`\bm J \in \mathbb R^{p \times p}`
 は系の状態 :math:`\bm x(t) \in \mathbb R^p` の各成分の相互作用を表す行列,
 ベクトル :math:`\bm h \in \mathbb R^p` はこの系への外部入力を表す.
+正数 :math:`C` はこの系のフィードバックの強さを決めるパラメタである.
+関数 :math:`\bm f` の第一引数 :math:`\bm z = C \, \{\bm J \bm x(t) + \bm h\}`
+を系への「全入力」と呼ぶことにする.  上述の記号, 特にパラメタ
+:math:`\bm \tau, \bm J, \bm h` は :math:`C` に依存しない.
+フィードバック強度 :math:`C` への依存性は全入力 :math:`\bm z`
+を経由する影響のみである.
+本稿では, 極限 :math:`C \to \infty` におけるこの系の振る舞いについて
+興味がある場合に, 式 :eq:`def-ds` のような系を :index:`強フィードバック系`
+(:index:`strong feedback system`) と呼ぶ.
 
 表記を簡潔にするために, 状態 :math:`\bm x^0` からの 「摂動」
 :math:`\bm y = C \, (\bm x - \bm x^0)` に対して :math:`\bm f`
@@ -65,7 +74,8 @@
      .. math::
         \bm F(O(1); \bm x^0) = o(1)
 
-   (状態 :math:`\bm x^0` も :math:`C` に依存することに注意.)
+   関数 :math:`\bm F` は陰に :math:`C` への依存性をもち,
+   状態 :math:`\bm x^0` も :math:`C` に依存しても良いことに注意.
 
 .. admonition:: 関数 :math:`\bm f` への条件
 
@@ -149,11 +159,6 @@
 
 .. todo:: |cond:saturating| は仮定しなくても良いが, 非均衡固定点は発散してしまう
    ので興味が無い, ということについて説明.
-
-正数 :math:`C` はこの系のフィードバックの強さを決めるパラメタである.  この節では,
-極限 :math:`C \to \infty` におけるこの系の振る舞いについて述べる.
-関数 :math:`\bm f` の第一引数 :math:`\bm z = C \, \{\bm J \bm x(t) + \bm h\}`
-を系への「全入力」と呼ぶことにする.
 
 支配項均衡の方法による解析
 ==========================
