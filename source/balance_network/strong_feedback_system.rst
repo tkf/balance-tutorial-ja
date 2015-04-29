@@ -65,19 +65,11 @@
    .. _saturating:
 
    飽和性
-     :math:`\bm z^0 = O(C)` ならば,
+     :math:`\bm z^0 = \omega(1)` ならば,
 
      .. math::
 
-        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = O(1/C)
-
-     .. todo:: :math:`\bm z^0 = \omega(1)` ならば,
-
-        .. math::
-
-           \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = o(1)
-
-        に出来ない?
+        \bm f(O(1) + \bm z^0; O(1) + \bm x^0) - \bm f(\bm z^0; \bm x^0) = o(1)
 
    上記の :math:`\bm f` に関する漸近関係はすべて :math:`\bm z^0` と
    :math:`\bm x^0` に依存しているので, :math:`O_{\bm z^0,\bm x^0}(1)`
@@ -128,9 +120,6 @@
    (同値な条件: :math:`\bm z^0 = \omega(1)` かつ :math:`\bm z^0 = o(C)`)
    例えば, :math:`\bm z^0 = \Theta(C^{1/2})` や :math:`\bm z^0 = \Theta(\log C)`
    など.
-
-.. todo:: 他の部分を, :math:`\bm z^0 = \Omega(C)` に合うように書きなおす.
-   :math:`\bm z^0 = \omega(1)` でもいけないかどうかも考える.
 
 固定点まわりの座標系 :math:`\bm y = C \, (\bm x - \bm x^0)`
 で微分方程式 :eq:`def-ds` を書き直す.  座標変換 :math:`\bm x = \bm y / C + \bm x^0`
@@ -192,11 +181,11 @@
    +===========+===========+===========+===========+===========+===========+
    | `Case 1`_ | |Tc|      | |O1|      | |Tc|      | |O1|      | |yes|     |
    |           |           |           |           +-----------+-----------+
-   |           |           |           |           | |Tc|      | |no|      |
+   |           |           |           |           | |w1|      | |no|      |
    +-----------+-----------+-----------+-----------+-----------+-----------+
    | `Case 2`_ | |O1|      | |O1|      | |O1|      | |O1|      | |?|       |
    |           |           |           |           +-----------+-----------+
-   |           |           |           |           | |Tc|      | |yes|     |
+   |           |           |           |           | |w1|      | |yes|     |
    +-----------+-----------+-----------+-----------+-----------+-----------+
 
 .. |order-columns| replace:: 各項のオーダー |nb:order|_
@@ -206,6 +195,7 @@
 .. |CF| replace:: :math:`C \bm F`
 .. |z0| replace:: :math:`\bm z^0`
 .. |Tc| replace:: :math:`\Theta(C)`
+.. |w1| replace:: :math:`\omega(1)`
 .. |Oc| replace:: :math:`O(C)`
 .. |O1| replace:: :math:`O(1)`
 .. |check| replace:: 無矛盾
@@ -244,19 +234,19 @@ Case 1
    \bm F(\bm y)
    & =
        \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z^0;
-             \bm x^0 + \underbrace{\bm y / C}_{\Theta(1/C)})
+             \bm x^0 + \underbrace{\bm y / C}_{O(1/C)})
      - \bm f(\bm z^0; \bm x^0)
    \\
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z^0 = \Theta(1)] & \checkmark \\
-      O(1/C) & [\text{if } \bm z^0 = \Theta(C)] & \text{contradiction!}
+      O(1) & [\text{if } \bm z^0 = O(1)] & \checkmark \\
+      o(1) & [\text{if } \bm z^0 = \omega(1)] & \text{contradiction!}
      \end{array}
      \right.
 
-最後の等式では, :math:`\bm z^0 = \Theta(1)` の場合は |cond:smoothness| を,
-:math:`\bm z^0 = \Theta(C)` の場合は |cond:saturating| を用いた.
+最後の等式では, :math:`\bm z^0 = O(1)` の場合は |cond:smoothness| を,
+:math:`\bm z^0 = \omega(C)` の場合は |cond:saturating| を用いた.
 
 
 Case 2
@@ -276,14 +266,14 @@ Case 2
    & =
      \left\{
      \begin{array}{lll}
-      O(1)   & [\text{if } \bm z^0 = \Theta(1)] & \text{undecidable} \\
-      O(1/C) & [\text{if } \bm z^0 = \Theta(C)] & \checkmark
+      O(1) & [\text{if } \bm z^0 = O(1)] & \text{undecidable} \\
+      o(1) & [\text{if } \bm z^0 = \omega(1)] & \checkmark
      \end{array}
      \right.
 
-最後の等式では, :math:`\bm z^0 = \Theta(1)` の場合は |cond:smoothness| を,
-:math:`\bm z^0 = \Theta(C)` の場合は |cond:saturating| を用いた.
-:math:`\bm z^0 = \Theta(1)` の場合は, :math:`O(1/C) = O(1)` なので
+最後の等式では, :math:`\bm z^0 = o(1)` の場合は |cond:smoothness| を,
+:math:`\bm z^0 = \omega(1)` の場合は |cond:saturating| を用いた.
+:math:`\bm z^0 = O(1)` の場合は, :math:`O(1/C) = o(1)` なので
 矛盾を導くことが出来ないが, |cond:strong-smoothness| を仮定すれば,
 :math:`\bm F(\bm y) = \Theta(1) \neq O(1/C)` より矛盾を導くことが
 出来る.
