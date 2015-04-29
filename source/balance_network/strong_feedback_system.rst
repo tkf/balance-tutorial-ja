@@ -255,8 +255,17 @@
 
    \frac{\D \bm y(t)}{\D t} \sim C \bm \tau^{-1} \bm F(\bm y)
 
-で記述されると分かる.  よって, この系の安定性の解析は,
-行列 :math:`\bm \tau^{-1} D_1 \bm f \bm J`
+で記述されると分かる.  よって, この系の安定性の解析は, 行列
+
+.. math::
+
+   \bm \tau^{-1} \frac{\partial \bm F(\bm y)}{\partial \bm y}
+   =
+     \bm \tau^{-1} \frac{\partial}{\partial \bm y}
+     \bm f(\bm J \bm y + \bm z^0; \bm y / C + \bm x^0)
+   =
+     \bm \tau^{-1} ((D_1 \bm f) \bm J + (D_2 \bm f) C^{-1})
+
 の固有値で決まる (:math:`- \bm y(t)` の寄与が消えていることに注意).
 ただし,
 
@@ -265,13 +274,18 @@
    D_1 \bm f =
    \left.
    \frac{\partial \bm f(\bm z; \bm x^0)}{\partial \bm z}
-   \right|_{\bm z = \bm z^0}
+   \right|_{\bm z = \bm z^0},
+   \qquad
+   D_2 \bm f =
+   \left.
+   \frac{\partial \bm f(\bm z^0; \bm x)}{\partial \bm x}
+   \right|_{\bm x = \bm x^0}
 
-である.  :math:`\bm f` の第二引数からの寄与が無いのは,
-この方向への摂動が :math:`\bm y / C = O(1/C)` と小さいため
-である.
-
-.. todo:: ↑確認
+である.  もし :math:`D_2 \bm f = O(1)` なら
+第二引数からの寄与が消え,
+:math:`{\partial \bm F(\bm y)}/{\partial \bm y} \sim (D_1 \bm f) \bm J`
+となる.  これは, この方向への摂動が :math:`\bm y / C = O(1/C)`
+と小さいためである.
 
 
 強フィードバック系の例
