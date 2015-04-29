@@ -160,6 +160,9 @@
 .. todo:: |cond:saturating| は仮定しなくても良いが, 非均衡固定点は発散してしまう
    ので興味が無い, ということについて説明.
 
+
+.. _method-of-dominant-balance-in-strong-feedback-system:
+
 支配項均衡の方法による解析
 ==========================
 
@@ -266,136 +269,6 @@
 以上の議論は抽象的な定義にのみ基づいているから, これは幅広いクラスの
 力学系の均衡固定点について成り立つ非常に強力な性質であるといえよう.
 
-.. todo:: 上の議論を正しく書いて, この節の以下の議論は削除
-
------
-
-単純に考えると, 他の2項 :math:`\D \bm y(t)/\D t` と
-:math:`- \bm y(t)` が :math:`\Theta(C)` または :math:`O(1)`
-を取るすべての, :math:`2^2` 個の場合を考える必要がありそうだが,
-ひとつの項のみが :math:`\Theta(C)` になる場合は両辺が均衡し得ない
-ので, 除くことが出来る.  また, それぞれの場合について, 固定点が
-均衡固定点 (:math:`\bm z^0 = \Theta(1)`) である場合と,
-非均衡固定点 (:math:`\bm z^0 = \Theta(C)`) である場合は
-別に解析する必要がある.  以上の考察から,
-表 :ref:`method-of-dominant-balance-in-strong-feedback-system`
-に書き下された場合を調べれば良いことが分かる.  それぞれの場合が
-無矛盾かどうかは, 節 `Case 1`_ と `Case 2`_
-を参照せよ.
-
-.. _method-of-dominant-balance-in-strong-feedback-system:
-
-.. table:: 各項のオーダーに依る場合分け
-
-   +-----------+-----------+-----------+-----------------------+-----------+-----------+
-   |           | |order-columns|                                           |           |
-   +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-   | |section| | |dy|      | |y|       | |CF| (仮定 / 導出)    | |z0|      | |check|   |
-   +===========+===========+===========+===========+===========+===========+===========+
-   | `Case 1`_ | |Oc|      | |T1|      | |Oc|      | |Wc|      | |O1|      | |yes|     |
-   |           |           |           |           +-----------+-----------+-----------+
-   |           |           |           |           | |oc|      | |w1|      | |no|      |
-   +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-   | `Case 2`_ | |O1|      | |T1|      | |O1|      | |Wc|      | |O1|      | |no|      |
-   |           |           |           |           +-----------+-----------+-----------+
-   |           |           |           |           | |oc|      | |w1|      | |?|       |
-   +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-   |           |           |           | ↑仮定     | ↑導出     |           |           |
-   +-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-
-.. |order-columns| replace:: 各項のオーダー |nb:order|_
-.. |section| replace:: 該当節
-.. |dy| replace:: :math:`\D \bm y / \D t`
-.. |y|  replace:: :math:`\bm y`
-.. |CF| replace:: :math:`C \bm F`
-.. |z0| replace:: :math:`\bm z^0`
-.. |Tc| replace:: :math:`\Theta(C)`
-.. |T1| replace:: :math:`\Theta(1)`
-.. |Wc| replace:: :math:`\Omega(C)`
-.. |w1| replace:: :math:`\omega(1)`
-.. |Oc| replace:: :math:`O(C)`
-.. |O1| replace:: :math:`O(1)`
-.. |oc| replace:: :math:`o(c)`
-.. |check| replace:: 無矛盾
-.. |yes| replace:: o
-.. |no| replace:: x
-.. |?| replace:: ?
-
-..
-   NOTE: table 内 footnote は latex 出力が対応してないので,
-   ↓ではマニュアル footenote のようなことをしている
-
-- .. |nb:order| replace:: :sup:`注1`
-  .. _`nb:order`: `fn:order`_
-  .. _`fn:order`:
-
-  |nb:order|
-  例えば, `Case 1`_ のカラム |dy| は, :math:`\D \bm y / \D t = \Theta(C)` を意味する.
-
-この表から, もし固定点 :math:`\bm x^0` が安定ならば,
-均衡固定点 (:math:`\bm z^0 = \Theta(1)`) への収束は速く
-(:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(1)`),
-非均衡固定点 (:math:`\bm z^0 = \Theta(C)`) への収束は遅い
-(:math:`\D \bm x / \D t = C^{-1} \D \bm y / \D t = \Theta(C^{-1})`)
-ことが読み取れる.
-これは, 抽象的な定義しか与えていない力学系から導くことの出来る,
-均衡固定点が一般に持つ著しい性質である.
-
-Case 1
-------
-
-仮定:
-:math:`\bm y = O(1)`, :math:`\bm F = \Theta(1)`.
-
-.. math::
-
-   \bm F(\bm y)
-   & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z^0;
-             \bm x^0 + \underbrace{\bm y / C}_{O(1/C)})
-     - \bm f(\bm z^0; \bm x^0)
-   \\
-   & =
-     \left\{
-     \begin{array}{lll}
-      O(1) & [\text{if } \bm z^0 = O(1)] & \checkmark \\
-      o(1) & [\text{if } \bm z^0 = \omega(1)] & \text{contradiction!}
-     \end{array}
-     \right.
-
-最後の等式では, :math:`\bm z^0 = O(1)` の場合は |cond:smoothness| を,
-:math:`\bm z^0 = \omega(C)` の場合は |cond:saturating| を用いた.
-
-
-Case 2
-------
-
-仮定:
-:math:`\bm y = O(1)`, :math:`\bm F = O(1/C)`.
-
-.. math::
-
-   \bm F(\bm y)
-   & =
-       \bm f(\underbrace{\bm J \bm y(t)}_{O(1)} + \bm z^0;
-             \bm x^0 + \underbrace{\bm y / C}_{O(1/C)})
-     - \bm f(\bm z^0; \bm x^0)
-   \\
-   & =
-     \left\{
-     \begin{array}{lll}
-      O(1) & [\text{if } \bm z^0 = O(1)] & \text{undecidable} \\
-      o(1) & [\text{if } \bm z^0 = \omega(1)] & \checkmark
-     \end{array}
-     \right.
-
-最後の等式では, :math:`\bm z^0 = o(1)` の場合は |cond:smoothness| を,
-:math:`\bm z^0 = \omega(1)` の場合は |cond:saturating| を用いた.
-:math:`\bm z^0 = O(1)` の場合は, :math:`O(1/C) = o(1)` なので
-矛盾を導くことが出来ないが, |cond:strong-smoothness| を仮定すれば,
-:math:`\bm F(\bm y) = \Theta(1) \neq O(1/C)` より矛盾を導くことが
-出来る.
-
 
 .. _linearity-of-balanced-fixed-point:
 
@@ -438,7 +311,7 @@ Case 2
 均衡固定点の安定性
 ==================
 
-表 :ref:`method-of-dominant-balance-in-strong-feedback-system`
+:ref:`method-of-dominant-balance-in-strong-feedback-system`
 から, 均衡固定点まわりのダイナミクスは,
 
 .. math::
