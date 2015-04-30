@@ -266,7 +266,7 @@
        \frac{J_{EI}}{J_{II}} - \frac{h_E}{h_I}
      \right) = |\Omega(1/C)|
    \\
-   & \Leftarrow
+   & \Leftrightarrow
      \frac{J_{EI}}{J_{II}} > \frac{h_E}{h_I}
 
 最後の式は, 式 :eq:`unbalance-inequality` の必要条件であり, また,
