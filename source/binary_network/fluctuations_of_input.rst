@@ -87,7 +87,7 @@
      J_{kl} \sqrt K m_l(t)
 
 ここで,
-(1) は, :math:`[ \bullet ]_i` の線形性 (よって
+(1) は, :math:`[ \bullet ]_i` の線型性 (よって
 和 :math:`\sum_{j=1}^{N_l}` と集団平均 :math:`[ \bullet ]_i` は演算順序を入れ
 替えて良い) と :math:`\sigma_l^j(t)` が :math:`i` に依らないこと
 (これの正しい解説は :ref:`correlations-of-sigmaj-and-jij` を参照),
