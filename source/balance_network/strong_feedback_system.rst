@@ -133,6 +133,7 @@
 力学系 :eq:`def-ds` の固定点は
 
 .. math::
+   :label: fp
 
    \bm x^0 = \bm f(C \, \{\bm J \bm x^0 + \bm h\}; \bm x^0)
 
@@ -274,6 +275,22 @@
 詳細を決める関数 :math:`\bm f` に依らないという著しい性質を持つ.
 線形性から自明だが, 均衡固定点は存在すれば (極限 :math:`C \to \infty`
 で) 一意である.
+
+これが良く引用される「均衡固定点は線型性をもつ」という性質であるが,
+この「線型性」は 厳密な意味での線型性__ ではない.  固定点の満たすべき
+式 :eq:`fp` を思い出せば, :math:`- \bm J^{-1} \bm h` が
+:math:`\bm f` の 像__ の 内部__ にあるという条件が必要である.
+神経科学での応用上 :math:`x_i` は常に発火率であるとみなされるから,
+:math:`f_i(\bm z) \ge 0` なので, :math:`- \bm J^{-1} \bm h`
+の成分に負の成分があってはならない.  また, :math:`f_i(\bm z)` には
+上限がある (大きい入力については飽和する) ことが応用上自然だから,
+結局, 均衡固定点の存在する :math:`\bm h` の領域は有界である.
+つまり, 「均衡固定点は線型性をもつ」は間違いで,
+「均衡固定点は飽和していない領域では threshold linear」が正しい.
+
+__ http://ja.wikipedia.org/wiki/線型性
+__ http://ja.wikipedia.org/wiki/像_(数学)
+__ http://ja.wikipedia.org/wiki/内部_(位相空間論)
 
 
 .. _stability-of-balanced-fixed-point:
