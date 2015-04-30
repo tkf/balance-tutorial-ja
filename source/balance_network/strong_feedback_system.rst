@@ -68,26 +68,28 @@
 はすべて :math:`C \to \infty` (as :math:`C \to \infty`) についての
 漸近関係を表すとする.
 
-.. admonition:: 力学系の各点での性質
+.. admonition:: 関数 :math:`\bm f` への条件
 
    :math:`\bm x^0` を力学系 :eq:`def-ds` の任意の状態とし,
    :math:`\bm z^0 = C \, \{\bm J \bm x^0 + \bm h\}` と定義する.
    (この節では :math:`\bm x^0` が固定点の場合しか考えないが, ここでの
-   定義は固定点でなくても良い.)
-   力学系 (あるいは関数 :math:`\bm f`) の状態 :math:`\bm x^0` での
-   *伝播性* と *飽和性* を以下で定義する.
+   定義においては固定点でなくても良い.)
 
    .. _transmissibility:
 
    伝播性
-     .. math::
-        \bm F(\Omega(1); \bm x^0) = \Omega(1)
+     :math:`\bm z^0 = O(1)` ならば
+
+     .. math:: \bm F(\Omega(1); \bm x^0) = \Omega(1).
+        :label: transmissibility
 
    .. _saturating:
 
    飽和性
-     .. math::
-        \bm F(O(1); \bm x^0) = o(1)
+     :math:`\bm z^0 = \omega(1)` ならば
+
+     .. math:: \bm F(O(1); \bm x^0) = o(1).
+        :label: saturating
 
    関数 :math:`\bm F` は陰に :math:`C` への依存性をもち,
    状態 :math:`\bm x^0` も :math:`C` に依存しても良いことに注意.
@@ -96,12 +98,14 @@
       正確には, 「big O notations が写像 :math:`C \mapsto \bm x^0`
       に依存」すると書くべき?
 
-.. admonition:: 関数 :math:`\bm f` への条件
+.. todo:: 定義するべき?: 「\ *伝播性* / *飽和性* を持つ」
 
-   :math:`\bm f` は以下の性質を持つ
+   状態 :math:`\bm x^0` について
+   式 :eq:`transmissibility` が成り立つなら
+   力学系 (あるいは関数 :math:`\bm f`) は *伝播性* を持つと言い,
+   式 :eq:`saturating` が成り立つなら
+   力学系 (あるいは関数 :math:`\bm f`) は *飽和性* を持つと言う.
 
-   - :math:`\bm z^0 = O(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で伝播性をもつ
-   - :math:`\bm z^0 = \omega(1)` ならば, :math:`\bm f` が :math:`\bm z^0` で飽和性をもつ
 
 この関数の :math:`\bm f` への条件は, 後述する均衡固定点の性質を導くための
 必要条件ではなく, さらに広いクラスでこれらの性質は成り立つ.  しかし, この
