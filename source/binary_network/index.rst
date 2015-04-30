@@ -12,4 +12,5 @@
    mean_field_theory
    fluctuations_of_input
    fluctuations/index
+   stability
    notations
