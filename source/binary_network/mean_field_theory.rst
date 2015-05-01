@@ -112,6 +112,26 @@
 
    .. todo:: [ASK] 上記の correlation の定義は正しいことを確認.
 
+   :math:`K^n` の枝の中で最低でも2つが同じニューロンに繋がっている確率は,
+   (1) 2つの枝の選び方の総数と,
+   (2) 1つのニューロンの選び方の総数と,
+   (3) ある1つのニューロンを2回選ぶ確率
+   の積なので,
+
+   .. math::
+      p =
+      \underbrace{\frac{K^n (K^n - 1)}{2}}_{(1)}
+      \underbrace{N \vphantom{\frac 1 2}}_{(2)}
+      \underbrace{\frac 1 {N^2}}_{(3)}
+      =
+      O(K^{2n} / N)
+
+   となる.
+   これが 0 に漸近する, つまり :math:`p \ll 1` (as :math:`N \to \infty`) という
+   条件から, :math:`K^n \ll \sqrt N` が導かれる.
+   いかなる自然数 :math:`n` でもこれが成り立つには
+   :math:`\log K \ll N` であれば十分である.
+
 :ref:`self-averaging` を :math:`[\Theta(u_k^i (t))]_i`
 の計算に適用すれば, :math:`[\bullet]_i` と :math:`\AvgJ{\bullet}` を
 交換することが出来て,
