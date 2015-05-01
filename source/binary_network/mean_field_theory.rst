@@ -4,15 +4,22 @@
  平均場方程式の導出
 ====================
 
-ニューロン :math:`i` の初期値 :math:`\sigma_k^i(0)` とその更新のランダム性に
-関する平均を :math:`\AvgDyn{\bullet}` と書き, ニューロン :math:`i`
-の(局所)活動率を
+ニューロン :math:`i` の初期値 :math:`\sigma_k^i(0)` とその更新のランダム性と
+初期値 :math:`\bm \sigma` に 関する平均を :math:`\AvgDyn{\bullet}` [#]_ と書き,
+ニューロン :math:`i` の(局所)活動率を
 
 .. math::
 
    m_k^i (t) = \AvgDyn{\sigma_k^i(t)}
 
 と定義する.
+
+.. [#] 初期値 :math:`\bm \sigma` に関する平均とは, 時刻 0 での集団活動率
+   :math:`m_k(0)` が :math:`\sigma_k^i(0)` が 1 の確率で,
+   それぞれの :math:`i` について :math:`\sigma_k^i(0)` が独立, という
+   確率分布に関する平均である.
+..
+   平均 :math:`\AvgDyn{\bullet}` は「試行平均」ともみなせる.
 
 .. todo:: 他の場所では, :math:`\AvgDyn{\bullet}` は使われていない.  使うべき?
    例えば, 他の場所では :math:`m_k = \PAvg{\sigma_k^i}` だけど, ここでは
@@ -66,6 +73,11 @@
    すべてのニューロンについて, それに結合しているすべての
    ニューロンの活動が無相関である.
 
+.. todo:: [ASK] 「すべてのニューロンが無相関」という仮定が必要では?
+   この仮定, つまり 「\ :math:`[\Theta(u_k^i (t))]_i` が無相関」があれば,
+   「binary variable が無相関ならば独立」を用いて, :ref:`self-averaging`
+   の議論から, 自己平均性が導出できる.
+
 .. [#]
    原著 [vanVreeswijk1998]_ にはにこう書いてある:
 
@@ -86,18 +98,19 @@
 
    .. math::
 
-      \AvgDyn{ \left(
-        \sigma_l^j(t) - \AvgDyn{\sigma_l^j(t)}
+      \lim_{N \to \infty}
+      \AvgJ{ \left(
+        m_l^j(t) - \AvgJ{m_l^j(t)}
       \right) \left(
-        \sigma_l^{j'}(t) - \AvgDyn{\sigma_l^{j'}(t)}
+        m_l^{j'}(t) - \AvgJ{m_l^{j'}(t)}
       \right) }
       = 0
 
    が, すべての時間 :math:`t` について成り立つ.
+   ここで :math:`m_k^i (t) = \AvgDyn{\sigma_k^i(t)} = \AvgDyn{\Theta(u_k^i (t))}`
+   に注意.
 
-   .. todo:: 「すべての時間 :math:`t` について」は正しいのか?
-
-   .. todo:: 上記の correlation の定義は正しいのか?
+   .. todo:: [ASK] 上記の correlation の定義は正しいことを確認.
 
 :ref:`self-averaging` を :math:`[\Theta(u_k^i (t))]_i`
 の計算に適用すれば, :math:`[\bullet]_i` と :math:`\AvgJ{\bullet}` を

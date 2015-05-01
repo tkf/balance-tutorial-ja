@@ -93,6 +93,10 @@ Lindeberg central limit theorem
 :math:`\bm \sigma = (\sigma_1, \ldots, \sigma_N)^\intercal`
 (:ref:`binary-network-model` 参照) である.
 
+.. todo:: Cinlar の III.6.13 は無相関の仮定+α で LLN を導いている
+   ので, これを使えば自己平均性はすぐ出ることを説明する.
+   :ref:`lindeberg-clt` を用いた以下の議論は削除.
+
 もし, 各 :math:`X_i` が独立であり, 後述するゆるい条件を満たす
 ならば, :ref:`lyapunov-clt` あるいは :ref:`lindeberg-clt` を用いて
 自己平均性を満たすことが出来る.  ここで, 各 :math:`X_i` の
