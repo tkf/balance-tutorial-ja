@@ -25,7 +25,7 @@
 
 .. [#] 一番外側の :math:`\Avg{\bullet}_t` は元論文に無い.
 
-   .. todo:: :math:`\Avg{\bullet}_t` を含めるのが正しいのか確認
+   .. todo:: [ASK] :math:`\Avg{\bullet}_t` を含めるのが正しいのか確認
 
 .. :index:`速いノイズ` (:index:`fast noise`)
    とも呼ばれることについて触れたほうが良い?
@@ -117,7 +117,7 @@
 ここで,
 (1) :math:`[(\Devi x)^2] = [x^2] - [x]^2` と同種の計算,
 (2) :math:`\sigma_l^j(t)` の取りうる値は 0 か 1 なので
-:math:`\left\{ \sigma_l^j(t) \right\}^2 = \sigma_l^j(t)` [#]_,
+:math:`\left( \sigma_l^j(t) \right)^2 = \sigma_l^j(t)` [#]_,
 (3) :math:`m_k` と :math:`q_k` の定義,
 を用いた.
 
