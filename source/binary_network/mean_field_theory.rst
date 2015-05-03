@@ -75,7 +75,7 @@
 
 .. todo:: [ASK] 「すべてのニューロンが無相関」という仮定が必要では?
    この仮定, つまり 「\ :math:`[\Theta(u_k^i (t))]_i` が無相関」があれば,
-   「binary variable が無相関ならば独立」を用いて, :ref:`self-averaging`
+   :ref:`self-averaging`
    の議論から, 自己平均性が導出できる.
 
 .. [#]
