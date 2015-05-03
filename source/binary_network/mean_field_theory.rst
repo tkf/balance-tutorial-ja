@@ -90,27 +90,33 @@
 
 .. note:: 自然言語は難しい. これを数学的に書き下すと以下の命題となる.
 
-   すべてのニューロン :math:`i = 1, \ldots, N_k` について, それに
-   結合するいかなる集団 :math:`l = E, I` の
-   いかなる2つのニューロン :math:`j, j' = 1, \ldots, N_l`
-   についても, :math:`j \neq j', J_{kl}^{ij} \neq 0, J_{kl}^{ij'} \neq 0`
-   ならば
+   すべてのニューロン :math:`(i, k)` (:math:`i = 1, \ldots, N_k`) について, それに
+   結合するいかなる異なるふたつのニューロン :math:`(j, l)` と :math:`(j', l')`
+   (つまり :math:`l, l' \in \{E, I\}`, :math:`j = 1, \ldots, N_l`,
+   :math:`j' = 1, \ldots, N_{l'}`, :math:`(j, l) \neq (j', l')`,
+   :math:`J_{kl}^{ij} \neq 0`, :math:`J_{kl'}^{ij'} \neq 0`) も,
+   それぞれの活動
+   :math:`X = \AvgDyn{\Theta(u_l^j (t))}`,
+   :math:`Y = \AvgDyn{\Theta(u_{l'}^{j'} (t))}`
+   はすべての時間 :math:`t` について無相関, つまり,
+   :math:`\Avg{\bullet} = \AvgJ{\bullet}` として
 
    .. math::
 
       \lim_{N \to \infty}
-      \AvgJ{ \left(
-        m_l^j(t) - \AvgJ{m_l^j(t)}
+      \Avg{ \left(
+        X - \Avg{X}
       \right) \left(
-        m_l^{j'}(t) - \AvgJ{m_l^{j'}(t)}
+        Y - \Avg{Y}
       \right) }
       = 0
 
-   が, すべての時間 :math:`t` について成り立つ.
-   ここで :math:`m_k^i (t) = \AvgDyn{\sigma_k^i(t)} = \AvgDyn{\Theta(u_k^i (t))}`
-   に注意.
+   が, 成り立つ.
 
    .. todo:: [ASK] 上記の correlation の定義は正しいことを確認.
+
+   上記の条件を 「\ **すべての**\ 異なるふたつのニューロン :math:`(j, l)` と
+   :math:`(j', l')` について無相関」 と強めたものでも成り立つのでは?:
 
    2つのニューロンから伸びる「木」はそれぞれ平均で :math:`K^n` の「枝」をもつ.
    この中で最低でも1つの枝が同じニューロンに繋がっている確率は,
