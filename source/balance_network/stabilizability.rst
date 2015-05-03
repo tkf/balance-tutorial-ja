@@ -4,18 +4,24 @@
  安定化可能性
 ==============
 
-.. todo:: 漸近安定性解析の導入部分を書く
-
-:math:`\bm \xi = \bm m^0 - \bm m`
+:ref:`balance-inequality` で求めた興奮・抑制ネットワークの均衡固定点の
+安定性を解析する.  :ref:`stability-of-balanced-fixed-point` で
+示したように, 均衡固定点からのずれ :math:`\bm \xi = \bm m - \bm m^0`
+のダイナミクスは
 
 .. math::
 
    \frac{\D \bm \xi}{\D t} \sim C \bm S \bm J \bm \xi
 
+に従う.  ただし,
 
 .. math::
 
-   \bm S = \diag (S_E, S_I) = \tau^{-1} D_1 \bm f
+   \bm S = \diag (S_E, S_I) = \bm \tau^{-1} D_1 \bm f
+
+である.  均衡固定点の安定性を調べるためには行列 :math:`\bm S \bm J` の
+固有値の実部を調べれば良い.  行列 :math:`\bm S \bm J` は
+:math:`2 \times 2` 行列なので, その固有値は
 
 .. math::
 
@@ -27,6 +33,7 @@
        - 4 (S_E J_{EE} S_I J_{II} - J_{EI} J_{IE})
      }}{2}
 
+となる.
 :math:`\max \Re \lambda_{\pm}` の負の成分は
 :math:`S_I J_{II}` であるので, :math:`S_I` の
 大きい極限 :math:`S_E \ll S_I` で :math:`\max \Re \lambda_{\pm}`
@@ -49,5 +56,7 @@
 :math:`4 J_{EI} J_{IE} < 0` より,
 :math:`S_I J_{II} + \sqrt{(S_I J_{II})^2 + 4 J_{EI} J_{IE}} < 0`
 なので :math:`\max \Re \lambda_{\pm} = \lambda_+ < 0` である.
-ゆえに, 二集団ネットワークは, 抑制性集団が (例えば) 十分速い時定数を
-もてば, 固定点を漸近安定に出来る.
+ゆえに, 興奮・抑制ネットワークではどんな入出力関係 :math:`\bm f` や
+結合パラメタ :math:`\bm J` や外部入力 :math:`\bm h` に対しても,
+抑制性集団が興奮性集団に比べて十分速い時定数をもてば, 均衡固定点を
+漸近安定に出来る.
