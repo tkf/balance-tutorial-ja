@@ -13,27 +13,27 @@
 
 このような性質は非常に自然なものに思えるかもしれないが, 理論的に説明しよう
 とすると一筋縄ではいかないことが分かる.  今, :math:`N` 個のニューロンが
-相互に結合した系を考えよう.  行列 :math:`\bm J` を用いて, :math:`i`
-番目のニューロンが :math:`j` 番目のニューロンからの入力を受けているなら
-:math:`J_{ij} = J` そうでなければ :math:`J_{ij} = 0` として結合の
-様子を表現する.  また, それぞれのニューロンは平均して :math:`K` 個の
-ニューロンから入力を受けているとする.  ニューロンの数やその結合の数は
+相互に結合した系を考えよう.  それぞれのニューロンは平均して :math:`K`
+個のニューロンから入力を受けているとし, 行列 :math:`\bm J` を用いて,
+:math:`i` 番目のニューロンが :math:`j` 番目のニューロンからの入力を受
+けているなら :math:`J_{ij} = J / K` そうでなければ :math:`J_{ij} = 0`
+として結合の様子を表現する.  ニューロンの数やその結合の数は
 非常に大きいので, :math:`N, K \to \infty` という極限を使ってそれを
-近似しよう.  ニューロン :math:`i` への入力を :math:`x_i`, 出力を
+近似する.  ニューロン :math:`i` への入力を :math:`x_i`, 出力を
 :math:`y_j` と書く.  ここでは, 入力 :math:`x_i` が線形和
 
 .. math::
 
-   x_i = \frac 1 K \sum_{j=1}^{N} J_{ij} y_j
+   x_i = \sum_{j=1}^{N} J_{ij} y_j
 
 で表されるとする.  ここで, :math:`y_i` の「集団平均」 を
 :math:`m = N^{-1} \sum_{i=1}^{N} y_i` で定義しよう.
 右辺はたくさんの :math:`y_i` の和なのだから, :ref:`lln`
 により「その平均 (:math:`= m`)
-× :math:`J_{ij}` が非ゼロの時の値 (:math:`= J`)
+× :math:`J_{ij}` が非ゼロの時の値 (:math:`= J / K`)
 × :math:`J_{ij}` が非ゼロの個数 (:math:`\approx K`)」
 で近似出来るはずである.
-つまり, :math:`x_i \approx J m` となる.  結合力が :math:`1/K`
+つまり, :math:`x_i \approx J m` となる.  結合力が :math:`J/K`
 という選択は :math:`x_i` が :math:`K \to \infty` で発散
 しないために必要だったのである.
 しかし, この場合, :ref:`clt` により :math:`x_i` の
@@ -41,14 +41,8 @@
 つまり, :math:`x_i` の不規則性は :math:`K \to \infty` の極限で
 消えてしまう.
 
-この現象を避けるには, 入力のスケーリングを :math:`1 / K` から
-:math:`1 / \sqrt K` に変更すれば良い.
-
-.. math::
-
-   x_i = \frac 1 {\sqrt K} \sum_{j=1}^{N} J_{ij} y_j
-   \approx \sqrt K J m
-
+この現象を避けるには, 結合力を :math:`J/K` から
+:math:`J / \sqrt K` に変更すれば良い.
 この場合, 同じく :ref:`clt` により :math:`\Var (x_i) = O(1)`
 となる.  つまり, :math:`K \to \infty` の極限でも不規則性
 が消えない.
@@ -66,8 +60,8 @@
 .. math::
 
    x^k_i
-   = \frac 1 {\sqrt K} \sum_{j=1}^{N} J^{kE}_{ij} y^{E}_j
-   - \frac 1 {\sqrt K} \sum_{j=1}^{N} J^{kI}_{ij} y^{I}_j
+   = \sum_{j=1}^{N} J^{kE}_{ij} y^{E}_j
+   - \sum_{j=1}^{N} J^{kI}_{ij} y^{I}_j
    \approx
    \sqrt{K} (J^{kE} m^E - J^{kI} m^I)
 
