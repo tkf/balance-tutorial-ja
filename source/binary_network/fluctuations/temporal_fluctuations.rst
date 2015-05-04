@@ -94,7 +94,7 @@
    & \overset{(1)} =
      \Avg{
      \left[
-       \left\{ \sigma_l^j(t) \right\}^2
+       \left( \sigma_l^j(t) \right)^2
      \right]_j
      }_t
      -
@@ -117,11 +117,9 @@
 ここで,
 (1) :math:`[(\Devi x)^2] = [x^2] - [x]^2` と同種の計算,
 (2) :math:`\sigma_l^j(t)` の取りうる値は 0 か 1 なので
-:math:`\left( \sigma_l^j(t) \right)^2 = \sigma_l^j(t)` [#]_,
+:math:`\left( \sigma_l^j(t) \right)^2 = \sigma_l^j(t)`,
 (3) :math:`m_k` と :math:`q_k` の定義,
 を用いた.
-
-.. [#] 二値変数のからむ計算ではよく使われるテクニック.
 
 以上の計算を統合すると,
 

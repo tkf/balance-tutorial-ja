@@ -286,12 +286,15 @@
      m_l(t)
 
 ここで,
-(1) :ref:`lln`,
+(1) :ref:`lln` と :math:`\sigma_l^j(t)` の取りうる値は 0 か 1 なの
+で :math:`\left( \sigma_l^j(t) \right)^2 = \sigma_l^j(t)` [#]_,
 (2) :math:`\Prob \{ J_{kl}^{ij} = J_{kl}/\sqrt K \}
 = 1 - \Prob \{ J_{kl}^{ij} = 0 \} = K/N_l`
 (|def:J| を参照),
 (3) :math:`m_l(t) = [\sigma_l^j(t)]_j = \sum_{j=1}^{N_l} \sigma_l^j(t) / N_l`,
 を用いた.
+
+.. [#] 二値変数のからむ計算ではよく使われるテクニック.
 
 
 第二項の計算 (:math:`l = l'`, :math:`j \neq j'`)
