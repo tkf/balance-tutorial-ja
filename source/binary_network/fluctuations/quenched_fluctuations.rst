@@ -319,6 +319,8 @@
 をした.
 
 
+.. _fluctuation-of-time-averaged-local-rate:
+
 時間平均活動率のゆらぎ
 ======================
 
@@ -388,10 +390,53 @@
      \Devi m_l^j \, \Devi m_{l'}^{j'}
    & =
      \sum_l
-     \left[J_{kl}^{i*} \, J_{kl'}^{i*} \right]_i
+     \left[J_{kl}^{i*} \right]_i^2
      \sum_j \Devi m_l^j
-     \sum_{\substack{j' \\ j \neq j'}} \Devi m_{l'}^{j'}
-     = 0
+     \sum_{\substack{j' \\ j \neq j'}} \Devi m_l^{j'}
+   \\
+   & \overset{(1)} =
+     \sum_l
+     \left(
+       \frac{J_{kl}}{\sqrt K}
+       \frac{K}{N_l}
+     \right)^2
+     \sum_j \Devi m_l^j
+     \left(
+       \sum_{j'} \Devi m_l^{j'} - \Devi m_l^j
+     \right)
+   \\
+   & =
+     K
+     \sum_l
+     (J_{kl})^2
+     \frac{1}{N_l}
+     \sum_j \Devi m_l^j
+     \left(
+       \frac{1}{N_l} \sum_{j'} \Devi m_l^{j'}
+       -
+       \frac{1}{N_l} \Devi m_l^j
+     \right)
+   \\
+   & \overset{(2)} =
+     K
+     \sum_l
+     (J_{kl})^2
+     \left(
+       [\Devi m_l^j]_j
+       [\Devi m_l^{j'}]_{j'}
+       -
+       \frac{1}{N_l}
+       [(\Devi m_l^j)^2]_j
+     \right)
+   \\
+   & \overset{(3)} =
+     O(K/N)
+
+ここで,
+(1) |def:J| による期待値の計算,
+(2) 集団平均の定義 :math:`\PAvg{\bullet}_j = \sum_j \bullet / N_l`,
+(3) :math:`[\Devi m_l^j]_j = 0`
+を用いた
 
 .. math::
 

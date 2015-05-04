@@ -53,7 +53,7 @@
      (\sigma_l^j(t) - m_l^j)
      (\sigma_{l'}^{j'}(t) - m_{l'}^{j'})
    \\
-   & \overset{(3)} =
+   & \overset{(3)} \approx
      \sum_{lj}
      \left[
        J_{kl}^{ij} J_{kl}^{ij}
@@ -73,8 +73,10 @@
 ここで,
 (1) :ref:`tech-for-prod-of-sum`,
 (2) :ref:`correlations-of-sigmaj-and-jij` の議論,
-(3) [todo: :math:`\sigma_l^j(t)` と :math:`\sigma_{l'}^{j'}(t)` が無相関
-であることを用いてこれを示す.]
+(3) :math:`\sigma_l^j(t)` と :math:`\sigma_{l'}^{j'}(t)` が無相関
+なので, :ref:`fluctuation-of-time-averaged-local-rate` と同様に,
+:math:`(j, l) = (j', l')` の項以外は :math:`O(1/N)` の大きさしか
+もたないこと,
 (4) :ref:`lln` と |def:J| による期待値の計算,
 を用いた.
 
