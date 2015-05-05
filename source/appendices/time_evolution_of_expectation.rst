@@ -188,16 +188,16 @@
      }(t)
 
 
-遷移確率に制限のある場合の期待値の時間発展
-==========================================
+遷移確率 :math:`w(1 | \sigma_i', \bm{\sigma}^{\setminus i})` が自己の状態 :math:`\sigma_i'` に依らない場合
+==========================================================================================================
 
 関数 :math:`g_i` の定義
-:math:`w(1 | \sigma_i, \bm{\sigma}^{\setminus i}) = g(\bm{\sigma}) / \tau`
-(:math:`\sigma_i = 0, 1`) は
+:math:`w(1 | \sigma_i', \bm{\sigma}^{\setminus i}) = g(\bm{\sigma}) / \tau`
+(:math:`\sigma_i' = 0, 1`) は
 
 .. math::
 
-   w(\sigma_i | 1 - \sigma_i, \bm{\sigma}^{\setminus i})
+   w(1 - \sigma_i | \sigma_i, \bm{\sigma}^{\setminus i})
    =
    \frac{1}{2 \tau} \left\{
      1 - (2 \sigma_i - 1) [2 g_i(\bm{\sigma}) - 1]
