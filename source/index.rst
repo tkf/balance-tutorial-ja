@@ -11,11 +11,13 @@
    appendices/index
    *
 
+.. toctree::
+   :hidden:
 
-Indices and tables
-==================
+   references
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. only:: html
 
+   * :ref:`参考文献 <references>`
+   * :ref:`genindex`
+   * :ref:`search`

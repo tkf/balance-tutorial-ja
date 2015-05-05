@@ -1,6 +1,9 @@
-============
- References
-============
+.. _references:
+
+.. title:: 参考文献
+
+.. セクションタイトルをつけると index からリンクを貼られてしまう
+   ので, title directive を使っている.
 
 .. [vanVreeswijk1998]
    van Vreeswijk, C., & Sompolinsky, H. (1998).
