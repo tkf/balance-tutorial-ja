@@ -285,7 +285,7 @@
    Dx & := \D x \exp(-x^2) / \sqrt{2 \pi}
    \\
    u_k
-   & := (J_{k0} m_0 + J_{kE} m_E + J_{kl} m_l) \sqrt K - \theta_k,
+   & := (J_{k0} m_0 + J_{kE} m_E + J_{kI} m_I) \sqrt K - \theta_k,
    \\
    \alpha_k
    & := (J_{kE})^2 m_E + (J_{kI})^2 m_I
