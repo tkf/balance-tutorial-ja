@@ -113,31 +113,8 @@
 
    が, 成り立つ.
 
-   .. todo:: [ASK] 上記の correlation の定義は正しいことを確認.
-
-   上記の条件を 「\ **すべての**\ 異なるふたつのニューロン :math:`(j, l)` と
-   :math:`(j', l')` について無相関」 と強めたものでも成り立つのでは?:
-
-   2つのニューロンから伸びる「木」はそれぞれ平均で :math:`K^n` の「枝」をもつ.
-   この中で最低でも1つの枝が同じニューロンに繋がっている確率は,
-   (1) 2つの木からそれぞれの1つの枝を選ぶ方法の総数と,
-   (2) 1つのニューロンの選び方の総数と,
-   (3) ある1つのニューロンを2回選ぶ確率
-   の積なので,
-
-   .. math::
-      p =
-      \underbrace{(K^n)^2 \vphantom{\frac 1 2}}_{(1)}
-      \underbrace{N \vphantom{\frac 1 2}}_{(2)}
-      \underbrace{\frac 1 {N^2}}_{(3)}
-      =
-      O(K^{2n} / N)
-
-   となる.
-   これが 0 に漸近する, つまり :math:`p \ll 1` (as :math:`N \to \infty`) という
-   条件から, :math:`K^n \ll \sqrt N` が導かれる.
-   いかなる自然数 :math:`n` でもこれが成り立つには
-   :math:`\log K \ll N` であれば十分である.
+これは, :math:`K \ll \log N` が成り立てば成り立つ.
+詳しい議論については, :ref:`poorf-async` を参照.
 
 :ref:`self-averaging` を :math:`[\Theta(u_k^i (t))]_i`
 の計算に適用すれば, :math:`[\bullet]_i` と :math:`\AvgJ{\bullet}` を
@@ -304,3 +281,30 @@
 (3) :ref:`gauss-integrals-of-heaviside-function-and-q-function` の関係,
 (4) :math:`H(z)` の定義
 をそれぞれ用いた.
+
+
+.. _poorf-async:
+
+無相関性の証明
+==============
+
+2つのニューロンから伸びる「木」はそれぞれ平均で :math:`K^n` の「枝」をもつ.
+この中で最低でも1つの枝が同じニューロンに繋がっている確率は,
+(1) 2つの木からそれぞれの1つの枝を選ぶ方法の総数と,
+(2) 1つのニューロンの選び方の総数と,
+(3) ある1つのニューロンを2回選ぶ確率
+の積なので,
+
+.. math::
+   p =
+   \underbrace{(K^n)^2 \vphantom{\frac 1 2}}_{(1)}
+   \underbrace{N \vphantom{\frac 1 2}}_{(2)}
+   \underbrace{\frac 1 {N^2}}_{(3)}
+   =
+   O(K^{2n} / N)
+
+となる.
+これが 0 に漸近する, つまり :math:`p \ll 1` (as :math:`N \to \infty`) という
+条件から, :math:`K^n \ll \sqrt N` が導かれる.
+いかなる自然数 :math:`n` でもこれが成り立つには
+:math:`\log K \ll N` であれば十分である.
