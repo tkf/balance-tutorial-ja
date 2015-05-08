@@ -23,9 +23,10 @@
 
 となることを示す.  [#]_
 
-.. [#] 一番外側の :math:`\Avg{\bullet}_t` は元論文に無い.
-
-   .. todo:: [ASK] :math:`\Avg{\bullet}_t` を含めるのが正しいのか確認
+.. [#] 外側の時間平均 :math:`\Avg{\bullet}_t` は [vanVreeswijk1998]_
+   には無いが,これがあるほうが定義としては自然だろう. 外側の時間平均
+   :math:`\Avg{\bullet}_t` が無くても計算結果は変わらないことは,
+   :ref:`time-average-is-unnecessary` で示す.
 
 .. :index:`速いノイズ` (:index:`fast noise`)
    とも呼ばれることについて触れたほうが良い?
@@ -140,3 +141,87 @@
 
 が導かれる.  これの左辺の極限 :math:`N \to \infty` をとると
 式 :eq:`temporal-fluctuations-in-m-and-q` が導かれる.
+
+
+.. _time-average-is-unnecessary:
+
+時間平均なしでも時間ゆらぎは計算できる
+======================================
+
+時間に依存する部分 (*) を, 時間平均なしで計算すると
+
+.. math::
+
+   (*)
+   & =
+     \PAvg{
+       (\sigma_l^j(t) - m_l^j)^2
+     }_j
+   \\
+   & =
+     \PAvg{
+       \left( \sigma_l^j(t) \right)^2
+     }_j
+     -
+     2
+     \PAvg{
+       \sigma_l^j(t) \,
+       m_l^j
+     }_j
+     +
+     \PAvg{
+       (m_l^j)^2
+     }_j
+   \\
+   & =
+     \PAvg{
+       \left( \sigma_l^j(t) \right)^2
+     }_j
+     -
+     \PAvg{
+       (m_l^j)^2
+     }_j
+     -
+     2
+     \PAvg{
+       (\sigma_l^j(t) - m_l^j) \,
+       m_l^j
+     }_j
+   \\
+   & =
+     m_k(t)
+     -
+     q_l
+     +
+     2
+     \PAvg{
+       \zeta_l^j(t) \,
+       m_l^j
+     }_j
+
+となる.
+ただし, :math:`\zeta_l^j(t) = \sigma_l^j(t) - m_l^j` とおいた.
+
+この (*) が定常状態では :math:`\Avg{(*)}_t` と等しいことが示せる. まず,
+第一項は :math:`m_k(t) = m_k` である.  よって, 第三項がゼロになること
+が示せれば良い. そのために, 第三項に現れる確率変数は定常状態で
+:math:`\AvgDyn{\zeta_l^j(t)} = m_l^j(t) - m_l^j = 0` となることを使う.
+さらに, :ref:`poorf-async` の議論から, :math:`\sigma_l^j(t)` つまり
+:math:`\zeta_l^j(t) = \sigma_l^j(t) - m_l^j` が違うニューロン同士では
+無相関であることに注意すれば, :ref:`elln` より,
+
+.. math::
+
+   &
+     \PAvg{
+       \zeta_l^j(t) \,
+       m_l^j
+     }_j
+   \approx
+     \AvgJ{\AvgDyn{
+       \zeta_l^j(t) \,
+       m_l^j
+     }}
+     = 0
+
+となる.

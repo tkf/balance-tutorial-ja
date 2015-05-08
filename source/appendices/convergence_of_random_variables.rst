@@ -32,6 +32,13 @@
    `Law of large numbers - Wikipedia
    <http://en.wikipedia.org/wiki/Law_of_large_numbers>`_
 
+.. _elln:
+
+無相関変数に対する大数の法則
+----------------------------
+
+.. todo:: Cinlar の III.6.13 を書く
+
 
 .. _clt:
 
