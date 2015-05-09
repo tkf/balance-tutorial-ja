@@ -70,48 +70,38 @@
 
 .. admonition:: 仮定
 
-   すべてのニューロンについて, それに結合しているすべての
-   ニューロンの活動が無相関である.
+   すべてのニューロンの活動が無相関である.
 
-.. todo:: [ASK] 「すべてのニューロンが無相関」という仮定が必要では?
-   この仮定, つまり 「\ :math:`[\Theta(u_k^i (t))]_i` が無相関」があれば,
-   :ref:`self-averaging`
-   の議論から, 自己平均性が導出できる.
-
-.. [#]
-   原著 [vanVreeswijk1998]_ にはにこう書いてある:
-
-     The main assumption underlying the mean-field theory is that the
-     activities of the different input cells to a given cell are
-     uncorrelated.  Technically, this holds rigorously provided that
-     :math:`K \ll \log N_k` (Derrida et al., 1987).
-
-     --- p.1365 (p.45), Appendix A.1, van Vreeswijk, Sompolinsky (1998)
-
-.. note:: 自然言語は難しい. これを数学的に書き下すと以下の命題となる.
-
-   すべてのニューロン :math:`(i, k)` (:math:`i = 1, \ldots, N_k`) について, それに
-   結合するいかなる異なるふたつのニューロン :math:`(j, l)` と :math:`(j', l')`
-   (つまり :math:`l, l' \in \{E, I\}`, :math:`j = 1, \ldots, N_l`,
-   :math:`j' = 1, \ldots, N_{l'}`, :math:`(j, l) \neq (j', l')`,
-   :math:`J_{kl}^{ij} \neq 0`, :math:`J_{kl'}^{ij'} \neq 0`) も,
+   形式的に書けば,
+   いかなるふたつのニューロン :math:`(i, k)` と :math:`(j, l)`
+   (:math:`k, l \in \{E, I\}`, :math:`i = 1, \ldots, N_k`,
+   :math:`j = 1, \ldots, N_l`) についても,
    それぞれの活動
-   :math:`X = \AvgDyn{\Theta(u_l^j (t))}`,
-   :math:`Y = \AvgDyn{\Theta(u_{l'}^{j'} (t))}`
+   :math:`X = \AvgDyn{\Theta(u_k^i (t))}`,
+   :math:`Y = \AvgDyn{\Theta(u_l^j (t))}`
    はすべての時間 :math:`t` について無相関, つまり,
-   :math:`\Avg{\bullet} = \AvgJ{\bullet}` として
 
    .. math::
 
       \lim_{N \to \infty}
-      \Avg{ \left(
-        X - \Avg{X}
+      \AvgJ{ \left(
+        X - \AvgJ{X}
       \right) \left(
-        Y - \Avg{Y}
+        Y - \AvgJ{Y}
       \right) }
       = 0
 
    が, 成り立つ.
+
+.. [#]
+   原著 [vanVreeswijk1998]_ での仮定は
+   「すべてのニューロンについて, それに結合しているすべてのニューロン
+   の活動が無相関である」
+   であり, 本稿で使っている仮定より若干弱い.  しかし, :ref:`poorf-async`
+   より本稿で使っている仮定は [vanVreeswijk1998]_ の仮定と同じ条件
+   :math:`K \ll \log N` で成り立つことが分かる.  さらに,
+   すべてのニューロンが無相関でなければ, :ref:`elln` が使えない
+   (:ref:`self-averaging` を参照).
 
 これは, :math:`K \ll \log N` が成り立てば成り立つ.
 詳しい議論については, :ref:`poorf-async` を参照.
@@ -119,9 +109,6 @@
 :ref:`self-averaging` を :math:`[\Theta(u_k^i (t))]_i`
 の計算に適用すれば, :math:`[\bullet]_i` と :math:`\AvgJ{\bullet}` を
 交換することが出来て,
-
-.. todo:: 自己平均性 (self-averaging property) は仮定するものなのか？
-   先の独立の仮定から導けるものなのか？
 
 .. math::
 
@@ -285,9 +272,12 @@
 
 .. _poorf-async:
 
-無相関性の証明
-==============
+無相関性の「証明」
+==================
 
+今, 初期状態から :math:`n` 回の更新が起こったとする.  いかなるニューロンも,
+:math:`n` 回の更新の前まで遡れば最大でも :math:`K^n` 個 [#]_ のニューロンの
+初期状態に依存している.
 2つのニューロンから伸びる「木」はそれぞれ平均で :math:`K^n` の「枝」をもつ.
 この中で最低でも1つの枝が同じニューロンに繋がっている確率は,
 (1) 2つの木からそれぞれの1つの枝を選ぶ方法の総数と,
@@ -307,4 +297,7 @@
 これが 0 に漸近する, つまり :math:`p \ll 1` (as :math:`N \to \infty`) という
 条件から, :math:`K^n \ll \sqrt N` が導かれる.
 いかなる自然数 :math:`n` でもこれが成り立つには
-:math:`\log K \ll N` であれば十分である.
+:math:`K \ll \log N` であれば十分である.
+
+.. [#] ただし, 各ニューロンの結合の数が平均 :math:`K` 個のまわりでゆらいで
+   いる効果は無視している.
