@@ -204,9 +204,8 @@
 
 この (*) が定常状態では :math:`\Avg{(*)}_t` と等しいことが示せる. まず,
 第一項は :math:`m_k(t) = m_k` である.  よって, 第三項がゼロになること
-が示せれば良い. そのために, 第三項に現れる確率変数は定常状態で
-:math:`\AvgDyn{\zeta_l^j(t)} = m_l^j(t) - m_l^j = 0` となることを使う.
-さらに, :ref:`poorf-async` の議論から, :math:`\sigma_l^j(t)` つまり
+が示せれば良い.
+:ref:`poorf-async` の議論から, :math:`\sigma_l^j(t)` つまり
 :math:`\zeta_l^j(t) = \sigma_l^j(t) - m_l^j` が違うニューロン同士では
 無相関であることに注意すれば, :ref:`elln` より,
 
@@ -222,6 +221,70 @@
        \zeta_l^j(t) \,
        m_l^j
      }}
+     = (\star)
+
+となる.  これは,
+
+.. math::
+
+   (\star)
+   & =
+     \Avg{
+       \AvgJ{m_l^j(t) \, m_l^j} -
+       \AvgJ{m_l^j(s) \, m_l^j}
+     }_s
+
+と書ける.
+:math:`\AvgJ{m_l^j(t) \, m_l^j}` と
+:math:`\AvgJ{m_l^j(s) \, m_l^j}` が
+同じ (集団レベルでの, あるいはグローバルな) 量を違う時間で評価したもの
+であることを考慮すれば, 定常状態ではこの量は時間に依らないはず
+であり, :math:`(\star) = 0` が導ける.
+
+もっと形式的にこれを導出するためには, 自己相関関数
+
+.. math::
+
+   C(t, r)
+   & := \AvgJ{(m_l^j(t) - m_l(t)) (m_l^j(r) - m_l(r))} \\
+   & = \AvgJ{m_l^j(t) \, m_l^j(r)} - m_l(t) \, m_l(r).
+
+を使う.  これを用いれば,
+
+.. math::
+
+   & (\star) = ...
+   \\
+   & =
+     \Avg{
+       \AvgJ{m_l^j(t) \, m_l^j} -
+       \AvgJ{m_l^j(s) \, m_l^j}
+     }_s
+   \\
+   & =
+     \Avg{
+       \AvgJ{m_l^j(t) \, m_l^j(r)} -
+       \AvgJ{m_l^j(s) \, m_l^j(r)}
+     }_{s,r}
+   \\
+   & =
+     \Avg{
+       C(t, r) + m_l(t) \, m_l(r) -
+       C(s, r) - m_l(s) \, m_l(r)
+     }_{s,r}
+   \\
+   & \overset{(1)} =
+     \Avg{
+       C(t - r) - C(s - r)
+     }_{s,r}
+   \\
+   & =
+     \Avg{\Avg{C(t - r)}_r - \Avg{C(s - r)}_r}_s
+   \\
+   & \overset{(2)} =
+     \Avg{\Avg{C(r)}_r - \Avg{C(r)}_r}_s
      = 0
 
-となる.
+となることが導ける.  ただし, (1) で系が定常状態にあると
+自己相関関数が時間差のみに依存すること :math:`C(t ,r) = C(t - r)`
+を用い, (2) で時間平均が時間シフトの元で不変であることを用いた
