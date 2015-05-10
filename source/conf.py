@@ -22,6 +22,29 @@ import alabaster
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('.'))
 
+_use_pngmath = os.getenv('BALANCE_MATH', 'mathjax') == 'pngmath'
+
+_latex_newcommands = r"""
+\newcommand{\D}{\text{d}}
+\newcommand{\I}{\text{i}}
+\newcommand{\E}{\text{e}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Expect}{\mathbb{E}}
+\newcommand{\Var}{\text{Var}}
+\newcommand{\PAvg}[1]{\left[#1\right]}
+\newcommand{\Avg}[1]{\left\langle#1\right\rangle}
+\newcommand{\AvgJ}[1]{\Avg{#1}_{\bm J}}
+\newcommand{\AvgDyn}[1]{\Avg{#1}_{\text{dyn.}}}
+\newcommand{\CAvg}[2]{\Avg{#1}_{\left|#2\right.}}
+\newcommand{\Devi}{\mathfrak{d}}
+"""
+
+_latex_preamble = r"""
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{bm}
+\DeclareMathOperator{\diag}{diag}
+""" + _latex_newcommands
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -33,7 +56,7 @@ sys.path.insert(0, os.path.abspath('.'))
 extensions = [
     'japanesesupport',  # http://sphinx-users.jp/reverse-dict/html/japanese.html
     'sphinx.ext.todo',
-    'sphinx.ext.pngmath',
+    'sphinx.ext.pngmath' if _use_pngmath else 'sphinx.ext.mathjax',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -112,7 +135,11 @@ todo_include_todos = True
 # http://sphinx-doc.org/config.html#confval-rst_prolog
 rst_prolog = u"""
 .. |def:J| replace:: :ref:`結合確率の定義 <def-J>`
-"""
+
+.. only:: html
+
+   :math:`{0}`
+""".format(' '.join(_latex_newcommands.strip().splitlines()))
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -222,23 +249,6 @@ html_sidebars = {
 htmlhelp_basename = 'Introductiontothebalancenetworkdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
-_latex_preamble = r"""
-\usepackage{amsmath,amsfonts,amssymb}
-\usepackage{bm}
-\newcommand{\D}{\text{d}}
-\newcommand{\I}{\text{i}}
-\newcommand{\E}{\text{e}}
-\newcommand{\Prob}{\mathbb{P}}
-\newcommand{\Expect}{\mathbb{E}}
-\newcommand{\Var}{\text{Var}}
-\newcommand{\PAvg}[1]{\left[#1\right]}
-\newcommand{\Avg}[1]{\left\langle#1\right\rangle}
-\newcommand{\AvgJ}[1]{\Avg{#1}_{\bm J}}
-\newcommand{\AvgDyn}[1]{\Avg{#1}_{\text{dyn.}}}
-\newcommand{\CAvg}[2]{\Avg{#1}_{\left|#2\right.}}
-\newcommand{\Devi}{\mathfrak{d}}
-\DeclareMathOperator{\diag}{diag}
-"""
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
