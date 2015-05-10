@@ -1,4 +1,5 @@
 {%- extends "alabaster/layout.html" %}
+{% set script_files = ["_static/mathjax-config.js"] + script_files %}
 {%- block extrahead %}
   {{ super() }}
   <link rel="stylesheet" href="{{ pathto('_static/custom.css', 1) }}" type="text/css" />
