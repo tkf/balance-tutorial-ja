@@ -116,5 +116,9 @@
 特性を導く.
 そして, :ref:`binary-network` で上記の
 アイディアが統計力学的な厳密な系で成立することを示す.
+:ref:`balance-network` と :ref:`binary-network` の大部分の
+議論はゆるやかにしか繋がっていないので, どちらから読み始めても
+良い.  :ref:`binary-network` で :ref:`balance-network` の
+議論が必要になるのは, :ref:`stability` の部分だけである.
 
 .. todo:: 文献を紹介する
