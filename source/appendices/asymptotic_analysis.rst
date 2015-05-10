@@ -44,6 +44,8 @@
   慣例的なものではない.
 * :math:`f \sim g` を :math:`f \lesssim g \lesssim f` で定義する流儀もある [#]_ ようだが, ここでの
   定義とは違う.
+* 記号 :math:`\approx` や :math:`\lessapprox` は漸近関係では\ **無く**\
+  荒い議論で発見的な説明するときなどに使う.
 
 .. [#] `254A, Notes 0: A review of probability theory | What's new
    <https://terrytao.wordpress.com/2010/01/01/254a-notes-0-a-review-of-probability-theory/>`_
