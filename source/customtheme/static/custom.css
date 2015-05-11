@@ -6,3 +6,7 @@ div.sphinxsidebar li.toctree-l1 li {
     padding-left: initial;
     text-indent: initial;
 }
+
+div.sphinxsidebar #searchbox input[type="submit"] {
+    width: initial;
+}
