@@ -15,6 +15,7 @@
    :glob:
    :maxdepth: 2
 
+   preface
    introduction
    balance_network/index
    binary_network/index

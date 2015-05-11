@@ -1,0 +1,17 @@
+理工学系の学部三年生くらいから読める, 理論神経科学のトピックの紹介を
+目指して書いています.  生物・神経科学や大学院レベルの数学・物理の知識
+は前提としない予定です.
+今の所, [vanVreeswijk1998]_ の解説+αです.
+
+
+ふたつのバージョンで読めます:
+
+- HTML版:
+  http://balance-tutorial-ja.readthedocs.org
+
+  常に最新版が読めます.  ページの描画に少し時間がかかるかもしれません.
+
+- PDF版:
+  http://tkf.github.io/balance-tutorial-ja/balance-tutorial-ja.pdf
+
+  HTML版より更新頻度は低いです.
