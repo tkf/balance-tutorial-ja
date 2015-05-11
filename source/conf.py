@@ -23,6 +23,7 @@ import alabaster
 sys.path.insert(0, os.path.abspath('.'))
 
 _use_pngmath = os.getenv('BALANCE_MATH', 'mathjax') == 'pngmath'
+# _use_pngmath = True  # uncomment to force pngmath
 
 # A list of \newcommand for all math processors, including mathjax:
 _latex_newcommands = r"""
@@ -249,7 +250,7 @@ html_sidebars = {
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Introductiontothebalancenetworkdoc'
+htmlhelp_basename = 'balance-tutorial-ja'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -271,7 +272,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'Introductiontothebalancenetwork.tex', project,
+  (master_doc, 'balance-tutorial-ja.tex', project,
    author, 'manual'),
 ]
 
@@ -306,7 +307,7 @@ latex_docclass = {'manual': 'jsbook'}
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'introductiontothebalancenetwork', project,
+    (master_doc, 'balance-tutorial-ja', project,
      [author], 1)
 ]
 
@@ -320,8 +321,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'Introductiontothebalancenetwork', project,
-   author, 'Introductiontothebalancenetwork', 'One line description of project.',
+  (master_doc, 'balance-tutorial-ja', project,
+   author, 'balance-tutorial-ja', 'One line description of project.',
    'Miscellaneous'),
 ]
 
