@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 _use_pngmath = os.getenv('BALANCE_MATH', 'mathjax') == 'pngmath'
 
+# A list of \newcommand for all math processors, including mathjax:
 _latex_newcommands = r"""
 \newcommand{\D}{\text{d}}
 \newcommand{\I}{\text{i}}
@@ -39,6 +40,8 @@ _latex_newcommands = r"""
 \newcommand{\Devi}{\mathfrak{d}}
 """
 
+# Anything else that is NOT processed by mathjax.  Make sure to
+# implement a compatible configuration in: _static/mathjax-config.js
 _latex_preamble = r"""
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{bm}
@@ -136,9 +139,9 @@ todo_include_todos = True
 rst_prolog = u"""
 .. |def:J| replace:: :ref:`結合確率の定義 <def-J>`
 
-.. only:: html
+.. raw:: html
 
-   :math:`{0}`
+   <div style="display: none;">\\({0}\\)</div>
 """.format(' '.join(_latex_newcommands.strip().splitlines()))
 
 # -- Options for HTML output ----------------------------------------------
