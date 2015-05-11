@@ -155,6 +155,12 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
+    'extra_nav_links': {
+        u'PDF版': 'http://tkf.github.io/balance-tutorial-ja/balance-tutorial-ja.pdf',
+        u'HTML版': 'http://balance-tutorial-ja.readthedocs.org',
+    },
+    'github_user': 'tkf',
+    'github_repo': 'balance-tutorial-ja',
     'pink_1': '#FEEEED',
     'pink_2': '#FFE5E4',
 }
