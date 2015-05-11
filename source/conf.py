@@ -15,6 +15,8 @@
 import sys
 import os
 import shlex
+from collections import OrderedDict
+
 import alabaster
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -155,10 +157,11 @@ html_theme = 'customtheme'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'extra_nav_links': {
-        u'PDF版': 'http://tkf.github.io/balance-tutorial-ja/balance-tutorial-ja.pdf',
-        u'HTML版': 'http://balance-tutorial-ja.readthedocs.org',
-    },
+    'extra_nav_links': OrderedDict([
+        (u'PDF版', 'http://tkf.github.io/balance-tutorial-ja/balance-tutorial-ja.pdf'),
+        (u'HTML版(MathJax)', 'http://balance-tutorial-ja.readthedocs.org'),
+        (u'HTML版(pngmath)', 'http://balance-tutorial-ja.readthedocs.org/ja/pngmath/'),
+    ]),
     'github_user': 'tkf',
     'github_repo': 'balance-tutorial-ja',
     'pink_1': '#FEEEED',

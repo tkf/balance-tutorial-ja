@@ -4,14 +4,23 @@
 今の所, [vanVreeswijk1998]_ の解説+αです.
 
 
-ふたつのバージョンで読めます:
+いくつかのバージョンで読めます:
 
-- HTML版:
+HTML版(MathJax):
   http://balance-tutorial-ja.readthedocs.org
 
   常に最新版が読めます.  ページの描画に少し時間がかかるかもしれません.
 
-- PDF版:
+HTML版(pngmath):
+  http://balance-tutorial-ja.readthedocs.org/ja/pngmath/
+
+  HTML版(MathJax)より更新頻度は低いです.
+  数式は若干荒く見えますが, ページは素早く描写されます.
+  Zipファイルでダウンロードして__\ オフラインで読むことも可能です.
+
+  __ https://readthedocs.org/projects/balance-tutorial-ja/downloads/htmlzip/pngmath/
+
+PDF版:
   http://tkf.github.io/balance-tutorial-ja/balance-tutorial-ja.pdf
 
   HTML版より更新頻度は低いです.
