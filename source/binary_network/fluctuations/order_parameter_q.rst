@@ -190,6 +190,3 @@
      /
      `Jensen's inequality - Wikipedia
      <http://en.wikipedia.org/wiki/Jensen%27s_inequality>`_
-
-
-.. todo:: 解の安定性について書く.
