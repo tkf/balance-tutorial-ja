@@ -4,5 +4,5 @@
 
 set -ex
 tools/commit-pngmath.sh
-git push origin pngmath
+git push --force origin pngmath
 git checkout master
