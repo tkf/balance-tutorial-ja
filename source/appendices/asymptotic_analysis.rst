@@ -141,6 +141,14 @@ __ http://ja.wikipedia.org/wiki/ロピタルの定理
 
    `Asymptotic analysis - Wikipedia
    <http://en.wikipedia.org/wiki/Asymptotic_analysis>`_
+     このページの
      `Method of dominant balance
      <http://en.wikipedia.org/wiki/Asymptotic_analysis#Method_of_dominant_balance>`_
-     という項目がある.
+     という項目では, 常微分方程式を漸近解析を使って解く例が紹介されている.
+
+   `Perturbation & Asymptotic Series - YouTube
+   <https://www.youtube.com/playlist?list=PL43B1963F261E6E47>`_
+     摂動法と漸近解析の講義ビデオ.  一部の応用例の紹介で量子力学などの物理学
+     の知識が必要な部分があるが, メインの流れは学部1年生のレベルの数学さえ
+     理解していれば追いかけられるだろう.  理論科学一般に興味のある人には
+     大変おすすめである.
