@@ -80,24 +80,36 @@
 
    伝達性
      :math:`\bm z^0 = O(1)` ならば
+     :math:`\bm F(\Omega(1); \bm x^0) = \Omega(1)`.
 
-     .. math:: \bm F(\Omega(1); \bm x^0) = \Omega(1).
+     省略せずに書けば, すべての :math:`\bm z^0 = O(1)` と
+     :math:`\bm y = \Omega(1)` について,
+
+     .. math::
         :label: transmissibility
+
+        \bm f(\bm J \bm y + \bm z^0; \bm y / C + \bm x^0)
+        - \bm f(\bm z^0; \bm x^0)
+        = \Omega(1).
 
    .. _saturating:
 
    飽和性
      :math:`\bm z^0 = \omega(1)` ならば
+     :math:`\bm F(O(1); \bm x^0) = o(1)`.
 
-     .. math:: \bm F(O(1); \bm x^0) = o(1).
+     省略せずに書けば, すべての :math:`\bm z^0 = \omega(1)` と
+     :math:`\bm y = O(1)` について,
+
+     .. math::
         :label: saturating
+
+        \bm f(\bm J \bm y + \bm z^0; \bm y / C + \bm x^0)
+        - \bm f(\bm z^0; \bm x^0)
+        = o(1).
 
    関数 :math:`\bm F` は陰に :math:`C` への依存性をもち,
    状態 :math:`\bm x^0` も :math:`C` に依存しても良いことに注意.
-
-   .. todo:: :math:`O_{\bm x^0}(1)` とか書くべき?
-      正確には, 「big O notations が写像 :math:`C \mapsto \bm x^0`
-      に依存」すると書くべき?
 
 
 この関数 :math:`\bm f` への条件は, 後述する均衡固定点の性質を導くための
