@@ -30,14 +30,28 @@
      - :math:`f \lesssim g \lesssim f`
      - :math:`f` と :math:`g` は同速度で増加
    * - :math:`f = \Omega(g)`
-     - ---
+     - :math:`f \gtrsim g`
      - :math:`g = O(f)`
      - :math:`f` の増加は :math:`g` より速いか同じ
    * - :math:`f = \omega(g)`
-     - ---
+     - :math:`f \gg g`
      - :math:`g = o(f)`
      - :math:`f` の増加は :math:`g` より速い
 
+* どの変数 (例: :math:`x`) がどう変化 (例: :math:`x \to \infty`)
+  するかを書かなければ厳密には漸近関係とは呼ばない.
+  例えば 「\ :math:`f(x) = O(g(x))`\ 」 は漸近関係ではなく, 正しくは
+  「\ :math:`f(x) = O(g(x))` (as :math:`x \to \infty`) 」などと書く
+  必要がある.
+* 表の定義ではすべて "as :math:`x \to \infty`" での漸近関係だが,
+  変数の収束先は何でも良い.
+* 記号
+  :math:`O`, :math:`o`, :math:`\Theta`, :math:`\Omega`, :math:`\omega` は
+  :index:`ランダウの記号` (:index:`Landau symbol`) や
+  :index:`O-記法` (:index:`big O notation`) と呼ばれる.
+  記号
+  :math:`\lesssim`, :math:`\ll`, :math:`\sim` は
+  :index:`Vinogradov notation` と呼ばれる.
 * :math:`f \ll g` を :math:`f = O(g)` と定義するか, :math:`f = o(g)` と定義するかは
   文献に依るようだ.  ここでは, :math:`f \ll g` は :math:`f = o(g)` で定義し,
   :math:`f = O(g)` と同値の二項関係は :math:`f \lesssim g` と書く.  しかし, この記法は
@@ -50,6 +64,48 @@
 .. [#] `254A, Notes 0: A review of probability theory | What's new
    <https://terrytao.wordpress.com/2010/01/01/254a-notes-0-a-review-of-probability-theory/>`_
 
+
+漸近関係
+========
+
+漸近関係の例
+------------
+
+極限 :math:`x \to \infty` での漸近関係をいくつか示す.
+末尾の "(as :math:`x \to \infty`)" は省略する.
+
+.. math:: x = O(5 x^2)
+
+.. math:: x = o(4 x^2)
+
+.. math:: x = \Theta(3 x)
+
+.. math:: x^3 + x \sim x^3 + \log x
+
+ランダウの記号
+--------------
+
+ランダウの記号が関数 :math:`q` の中に現れ
+
+.. math:: f(x) = q(O(g(x)))
+          \quad
+          \text{as } x \to \infty
+
+と書かれた漸近関係は, 「ある関数 :math:`z(x)` が 存在して
+:math:`f(x) \sim q(z(g(x)))` (as :math:`x \to \infty`)」
+と定義される.
+また, ランダウの記号が左辺の関数 :math:`p` の中に現れ
+
+.. math:: p(O(f(x))) = g(x)
+          \quad
+          \text{as } x \to \infty
+
+と書かれた漸近関係は, 「いかなる関数 :math:`y(x)` についても,
+:math:`p(y(x)) \sim g(x)` (as :math:`x \to \infty`)」
+と定義される.
+他のランダウの記号についても同様である.
+ランダウの記号が左辺にあらわれた場合と右辺にあらわれた
+場合の意味が異なることに注意せよ.
 
 
 .. _method-of-dominant-balance:
