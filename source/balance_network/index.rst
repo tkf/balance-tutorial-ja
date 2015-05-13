@@ -18,7 +18,7 @@
 .. toctree::
    :maxdepth: 2
 
-   rate_balance_network
+   introduction_to_balance_network
    strong_feedback_system
    balance_inequality
    stabilizability
