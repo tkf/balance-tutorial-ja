@@ -106,6 +106,28 @@
 他のランダウの記号についても同様である.
 ランダウの記号が左辺にあらわれた場合と右辺にあらわれた
 場合の意味が異なることに注意せよ.
+例えば,
+:math:`x = O(x)` (as :math:`x \to \infty`) は正しいが,
+:math:`O(x) = x` (as :math:`x \to \infty`) は正しくない.
+
+上記のふたつの記法を組み合わせて使えば, ランダウの記号の「強さ」の
+関係を完結に表すことが出来る [#]_:
+
+.. math::
+
+   o(f(x)) = O(f(x)),
+   \enskip
+   O(f(x)) = \Omega(f(x)),
+   \enskip
+   \Omega(f(x)) = \omega(f(x)),
+
+   \Theta(f(x)) = O(f(x)),
+   \Theta(f(x)) = \Omega(f(x))
+   .
+
+.. [#] さらに記法を乱用すると
+   :math:`o(f) = O(f) = \Omega(f) = \omega(f)`
+   とも書ける.
 
 
 .. _method-of-dominant-balance:
