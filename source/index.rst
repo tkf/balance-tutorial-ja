@@ -20,14 +20,9 @@
    balance_network/index
    binary_network/index
    appendices/index
-
-.. toctree::
-   :hidden:
-
    references
 
 .. only:: html
 
-   * :ref:`参考文献 <references>`
    * :ref:`genindex`
    * :ref:`search`

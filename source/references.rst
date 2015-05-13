@@ -1,9 +1,12 @@
 .. _references:
 
-.. title:: 参考文献
+.. only:: html
 
-.. セクションタイトルをつけると index からリンクを貼られてしまう
-   ので, title directive を使っている.
+   参考文献
+   --------
+
+   .. 「参考文献」という節が latex だと勝手に生成される
+
 
 .. [vanVreeswijk1998]
    van Vreeswijk, C., & Sompolinsky, H. (1998).
