@@ -13,4 +13,3 @@
    master_equation
    time_evolution_of_expectation
    techniques
-   *
