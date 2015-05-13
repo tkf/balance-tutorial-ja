@@ -4,7 +4,8 @@
  均衡条件不等式
 ================
 
-ここでは, :ref:`strong-feedback-system` の解析を興奮・抑制ネットワーク
+ここでは, :ref:`introduction-to-balance-network` と
+:ref:`strong-feedback-system` の解析を興奮・抑制ネットワーク
 が外部からの興奮性入力を受ける系
 にあてはめ, このネットワークは「発火率がゼロの固定点は持たない」
 という条件から, :index:`均衡条件不等式` :eq:`balance-inequality`
@@ -32,10 +33,28 @@
 つまり, つねに :math:`m_1, m_2 \ge 0` である.
 また, ベクトルや行列の添字は 1, 2 の代わりに :math:`E, I` を適宜使い,
 例えば :math:`J_{12}` と :math:`J_{EI}` は同義である.
+:ref:`strong-feedback-system` と同様, 系への「全入力」を
+
+.. math::
+   \bm z =
+   \begin{pmatrix}
+   z_{E} \\
+   z_{I}
+   \end{pmatrix}
+   = C \, \{\bm J \bm x + \bm h\}
+   = C \,
+   \begin{pmatrix}
+   J_{EE} \, m_E + J_{EI} \, m_I + h_E \\
+   J_{IE} \, m_E + J_{II} \, m_I + h_I
+   \end{pmatrix}
+
+で定義する.
 関数 :math:`\bm f` は, いわゆる入出力関係 (input-output relationship;
 transfer function) を表すので, :math:`k = E, I` について
 どんな入力 :math:`\bm z` についても :math:`f_k(\bm z) \ge 0` であり,
-さらに
+さらに :math:`f_k` は強い興奮性の入力 (:math:`z_E, z_I \to \infty`)
+で飽和し, 強い抑制性の入力 (:math:`z_E, z_I \to -\infty`) で出力が
+無くなる, という条件を追加する.  形式的に書くと
 
 .. math::
    :label: cond-f
@@ -44,7 +63,7 @@ transfer function) を表すので, :math:`k = E, I` について
 
    z_k = -|\Omega(C)| \Leftrightarrow f_k(\bm z) \ll 1
 
-が成り立つという条件を追加する. ここで, :math:`m^{\max}` はフィードバック
+となる.  ここで, :math:`m^{\max}` はフィードバック
 強度 :math:`C` に依存しない正の定数で, 両集団の発火率の上限を与える.
 定数 :math:`m^{\max}` は集団ごとに違う値を考えても良いが, :math:`m_k`
 と :math:`J_{kl}` をスケールすれば同じ値にすることができるので,
@@ -76,23 +95,6 @@ transfer function) を表すので, :math:`k = E, I` について
    (h_{E}, h_{I} > 0)
 
 なる制限がかかる.
-
-:ref:`strong-feedback-system` と同様, 系への「全入力」を
-
-.. math::
-   \bm z =
-   \begin{pmatrix}
-   z_{E} \\
-   z_{I}
-   \end{pmatrix}
-   = C \, \{\bm J \bm x + \bm h\}
-   = C \,
-   \begin{pmatrix}
-   J_{EE} \, m_E + J_{EI} \, m_I + h_E \\
-   J_{IE} \, m_E + J_{II} \, m_I + h_I
-   \end{pmatrix}
-
-で定義する.
 
 興奮・抑制ネットワークの均衡固定点
 ==================================
