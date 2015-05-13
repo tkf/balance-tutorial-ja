@@ -1,4 +1,4 @@
-.. _rate-balance-network:
+.. _introduction-to-balance-network:
 
 =============================================
  発火率モデルにおける興奮・抑制均衡 (未完成)
