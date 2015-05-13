@@ -8,12 +8,10 @@
 均衡固定点を持つ.  :ref:`introduction-to-balance-network` では単純化な
 興奮・抑制均衡ネットワークの場合についてこれを導き,
 :ref:`strong-feedback-system` では, 興奮・抑制ネットワーク
-よりさらに一般的な力学系についてこれを導く.  [#]_
+よりさらに一般的な力学系についてこれを導く.
 均衡固定点が存在するために必要な条件を :ref:`balance-inequality`
 で示し, :ref:`stabilizability` でこの固定点は抑制性集団の
 時定数が十分小さければ安定であることを示す.
-
-.. [#] .. todo:: どちらかひとつを読めば以降の議論を読めるようにする.
 
 .. toctree::
    :maxdepth: 2
