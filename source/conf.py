@@ -25,7 +25,7 @@ import alabaster
 sys.path.insert(0, os.path.abspath('.'))
 
 _use_pngmath = os.getenv('BALANCE_MATH', 'mathjax') == 'pngmath'
-# _use_pngmath = True  # uncomment to force pngmath
+_use_pngmath = True  # uncomment to force pngmath
 
 # A list of \newcommand for all math processors, including mathjax:
 _latex_newcommands = r"""
